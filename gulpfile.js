@@ -47,7 +47,7 @@ gulp.task('jshint', function () {
         .pipe(jshint.reporter('jshint-stylish', { verbose: true }));
 });
 
-gulp.task('default',['wiredep', 'index'], function(){
+gulp.task('default',['wiredep', 'inject'], function(){
 
 });
 
