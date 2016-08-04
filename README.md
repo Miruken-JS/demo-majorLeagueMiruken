@@ -2,7 +2,7 @@
 
 A demo application for miruken.
 
-###Environment
+###Set up your environment
 
 Download and install [node](https://nodejs.org) from their website.
 
@@ -17,7 +17,7 @@ $ npm install -g bower
 ```
 
 
-###Install
+###Install application dependencies
 Install npm dependencies
 ```
 $ npm install
@@ -35,3 +35,6 @@ gulp serve
 ```
 
 ###Execute Tests
+```
+karma start
+```
