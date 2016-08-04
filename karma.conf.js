@@ -4,13 +4,17 @@ module.exports = function(config) {
     frameworks: ['mocha','chai'],
 
     files: [
-      'test/**/*.js'
-    ],
-
-    exclude: [
+        'test/**/*.js'
     ],
 
     preprocessors: {
+        'test/**/*.js': ['babel']
+    },
+
+    babelPreprocessor: {
+        options: {
+            presets: ['es2015']
+        }
     },
 
     reporters: ['mocha'],
@@ -23,7 +27,7 @@ module.exports = function(config) {
 
     browsers: ['Chrome'],
 
-    singleRun: false,
+    singleRun: true,
 
     concurrency: Infinity
   })
