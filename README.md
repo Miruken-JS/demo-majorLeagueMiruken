@@ -27,7 +27,10 @@ Install bower dependencies
 ```
 $ bower install
 ```
-
+###Watch code and run build pipeline
+```
+gulp watch
+```
 
 ###Run Application
 ```
