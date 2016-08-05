@@ -11,11 +11,11 @@ var babel       = require("gulp-babel");
 var sass        = require("gulp-sass");
 
 gulp.task("watch", function () {
-    watchForInject();
-    watchIndex();
-    watchJavascript();
-    watchHtml();
-    watchStyles();
+    watchForInject();   //g
+    watchIndex();       //g
+    watchJavascript();  //g
+    watchHtml();        //g
+    watchStyles();      //g
 });
 
 function watchForInject(){
@@ -56,7 +56,8 @@ function watchHtml(){
 function watchStyles(){
     return gulp.src(paths.style)
             .pipe(watch(paths.style))
-            .pipe(sass().on('error', sass.logError))
+            .pipe(plumber())
+            .pipe(sass())
             .pipe(gulp.dest(paths.built));
 }
 
