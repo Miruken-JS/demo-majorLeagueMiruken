@@ -27,7 +27,7 @@ module.exports = function(config) {
 
     browsers: ['Chrome'],
 
-    singleRun: true,
+    singleRun: false,
 
     concurrency: Infinity
   })

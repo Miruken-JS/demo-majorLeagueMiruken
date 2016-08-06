@@ -14,6 +14,7 @@ gulp.task("watch", () => {
     watchJavascript();
     watchHtml();
     watchStyles();
+    watchLint();
 });
 
 function watchForInject(){
@@ -34,6 +35,12 @@ function watchIndex(){
     gulp.start('inject');
     return watch(paths.index, batch((events, done) => {
         gulp.start('inject', done);
+    }));
+}
+
+function watchLint(){
+    return watch([paths.source, "build/**/*.js"], batch((events, done) => {
+        gulp.start('lint', done);
     }));
 }
 
