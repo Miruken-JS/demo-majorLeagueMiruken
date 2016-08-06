@@ -1,11 +1,11 @@
-var paths   = require("../paths");
-var gulp    = require("gulp");
-var inject  = require("gulp-inject");
-var wiredep = require("wiredep").stream;
+const paths   = require("../paths");
+const gulp    = require("gulp");
+const inject  = require("gulp-inject");
+const wiredep = require("wiredep").stream;
 
-gulp.task("inject", function () {
-    var target  = gulp.src(paths.index);
-    var sources = gulp.src([paths.source, paths.style], {read: false});
+gulp.task("inject", () => {
+    const target  = gulp.src(paths.index);
+    const sources = gulp.src([paths.source, paths.style], {read: false});
 
     return target.pipe(inject(sources, {
             ignorePath  : paths.root,

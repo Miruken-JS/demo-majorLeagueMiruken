@@ -1,9 +1,9 @@
-var fs   = require("fs");
+const fs = require("fs");
 
-var appRoot = "src/";
-var pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
+const appRoot = "src/";
+const pkg     = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 
-var paths = {
+const paths   = {
   root       : appRoot,
   source     : appRoot + "**/*.js",
   html       : appRoot + "**/*.html",

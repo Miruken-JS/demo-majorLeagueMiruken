@@ -1,11 +1,11 @@
-var paths       = require("../paths");
-var gulp        = require("gulp");
-var browserSync = require("browser-sync");
-var reload      = browserSync.reload;
-var watch       = require("gulp-watch");
-var batch       = require("gulp-batch");
+const paths       = require("../paths");
+const gulp        = require("gulp");
+const browserSync = require("browser-sync");
+const reload      = browserSync.reload;
+const watch       = require("gulp-watch");
+const batch       = require("gulp-batch");
 
-gulp.task("serve", ["build"], function () {
+gulp.task("serve", ["build"], () => {
     browserSync({
         notify: false,
         port: 9100,
@@ -21,7 +21,7 @@ gulp.task("serve", ["build"], function () {
         paths.built + "**/*.html",
         paths.built + "**/*.js",
         paths.built + "**/*.css"
-    ], batch(function(events, done){
+    ], batch((events, done) => {
         reload();
         done();     
     }));

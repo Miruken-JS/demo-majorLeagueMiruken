@@ -20,4 +20,4 @@ new function() {
 
   eval(this.exports);
 
-}
+};

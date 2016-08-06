@@ -1,14 +1,14 @@
-var paths    = require("../paths");
-var gulp     = require("gulp");
-var watch    = require("gulp-watch");
-var plumber  = require("gulp-plumber");
-var filter   = require("gulp-filter");
-var batch    = require("gulp-batch");
-var babel    = require("gulp-babel");
-var sass     = require("gulp-sass");
-var through2 = require("through2");
+const paths    = require("../paths");
+const gulp     = require("gulp");
+const watch    = require("gulp-watch");
+const plumber  = require("gulp-plumber");
+const filter   = require("gulp-filter");
+const batch    = require("gulp-batch");
+const babel    = require("gulp-babel");
+const sass     = require("gulp-sass");
+const through2 = require("through2");
 
-gulp.task("watch", function () {
+gulp.task("watch", () => {
     watchForInject();
     watchIndex();
     watchJavascript();
@@ -17,14 +17,14 @@ gulp.task("watch", function () {
 });
 
 function watchForInject(){
-    var sources = [paths.source, paths.html, paths.style] 
+    const sources = [paths.source, paths.html, paths.style]; 
     gulp.src(sources)
         .pipe(watch(sources))
         .pipe(plumber())
-        .pipe(filter(function (file) {
+        .pipe(filter((file) => {
             return file.event === "add" || file.event === "unlink";
         }))
-        .pipe(through2.obj(function(file, encoding, done){
+        .pipe(through2.obj((file, encoding, done) => {
             gulp.start("inject", done);
             this.push(file);
         }));
@@ -32,9 +32,9 @@ function watchForInject(){
 
 function watchIndex(){
     gulp.start('inject');
-    return watch(paths.index, batch(function (events, done) {
+    return watch(paths.index, batch((events, done) => {
         gulp.start('inject', done);
-    }))
+    }));
 }
 
 function watchJavascript(){
@@ -46,7 +46,7 @@ function watchJavascript(){
 }
 
 function watchHtml(){
-    var sources = ["!" + paths.index, paths.html];
+    const sources = ["!" + paths.index, paths.html];
     return gulp.src(sources)
         .pipe(watch(sources))
         .pipe(plumber())

@@ -1,24 +1,26 @@
-var paths    = require("../paths");
-var gulp     = require("gulp");
-var sequence = require("gulp-sequence");
-var babel    = require("gulp-babel");
-var sass     = require("gulp-sass");
+const paths    = require("../paths");
+const gulp     = require("gulp");
+const sequence = require("gulp-sequence");
+const babel    = require("gulp-babel");
+const sass     = require("gulp-sass");
 
 gulp.task("build", sequence("clean", ["inject", "buildJavascript", "buildHtml", "buildStyles"]));
 
-gulp.task("buildJavascript", function(){
+gulp.task("buildJavascript", () => {
     return gulp.src(paths.source)
         .pipe(babel())
         .pipe(gulp.dest(paths.built));
 });
 
-gulp.task("buildHtml", function(){
+gulp.task("buildHtml", () => {
     return gulp.src(["!" + paths.index, paths.html])
         .pipe(gulp.dest(paths.built));
 });
 
-gulp.task("buildStyles", function(){
+gulp.task("buildStyles", () => {
     return gulp.src(paths.style)
         .pipe(sass())
         .pipe(gulp.dest(paths.built));
 });
+
+;
