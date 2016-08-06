@@ -27,14 +27,15 @@ Install bower dependencies
 ```
 $ bower install
 ```
-###Watch code and run build pipeline
-```
-gulp watch
-```
 
 ###Run Application
 ```
 gulp serve
+```
+
+###Watch code and run build pipeline
+```
+gulp watch
 ```
 
 ###Execute Tests
