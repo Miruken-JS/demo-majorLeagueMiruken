@@ -10,9 +10,14 @@ new function(){
 
 	const Player = Model.extend({
 		$properties: {
-			name     : null,
+			firstName: null,
+			lastName : null,
 			number   : null,
 			birthdate: null
+		},
+
+		get fullName(){
+			return `${this.firstName} ${this.lastName}`;
 		}
 	});
 

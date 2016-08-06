@@ -16,12 +16,6 @@ module.exports = function(config) {
         'test/**/*.js': ['babel']
     },
 
-    babelPreprocessor: {
-        options: {
-           
-        }
-    },
-
     reporters: ['mocha'],
 
     port: 9876,
