@@ -1,9 +1,10 @@
-var paths       = require("../paths");
-var gulp        = require("gulp");
-var babel       = require("gulp-babel");
-var sass        = require("gulp-sass");
+var paths    = require("../paths");
+var gulp     = require("gulp");
+var sequence = require("gulp-sequence");
+var babel    = require("gulp-babel");
+var sass     = require("gulp-sass");
 
-gulp.task("build", ["inject", "buildJavascript", "buildHtml", "buildStyles"]);
+gulp.task("build", sequence("clean", ["inject", "buildJavascript", "buildHtml", "buildStyles"]));
 
 gulp.task("buildJavascript", function(){
     return gulp.src(paths.source)

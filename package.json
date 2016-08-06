@@ -34,6 +34,7 @@
     "gulp-inject": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.3.2",
+    "gulp-sequence": "^0.4.5",
     "gulp-watch": "^4.3.9",
     "karma": "^1.1.2",
     "karma-babel-preprocessor": "^6.0.1",
