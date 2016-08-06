@@ -4,5 +4,5 @@ describe("player", () => {
 
 	it("can create a player", () => {
 		const player = new Player();
-	})
+	});
 });

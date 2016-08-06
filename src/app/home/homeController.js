@@ -1,8 +1,7 @@
 new function() {
 
-  var home = new base2.Package(this, {
+  mlm.package(this, {
     name:    'home',
-    parent:  mlm,
     imports: 'miruken.mvc',
     exports: 'HomeController'
   });

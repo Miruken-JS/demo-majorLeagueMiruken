@@ -1,6 +1,6 @@
 new function() {
 
-  base2.Package(this, {
+  base2.package(this, {
     name:    'mlm',
     imports: 'miruken.ng,miruken.ioc',
     exports: 'SetupInstaller,SetupRunner',
@@ -13,7 +13,7 @@ new function() {
 
   const SetupInstaller = Installer.extend({
     $inject: ['$urlRouterProvider'],
-    constructor: function($urlRouterProvider){
+    constructor($urlRouterProvider) {
       $urlRouterProvider.otherwise('/');
     }
   });

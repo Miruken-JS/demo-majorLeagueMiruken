@@ -1,8 +1,7 @@
 new function() {
 
-  var about = new base2.Package(this, {
+  mlm.package(this, {
     name:    'about',
-    parent:  mlm,
     imports: 'miruken.mvc',
     exports: 'AboutController'
   });
