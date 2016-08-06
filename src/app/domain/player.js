@@ -2,7 +2,7 @@ new function(){
 
 	mlm.package(this, {
 		name   : "domain",
-		imports: "miruken.mvc",
+		imports: "miruken.mvc,miruken.validate",
 		exports: "Player"
 	});
 
@@ -10,10 +10,10 @@ new function(){
 
 	const Player = Model.extend({
 		$properties: {
-			firstName: null,
-			lastName : null,
-			number   : null,
-			birthdate: null
+			firstName: { validate: $required },
+			lastName : { validate: $required },
+			number   : { validate: $required },
+			birthdate: { validate: $required }
 		},
 
 		get fullName(){
