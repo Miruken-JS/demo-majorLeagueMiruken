@@ -1,14 +1,12 @@
 var paths       = require("../paths");
 var gulp        = require("gulp");
-var browserSync = require("browser-sync");
-var reload      = browserSync.reload;
 var watch       = require("gulp-watch");
 var plumber     = require("gulp-plumber");
 var filter      = require("gulp-filter");
 var batch       = require("gulp-batch");
-var through2    = require("through2");
 var babel       = require("gulp-babel");
 var sass        = require("gulp-sass");
+var through2    = require("through2");
 
 gulp.task("watch", function () {
     watchForInject();   //g
@@ -42,6 +40,7 @@ function watchIndex(){
 function watchJavascript(){
     return gulp.src(paths.source)
         .pipe(watch(paths.source))
+        .pipe(plumber())
         .pipe(babel())
         .pipe(gulp.dest(paths.built));
 }
@@ -50,6 +49,7 @@ function watchHtml(){
     var sources = ["!" + paths.index, paths.html];
     return gulp.src(sources)
         .pipe(watch(sources))
+        .pipe(plumber())
         .pipe(gulp.dest(paths.built));
 }
 
@@ -60,4 +60,3 @@ function watchStyles(){
             .pipe(sass())
             .pipe(gulp.dest(paths.built));
 }
-

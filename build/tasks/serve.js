@@ -3,11 +3,9 @@ var gulp        = require("gulp");
 var browserSync = require("browser-sync");
 var reload      = browserSync.reload;
 var watch       = require("gulp-watch");
-var plumber     = require("gulp-plumber");
-var filter      = require("gulp-filter");
 var batch       = require("gulp-batch");
 
-gulp.task("serve", function () {
+gulp.task("serve", ["build"], function () {
     browserSync({
         notify: false,
         port: 9100,
