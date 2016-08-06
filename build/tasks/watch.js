@@ -1,19 +1,19 @@
-var paths       = require("../paths");
-var gulp        = require("gulp");
-var watch       = require("gulp-watch");
-var plumber     = require("gulp-plumber");
-var filter      = require("gulp-filter");
-var batch       = require("gulp-batch");
-var babel       = require("gulp-babel");
-var sass        = require("gulp-sass");
-var through2    = require("through2");
+var paths    = require("../paths");
+var gulp     = require("gulp");
+var watch    = require("gulp-watch");
+var plumber  = require("gulp-plumber");
+var filter   = require("gulp-filter");
+var batch    = require("gulp-batch");
+var babel    = require("gulp-babel");
+var sass     = require("gulp-sass");
+var through2 = require("through2");
 
 gulp.task("watch", function () {
-    watchForInject();   //g
-    watchIndex();       //g
-    watchJavascript();  //g
-    watchHtml();        //g
-    watchStyles();      //g
+    watchForInject();
+    watchIndex();
+    watchJavascript();
+    watchHtml();
+    watchStyles();
 });
 
 function watchForInject(){

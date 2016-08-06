@@ -1,6 +1,6 @@
-var paths  = require("../paths");
-var gulp   = require("gulp");
-var inject = require("gulp-inject");
+var paths   = require("../paths");
+var gulp    = require("gulp");
+var inject  = require("gulp-inject");
 var wiredep = require("wiredep").stream;
 
 gulp.task("inject", function () {
