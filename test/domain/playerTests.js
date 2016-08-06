@@ -4,11 +4,15 @@ describe("player", () => {
 	eval(miruken.validate.namespace);
 	eval(mlm.domain.namespace);
 
-	const player = new Player({
-		firstName: "Scott",
-		lastName : "Sterling",
-		number   : 2,
-		birthdate : "01-31-1990"
+	let player;
+
+	beforeEach(() => {
+		player = new Player({
+			firstName: "Scott",
+			lastName : "Sterling",
+			number   : 2,
+			birthdate : "01-31-1990"
+		});
 	});
 
 	it("can create a player", () => {
@@ -34,5 +38,31 @@ describe("player", () => {
 	    	player.firstName = null;
 	    	Validator(context).validate(player).valid.should.be.false;
 	    });
+
+	    it("requires lastName", () => {
+	    	player.lastName = null;
+	    	Validator(context).validate(player).valid.should.be.false;
+	    });
+
+	    it("requires number", () => {
+	    	player.number = null;
+	    	Validator(context).validate(player).valid.should.be.false;
+	    });
+
+	    it("requires date", () => {
+	    	player.birthdate = null;
+	    	Validator(context).validate(player).valid.should.be.false;
+	    });
+
+		it("must be a number", () => {
+	    	player.number = "a";
+	    	Validator(context).validate(player).valid.should.be.false;
+	    });
+
+	    it("number cannot be negative", () => {
+	    	player.number = -1;
+	    	Validator(context).validate(player).valid.should.be.false;
+	    });
+
 	});
 });

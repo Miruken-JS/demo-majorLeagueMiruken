@@ -11,9 +11,17 @@ new function(){
 	const Player = Model.extend({
 		$properties: {
 			firstName: { validate: $required },
-			lastName : { validate: $required },
-			number   : { validate: $required },
-			birthdate: { validate: $required }
+			lastName:  { validate: $required },
+			birthdate: { validate: $required },
+			number: { 
+				validate: {
+					presence: true,
+					numericality: {
+	                    onlyInteger: true,
+	                    greaterThanOrEqualTo: 0
+	                }
+                } 
+			}
 		},
 
 		get fullName(){
