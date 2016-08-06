@@ -2,7 +2,7 @@ new function() {
 
   var home = new base2.Package(this, {
     name:    'home',
-    parent:  scaffoldApp,
+    parent:  mlm,
     imports: 'miruken.ioc',
     exports: 'HomeInstaller'
   });

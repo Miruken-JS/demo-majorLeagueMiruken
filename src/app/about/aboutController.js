@@ -2,7 +2,7 @@ new function() {
 
   var about = new base2.Package(this, {
     name:    'about',
-    parent:  scaffoldApp,
+    parent:  mlm,
     imports: 'miruken.mvc',
     exports: 'AboutController'
   });

@@ -1,9 +1,9 @@
 new function() {
 
-  var scaffoldApp = new base2.Package(this, {
-    name:    'scaffoldApp',
+  base2.Package(this, {
+    name:    'mlm',
     imports: 'miruken.ng,miruken.ioc',
-    exports: 'ScaffoldInstaller,ScaffoldRunner',
+    exports: 'SetupInstaller,SetupRunner',
     ngModule: [
         'ui.router'
     ]
@@ -11,14 +11,14 @@ new function() {
 
   eval(this.imports);
 
-  var ScaffoldInstaller = Installer.extend({
+  const SetupInstaller = Installer.extend({
     $inject: ['$urlRouterProvider'],
     constructor: function($urlRouterProvider){
       $urlRouterProvider.otherwise('/');
     }
   });
 
-  var ScaffoldRunner = Runner.extend({
+  const SetupRunner = Runner.extend({
     $inject: ['$rootScope', '$state'],
     constructor: function ($rootScope, $state) {
       // Requiring $state in a run forces the  ui-router to
