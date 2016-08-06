@@ -2,7 +2,7 @@ describe("player", () => {
 	
 	eval(miruken.context.namespace);
 	eval(miruken.validate.namespace);
-	eval(mlm.domain.namespace);
+	eval(mlm.namespace);
 
 	let player;
 
@@ -49,7 +49,7 @@ describe("player", () => {
 	    	Validator(context).validate(player).valid.should.be.false;
 	    });
 
-	    it("requires date", () => {
+	    it("requires birthdate", () => {
 	    	player.birthdate = null;
 	    	Validator(context).validate(player).valid.should.be.false;
 	    });
@@ -62,6 +62,10 @@ describe("player", () => {
 	    it("number cannot be negative", () => {
 	    	player.number = -1;
 	    	Validator(context).validate(player).valid.should.be.false;
+	    });
+
+	    it("birthdate is a moment object", () => {
+	    	moment.isMoment(player.birthdate).should.be.true;
 	    });
 
 	});

@@ -1,7 +1,7 @@
 new function(){
 
-	mlm.package(this, {
-		name   : "domain",
+	base2.package(this, {
+		name   : "mlm",
 		imports: "miruken.mvc,miruken.validate",
 		exports: "Player"
 	});
@@ -12,7 +12,10 @@ new function(){
 		$properties: {
 			firstName: { validate: $required },
 			lastName:  { validate: $required },
-			birthdate: { validate: $required },
+			birthdate: { 
+				map:      toMoment, 
+				validate: $required 
+			},
 			number: { 
 				validate: {
 					presence: true,

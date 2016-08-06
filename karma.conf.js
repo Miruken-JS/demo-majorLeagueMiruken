@@ -4,6 +4,7 @@ module.exports = function(config) {
     frameworks: ['mocha','chai'],
 
     files: [
+        'bower_components/moment/moment.js',
         'bower_components/angular/angular.js',
         'bower_components/miruken-angular/miruken-ng-bundle.js',
         'src/app/setup.js',

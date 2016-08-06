@@ -2,7 +2,7 @@ describe("team", () => {
 	
 	eval(miruken.context.namespace);
 	eval(miruken.validate.namespace);
-	eval(mlm.domain.namespace);
+	eval(mlm.namespace);
 
 	let team;
 

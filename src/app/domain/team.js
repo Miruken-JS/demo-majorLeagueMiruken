@@ -1,7 +1,7 @@
 new function(){
 
-	mlm.package(this, {
-		name   : "domain",
+	base2.package(this, {
+		name   : "mlm",
 		imports: "miruken.mvc,miruken.validate",
 		exports: "Team"
 	});
@@ -13,7 +13,7 @@ new function(){
 			name:    { validate: $required },
 			coach:   { validate: $required },
 			manager: { validate: $required },
-			roster:  { type:     Player }
+			roster:  { map:      Player }
 		}
 	});
 
