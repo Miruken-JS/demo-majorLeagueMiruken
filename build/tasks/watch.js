@@ -27,7 +27,9 @@ function watchForInject(){
         }))
         .pipe(through2.obj((file, encoding, done) => {
             gulp.start("inject", done);
-            this.push(file);
+            if(this.push){
+                this.push(file);
+            }
         }));
 }
 
