@@ -5,7 +5,14 @@ const pkg     = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 
 const paths   = {
   root       : appRoot,
-  source     : appRoot + "**/*.js",
+  source     : [
+    appRoot + "app/setup.js",
+    appRoot + "app/domain/**/*.js",
+    appRoot + "app/team/teamFeature.js",
+    appRoot + "app/team/teamHandlerMock.js",
+    appRoot + "app/team/setup.js",
+    appRoot + "**/*.js"
+  ],
   html       : appRoot + "**/*.html",
   style      : appRoot + "**/*.scss",
   index      : appRoot + "index.html",

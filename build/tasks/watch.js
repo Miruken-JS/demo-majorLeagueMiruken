@@ -18,7 +18,7 @@ gulp.task("watch", () => {
 });
 
 function watchForInject(){
-    const sources = [paths.source, paths.html, paths.style]; 
+    const sources = [...paths.source, paths.html, paths.style]; 
     gulp.src(sources)
         .pipe(watch(sources))
         .pipe(plumber())
@@ -41,7 +41,7 @@ function watchIndex(){
 }
 
 function watchLint(){
-    return watch([paths.source, "build/**/*.js"], batch((events, done) => {
+    return watch([...paths.source, "build/**/*.js"], batch((events, done) => {
         gulp.start('lint', done);
     }));
 }
