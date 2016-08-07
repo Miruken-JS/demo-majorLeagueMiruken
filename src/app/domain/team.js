@@ -14,6 +14,11 @@ new function(){
 			coach:   { validate: $required },
 			manager: { validate: $required },
 			roster:  { map:      Player }
+		},
+		$validateThat: {
+			teamHasEnoughPlayersToPlay: function(){
+				
+			}
 		}
 	});
 

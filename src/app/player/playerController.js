@@ -1,19 +1,17 @@
 new function() {
 
   mlm.package(this, {
-    name:    'home',
-    imports: 'miruken.mvc',
-    exports: 'HomeController'
+    name:    "player",
+    imports: "miruken.mvc",
+    exports: "PlayerController"
   });
 
   eval(this.imports);
 
-  var HomeController = Controller.extend({
+  const PlayerController = Controller.extend({
     $properties:{
-      message: 'Hello, Miruken!'
     },
     constructor: function(){
-
     }
   });
 

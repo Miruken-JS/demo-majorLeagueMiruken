@@ -1,3 +1,5 @@
+const paths = require("./build/paths");
+
 module.exports = function(config) {
   config.set({
 

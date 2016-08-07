@@ -1,14 +1,14 @@
 new function() {
 
   mlm.package(this, {
-    name:    'about',
-    imports: 'miruken.mvc',
-    exports: 'AboutController'
+    name:    "team",
+    imports: "miruken.mvc",
+    exports: "TeamController"
   });
 
   eval(this.imports);
 
-  var AboutController = Controller.extend({
+  const TeamController = Controller.extend({
     $properties:{
     },
     constructor: function(){
