@@ -6,10 +6,11 @@ const filter   = require("gulp-filter");
 const batch    = require("gulp-batch");
 const babel    = require("gulp-babel");
 const sass     = require("gulp-sass");
+const pug      = require("gulp-pug");
 const through2 = require("through2");
 
 gulp.task("watch", () => {
-    watchForInject();
+    watchForAddedAndRemovedJavascript();
     watchIndex();
     watchJavascript();
     watchHtml();
@@ -17,8 +18,8 @@ gulp.task("watch", () => {
     watchLint();
 });
 
-function watchForInject(){
-    const sources = [...paths.source, paths.html, paths.style]; 
+function watchForAddedAndRemovedJavascript(){
+    const sources = [...paths.source, paths.html]; 
     gulp.src(sources)
         .pipe(watch(sources))
         .pipe(plumber())
@@ -26,6 +27,7 @@ function watchForInject(){
             return file.event === "add" || file.event === "unlink";
         }))
         .pipe(through2.obj((file, encoding, done) => {
+            console.log("injecting files");
             gulp.start("inject", done);
             if(this.push){
                 this.push(file);
@@ -47,6 +49,7 @@ function watchLint(){
 }
 
 function watchJavascript(){
+
     return gulp.src(paths.source)
         .pipe(watch(paths.source))
         .pipe(plumber())
@@ -59,13 +62,14 @@ function watchHtml(){
     return gulp.src(sources)
         .pipe(watch(sources))
         .pipe(plumber())
+        .pipe(pug({
+            pretty: true
+        }))
         .pipe(gulp.dest(paths.built));
 }
 
 function watchStyles(){
-    return gulp.src(paths.style)
-            .pipe(watch(paths.style))
-            .pipe(plumber())
-            .pipe(sass())
-            .pipe(gulp.dest(paths.built));
+    return watch("src/**/*.scss", batch((events, done) => {
+        gulp.start('buildStyles', done);
+    }));
 }
