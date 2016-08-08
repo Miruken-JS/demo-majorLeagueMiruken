@@ -22,7 +22,7 @@ gulp.task("buildHtml", () => {
 });
 
 gulp.task("buildStyles", () => {
-    return gulp.src(paths.style)
+    return gulp.src(paths.style, { base: "./src"})
         .pipe(sass())
         .pipe(gulp.dest(paths.built));
 });

@@ -15,8 +15,8 @@ const paths   = {
     appRoot + "**/*.js"
   ],
   html       : appRoot + "**/*.pug",
-  style      : appRoot + "**/*.scss",
-  index      : appRoot + "index.html",
+  style      : appRoot + "styles/style.scss",
+  index      : appRoot + "index.pug",
   built      : "built/",
   dist       : "dist/",
   packageName: pkg.name,
