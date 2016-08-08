@@ -2,34 +2,28 @@ html(ng-app="mlm")
 head
     title Major League Miruken
 
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    link(rel="stylesheet", type="text/css", href="styles/style.css")
 
-<body>
+body
+    nav(class="navbar navbar-default navbar-fixed-top")
+        div(class="container-fluid")
+            div(class="navbar-header")
+                a(class="navbar-brand", href="#/") Major League Miruken
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#/">Major League Miruken</a>
-        </div>
+            div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
+                ul(class="nav navbar-nav")
+                    li
+                        a(href="#/") Team
+                    li
+                        a(href="#player") Player
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="#/">Team</a></li>
-                <li><a href="#player">Player</a></li>
-            </ul>
-        </div>
+    div(class="container-fluid", ui-view="")
 
-    </div>
-</nav>
+    script(src="../node_modules/babel-polyfill/dist/polyfill.js")
 
-<div class="container-fluid" ui-view></div>
+    <!-- bower:js -->
+    <!-- endbower -->
 
-<script src="../node_modules/babel-polyfill/dist/polyfill.js"></script>
-<!-- bower:js -->
-<!-- endbower -->
+    <!-- inject:js -->
+    <!-- endinject -->
 
-<!-- inject:js -->
-<!-- endinject -->
-
-</body>
-</html>
