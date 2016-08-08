@@ -8,7 +8,7 @@ new function() {
 
   eval(this.imports);
 
-  const TeamsControllers = Controller.extend({
+  const TeamsController= Controller.extend({
     $properties:{
       teams: []
     },
