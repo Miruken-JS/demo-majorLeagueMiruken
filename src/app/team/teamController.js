@@ -2,7 +2,7 @@ new function() {
 
   mlm.package(this, {
     name:    "team",
-    imports: "miruken.mvc",
+    imports: "mlm,miruken.mvc",
     exports: "TeamController"
   });
 
@@ -10,15 +10,20 @@ new function() {
 
   const TeamController = Controller.extend({
     $properties:{
-      teams: null,
-      foo:   "bar"
+      teams: []
     },
+
     initialize() {
       this.base();
       TeamFeature(this.context).getTeams().then(teams => {
          this.teams = teams;
       });      
-    }
+    },
+
+    create() {
+      TeamFeature(this.context).showCreateTeam();
+    },
+
   });
 
   eval(this.exports);

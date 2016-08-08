@@ -8,6 +8,7 @@ new function(){
 
 	eval(this.imports);
 
+	let _id;
 	const Team = Model.extend({
 		$properties: {
 			name:    { validate: $required },
@@ -15,6 +16,15 @@ new function(){
 			manager: { validate: $required },
 			roster:  { map:      Player }
 		},
+		constructor(data){
+			this.base(data);
+			_id = assignID(this);
+		},
+
+		get id(){
+			return _id;
+		},
+		
 		$validateThat: {
 			teamHasEnoughPlayersToPlay: function(){
 				

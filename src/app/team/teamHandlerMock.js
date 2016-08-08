@@ -26,6 +26,7 @@ new function(){
 		},
         createTeam(team){
         	teams.push(team);
+        	return $q.resolve();
         },
         deleteTeam(team){},
         updateTeam(team){}

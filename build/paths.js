@@ -9,6 +9,7 @@ const paths   = {
     appRoot + "app/setup.js",
     appRoot + "app/domain/**/*.js",
     appRoot + "app/team/teamFeature.js",
+    appRoot + "app/team/teamHandler.js",
     appRoot + "app/team/teamHandlerMock.js",
     appRoot + "app/team/setup.js",
     appRoot + "**/*.js"

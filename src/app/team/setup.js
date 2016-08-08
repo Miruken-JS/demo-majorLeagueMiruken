@@ -8,23 +8,30 @@ new function() {
 
   eval(this.imports);
 
-  var SetupInstaller = Installer.extend({
+  const SetupInstaller = Installer.extend({
     $inject: ["$stateProvider"],
     constructor($stateProvider) {
       $stateProvider
-        .state("team", {
+        .state("allTeams", {
             url:          "/",
             templateUrl:  "app/team/team.html",
             controller:   "TeamController",
+            controllerAs: "vm"
+        })
+        .state("createTeam", {
+            url:          "/createTeam",
+            templateUrl:  "app/team/createEditTeam.html",
+            controller:   "CreateTeamController",
             controllerAs: "vm"
         });
     }
   });
 
-  var SetupRunner = Runner.extend({
-    $inject: ["$envContext", "$q"],
-    constructor(envContext, q){
-      $envContext.addHandlers(new TeamHandlerMock(q));
+  const SetupRunner = Runner.extend({
+    $inject: ["$appContext", "$envContext", "$q", "$state"],
+    constructor(appContext, envContext, q, state){
+      appContext.addHandlers(new TeamHandler(state));
+      envContext.addHandlers(new TeamHandlerMock(q));
     }
   });
 
