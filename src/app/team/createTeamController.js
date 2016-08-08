@@ -13,7 +13,7 @@ new function() {
       team: { map: Team }
     },
     constructor() {
-      this.team = new Team({name: "foo"});
+      this.team = new Team();
     },
 
     create() {
