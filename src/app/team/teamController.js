@@ -10,20 +10,11 @@ new function() {
 
   const TeamController = Controller.extend({
     $properties:{
-      teams: []
     },
 
     initialize() {
       this.base();
-      TeamFeature(this.context).getTeams().then(teams => {
-         this.teams = teams;
-      });      
-    },
-
-    create() {
-      TeamFeature(this.context).showCreateTeam();
-    },
-
+    }  
   });
 
   eval(this.exports);

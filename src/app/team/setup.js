@@ -14,6 +14,12 @@ new function() {
       $stateProvider
         .state("allTeams", {
             url:          "/",
+            templateUrl:  "app/team/teams.html",
+            controller:   "TeamsController",
+            controllerAs: "vm"
+        })
+        .state("team", {
+            url:          "/team",
             templateUrl:  "app/team/team.html",
             controller:   "TeamController",
             controllerAs: "vm"
