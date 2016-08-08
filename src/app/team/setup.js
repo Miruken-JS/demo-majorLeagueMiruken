@@ -29,6 +29,12 @@ new function() {
             templateUrl:  "app/team/createEditTeam.html",
             controller:   "CreateTeamController",
             controllerAs: "vm"
+        })
+        .state("editTeam", {
+            url:          "/editTeam",
+            templateUrl:  "app/team/createEditTeam.html",
+            controller:   "EditTeamController",
+            controllerAs: "vm"
         });
     }
   });
