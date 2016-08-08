@@ -1,6 +1,6 @@
 new function() {
     mlm.package(this, {
-        name:    "team",
+        name:    "player",
         imports: "miruken",
         exports: "PlayerFeature",
     });
