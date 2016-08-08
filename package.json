@@ -66,5 +66,8 @@
     "through2": "^2.0.1",
     "vinyl-paths": "^2.1.0",
     "wiredep": "^2.2.2"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.13.0"
   }
 }

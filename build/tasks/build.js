@@ -7,7 +7,7 @@ const sass     = require("gulp-sass");
 gulp.task("build", sequence("clean", ["inject", "buildJavascript", "buildHtml", "buildStyles"]));
 
 gulp.task("buildJavascript", () => {
-    return gulp.src(paths.source)
+    return gulp.src(paths.source, { base: "./src"})
         .pipe(babel())
         .pipe(gulp.dest(paths.built));
 });

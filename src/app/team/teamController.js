@@ -10,8 +10,14 @@ new function() {
 
   const TeamController = Controller.extend({
     $properties:{
+      teams: null,
+      foo:   "bar"
     },
-    constructor: function(){
+    initialize() {
+      this.base();
+      TeamFeature(this.context).getTeams().then(teams => {
+         this.teams = teams;
+      });      
     }
   });
 

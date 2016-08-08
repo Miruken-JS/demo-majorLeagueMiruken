@@ -22,9 +22,9 @@ new function() {
   });
 
   var SetupRunner = Runner.extend({
-    $inject: ["$envContext"],
-    constructor(envContext){
-      $envContext.addHandlers(new TeamHandlerMock());
+    $inject: ["$envContext", "$q"],
+    constructor(envContext, q){
+      $envContext.addHandlers(new TeamHandlerMock(q));
     }
   });
 

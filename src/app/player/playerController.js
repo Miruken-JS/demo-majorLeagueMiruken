@@ -10,8 +10,7 @@ new function() {
 
   const PlayerController = Controller.extend({
     $properties:{
-    },
-    constructor: function(){
+      message: "Hello, world!"
     }
   });
 
