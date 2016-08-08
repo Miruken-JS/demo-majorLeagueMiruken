@@ -14,7 +14,7 @@ const paths   = {
     appRoot + "app/team/setup.js",
     appRoot + "**/*.js"
   ],
-  html       : appRoot + "**/*.html",
+  html       : appRoot + "**/*.pug",
   style      : appRoot + "**/*.scss",
   index      : appRoot + "index.html",
   built      : "built/",

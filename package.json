@@ -52,6 +52,7 @@
     "gulp-filter": "^4.0.0",
     "gulp-inject": "^2.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.0.4",
     "gulp-sass": "^2.3.2",
     "gulp-sequence": "^0.4.5",
     "gulp-watch": "^4.3.9",
