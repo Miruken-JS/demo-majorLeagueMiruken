@@ -3,14 +3,14 @@ new function() {
   mlm.package(this, {
     name:    "player",
     imports: "miruken.mvc",
-    exports: "PlayerController"
+    exports: "PlayersController"
   });
 
   eval(this.imports);
 
-  const PlayerController = Controller.extend({
+  const PlayersController = Controller.extend({
     $properties:{
-      message: "I'm the player controller"
+      message: "Hello, world!"
     }
   });
 

@@ -3,25 +3,22 @@ new function() {
   mlm.package(this, {
     name:    "team",
     imports: "mlm,miruken.mvc",
-    exports: "CreateTeamController"
+    exports: "EditTeamController"
   });
 
   eval(this.imports);
 
-  const CreateTeamController = Controller.extend({
+  const EditTeamController = Controller.extend({
     $properties:{
-      title: "Create-A-Team",
-      team: { map: Team }
-    },
-    constructor() {
-      this.team = new Team();
+      title: "Edit Team",
+      team:  { map: Team }
     },
 
     create() {
       TeamFeature(this.context).createTeam(this.team).then(() => {
           TeamFeature(this.context).showAllTeams();
       });
-    },
+    }
 
   });
 

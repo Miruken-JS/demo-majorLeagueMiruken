@@ -43,7 +43,7 @@ function watchIndex(){
 }
 
 function watchLint(){
-    return watch([...paths.source, "build/**/*.js"], batch((events, done) => {
+    return watch([...paths.source, "test/**/*.js", "build/**/*.js"], batch((events, done) => {
         gulp.start('lint', done);
     }));
 }
