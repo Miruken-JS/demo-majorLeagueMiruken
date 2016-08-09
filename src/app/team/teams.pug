@@ -7,10 +7,10 @@
 
   .container-fluid
     .row
-      .col-sm-4(ng-repeat="team in vm.teams") name:{{team.name}}
+      .col-sm-4(ng-repeat="team in vm.teams")
         .wrap
           .col-sm-12
-            h2.teamName Team Name
+            h2.teamName {{team.name}}
           .row
             .col-sm-5
               .jersey
