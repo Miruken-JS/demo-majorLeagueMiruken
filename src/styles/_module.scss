@@ -3,3 +3,15 @@
     fill: red;
   }
 }
+
+table{
+  background-color: white;
+  padding: 5px;
+  margin-bottom: 20px;
+  thead{
+    background-color: grey
+  }
+  td,th{
+    padding: 15px;
+  }
+}
