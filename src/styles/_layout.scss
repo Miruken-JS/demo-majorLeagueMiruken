@@ -1,12 +1,65 @@
 // teams Page
-.managerTitle,.coachTitle{
-  font-size: .85em;
+.l-teams{
+  h1{
+    color: white;
+  }
+  .managerTitle,.coachTitle{
+    font-size: .85em;
+  }
+
+  h2.teamName{
+    text-transform: uppercase;
+  }
+
+  .coachTitle{
+
+  }
+
 }
 
-h2.teamName{
-  text-transform: uppercase;
+
+// single team Page
+.l-team{
+
+
 }
 
-.coachTitle{
+
+
+
+// creating a new team Page
+.l-createTeam{
+
+
+}
+
+// edit existing team Page
+.l-editTeam{
+
+
+}
+
+
+// edit existing team Page
+.l-players{
+
+
+}
+
+// edit existing team Page
+.l-player{
+
+
+}
+
+// edit existing team Page
+.l-createPlayer{
+
+
+}
+
+// edit existing team Page
+.l-editPlayer{
+
 
 }
