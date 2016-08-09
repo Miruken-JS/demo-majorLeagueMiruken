@@ -8,7 +8,7 @@
     .col-sm-4(ng-repeat="team in vm.teams") name:{{team.name}}
       .wrap
         .col-sm-12
-          h2 Team Name
+          h2.teamName Team Name
         .row
           .col-sm-5
             .jersey
@@ -20,4 +20,4 @@
             p.coachName Placeholder Name
   .row
     .col-sm-12
-      button(class="btn", ng-click="vm.create()") Create a Team
+      button.pull-right(class="btn", ng-click="vm.create()") Create a Team
