@@ -4,6 +4,10 @@
   }
 }
 
+  .sectionTitle{
+    font-size: .85em;
+  }
+
 table{
   background-color: white;
   padding: 5px;
@@ -14,4 +18,8 @@ table{
   td,th{
     padding: 15px;
   }
+  tbody tr:nth-child(even) {
+    background: #eee;
+  }
 }
+
