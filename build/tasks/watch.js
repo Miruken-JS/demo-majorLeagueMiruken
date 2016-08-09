@@ -16,6 +16,7 @@ gulp.task("watch", () => {
     watchHtml();
     watchStyles();
     watchLint();
+    watchImages();
 });
 
 function watchForAddedAndRemovedJavascript(){
@@ -71,5 +72,12 @@ function watchHtml(){
 function watchStyles(){
     return watch("src/**/*.scss", batch((events, done) => {
         gulp.start('buildStyles', done);
+    }));
+}
+
+function watchImages(){
+    const sources = [`${paths.root}/images/**/*`];
+    return watch(sources, batch((events, done) => {
+        gulp.start('buildImages', done);
     }));
 }

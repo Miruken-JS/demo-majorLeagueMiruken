@@ -1,5 +1,23 @@
-h1 Teams
+.container-fluid
+  .col-sm-12
+    .pageHeader
+      h1 Teams
 
-button(class="btn", ng-click="vm.create()") Create a Team
-
-div(ng-repeat="team in vm.teams") name:{{team.name}}
+.container-fluid
+  .row
+    .col-sm-4(ng-repeat="team in vm.teams") name:{{team.name}}
+      .wrap
+        .col-sm-12
+          h2.teamName Team Name
+        .row
+          .col-sm-5
+            .jersey
+              img(src="../images/jersey.svg")
+          .col-sm-7
+            h3.managerTitle Team Manager
+            p.managerName Placeholder Name
+            h3.coachTitle Team Coach
+            p.coachName Placeholder Name
+  .row
+    .col-sm-12
+      button.pull-right(class="btn", ng-click="vm.create()") Create a Team

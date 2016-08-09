@@ -5,10 +5,12 @@ const babel    = require("gulp-babel");
 const sass     = require("gulp-sass");
 const pug      = require("gulp-pug");
 
-gulp.task("build", sequence("clean", ["inject", "buildJavascript", "buildHtml", "buildStyles"]));
+gulp.task("build", sequence("clean", ["inject", "buildJavascript", "buildHtml", "buildStyles", "buildImages"]));
+
+const base = { base: "./src" };
 
 gulp.task("buildJavascript", () => {
-    return gulp.src(paths.source, { base: "./src"})
+    return gulp.src(paths.source, base)
         .pipe(babel())
         .pipe(gulp.dest(paths.built));
 });
@@ -22,7 +24,12 @@ gulp.task("buildHtml", () => {
 });
 
 gulp.task("buildStyles", () => {
-    return gulp.src(paths.style, { base: "./src"})
+    return gulp.src(paths.style, base)
         .pipe(sass())
+        .pipe(gulp.dest(paths.built));
+});
+
+gulp.task("buildImages", () => {
+    return gulp.src([`${paths.root}/images/**/*`], base)
         .pipe(gulp.dest(paths.built));
 });
