@@ -11,6 +11,11 @@ describe("CreateTeamController", () => {
 		context = new Context();
 		controller = new CreateTeamController();
 		controller.context = context;
+
+		controller.team.name    = "Team Name";
+		controller.team.coach   = "Coach";
+		controller.team.manager = "Manager"
+		controller.team.roster  = [];
 	});
 
 	it("can create the controller", () => {
