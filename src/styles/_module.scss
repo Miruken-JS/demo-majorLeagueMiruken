@@ -1,17 +1,19 @@
+// team jerseys
 .jersey.red{
   .st0{
     fill: red;
   }
 }
 
-  .sectionTitle{
-    font-size: .85em;
-  }
 
+
+// tables
 table{
+  width: 100%;
   background-color: white;
   padding: 5px;
   margin-bottom: 20px;
+  border: thin solid #999;
   thead{
     background-color: grey
   }
