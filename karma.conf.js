@@ -1,18 +1,19 @@
 const paths = require("./build/paths");
 
+var bowerFiles = [
+        'bower_components/moment/moment.js',
+        'bower_components/angular/angular.js',
+        'bower_components/miruken-angular/miruken-ng-bundle.js',
+    ]
+var files = bowerFiles.concat(paths.source);
+files.push('test/**/*.js');
+
 module.exports = function(config) {
   config.set({
 
     frameworks: ['mocha','chai'],
 
-    files: [
-        'bower_components/moment/moment.js',
-        'bower_components/angular/angular.js',
-        'bower_components/miruken-angular/miruken-ng-bundle.js',
-        'src/app/setup.js',
-        'src/**/*.js',
-        'test/**/*.js'
-    ],
+    files: files,
 
     preprocessors: {
         'src/**/*.js' : ['babel'],

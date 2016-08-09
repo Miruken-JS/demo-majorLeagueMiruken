@@ -18,7 +18,7 @@ new function() {
     },
 
     create() {
-      TeamFeature(this.context).createTeam(this.team).then(() => {
+      TeamFeature(this.controllerContext).createTeam(this.team).then(() => {
           TeamFeature(this.context).showAllTeams();
       });
     },
