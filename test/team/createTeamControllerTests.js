@@ -26,11 +26,9 @@ describe("CreateTeamController", () => {
 	});
 
 	describe("create", () => {
-		let called = false;
 		beforeEach(() => {
 			const Handler = CallbackHandler.extend(TeamFeature, {
 				createTeam() {
-					called = true;
 					return Promise.resolve();
 				}	
 			});
@@ -38,20 +36,8 @@ describe("CreateTeamController", () => {
 		});
 
 		describe("valid team", () => {
-
-			beforeEach(() => {
-				controller.team.name = null;
-			});
-
-			it("should not call handler", () => {
-				controller.team.name = null;
-				controller.create();
-				called.should.be.false;
-			});
-
-			it("should have validation data when team is invalid", (done) => {
-				controller.create().catch(() => {
-					controller.$validation.should.not.be.nothing;
+			it("should call TeamFeature.createTeam()", (done) => {
+				controller.create().then(() => {
 					done();
 				});
 			});
@@ -63,13 +49,13 @@ describe("CreateTeamController", () => {
 				controller.team.name = null;
 			});
 
-			it("should not call handler", () => {
-				controller.team.name = null;
-				controller.create();
-				called.should.be.false;
+			it("should throw error", (done) => {
+				controller.create().catch(() => {
+					done()
+				});
 			});
 
-			it("should have validation data when team is invalid", (done) => {
+			it("should have validation data", (done) => {
 				controller.create().catch(() => {
 					controller.$validation.should.not.be.nothing;
 					done();
@@ -78,5 +64,5 @@ describe("CreateTeamController", () => {
 		});
 			
 	});
-	
+		
 });
