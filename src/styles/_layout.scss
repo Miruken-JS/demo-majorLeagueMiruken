@@ -24,14 +24,12 @@
 }
 
 
-
-
 // creating a new team Page
 .l-createTeam{
   margin-top: 40px;
   input{
-    margin-bottom: 20px;
-    width: 40%;
+    width: 100%;
+
   }
 }
 
@@ -46,7 +44,6 @@
 .l-players{
    margin-top: 40px;
   input{
-    margin-bottom: 20px;
     width: 40%;
   }
 }
@@ -55,7 +52,6 @@
 .l-player{
    margin-top: 40px;
   input{
-    margin-bottom: 20px;
     width: 40%;
   }
 
