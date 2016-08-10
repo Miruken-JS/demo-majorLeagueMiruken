@@ -26,12 +26,16 @@ describe("CreateTeamController", () => {
 	});
 
 	describe("create", () => {
+		let calledCreateTeam, calledShowTeams;
 		beforeEach(() => {
+			calledCreateTeam = calledShowTeams = false;
 			const Handler = CallbackHandler.extend(TeamFeature, {
 				createTeam() {
+					calledCreateTeam = true;
 					return Promise.resolve();
 				},
 				showTeams() {
+					calledShowTeams = true;
 					return Promise.resolve();
 				}	
 			});
@@ -41,6 +45,8 @@ describe("CreateTeamController", () => {
 		describe("valid team", () => {
 			it("should call TeamFeature.createTeam()", (done) => {
 				controller.create().then(() => {
+					calledCreateTeam.should.be.true;
+					calledShowTeams.should.be.true;
 					done();
 				});
 			});
