@@ -12,7 +12,7 @@ new function() {
         deleteTeam(team) {},
         editTeam(team)   {},
         getTeams()       {},
-        showAllTeams()   {},
+        showTeams()      {},
         showCreateTeam() {},
         showEditTeam()   {},
         showTeam()       {},

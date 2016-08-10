@@ -15,8 +15,8 @@ new function(){
 			_stateProvider = stateProvider;
 		},
 
-		showAllTeams() {
-			_stateProvider.go("allTeams");
+		showTeams() {
+			_stateProvider.go("teams");
 		},
 
 		showCreateTeam() {

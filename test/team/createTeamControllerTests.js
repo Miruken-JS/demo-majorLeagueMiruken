@@ -30,6 +30,9 @@ describe("CreateTeamController", () => {
 			const Handler = CallbackHandler.extend(TeamFeature, {
 				createTeam() {
 					return Promise.resolve();
+				},
+				showTeams() {
+					return Promise.resolve();
 				}	
 			});
 			context.addHandlers(new Handler());	
