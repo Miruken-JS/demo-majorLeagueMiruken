@@ -18,7 +18,7 @@ new function() {
     },
 
     create() {
-      TeamFeature(this.context.$validAsync(this))
+      return TeamFeature(this.context.$validAsync(this))
         .createTeam(this.team).then(() => {
           TeamFeature(this.context.showAllTeams());
         });
