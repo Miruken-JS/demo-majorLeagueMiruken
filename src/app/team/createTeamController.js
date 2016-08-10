@@ -2,7 +2,7 @@ new function() {
 
   mlm.package(this, {
     name:    "team",
-    imports: "mlm,miruken.mvc",
+    imports: "mlm,miruken.mvc,miruken.validate",
     exports: "CreateTeamController"
   });
 
@@ -11,16 +11,17 @@ new function() {
   const CreateTeamController = Controller.extend({
     $properties:{
       title: "Create-A-Team",
-      team: { map: Team }
+      team:  { validate: $nested }
     },
     constructor() {
       this.team = new Team();
     },
 
     create() {
-      TeamFeature(this.controllerContext).createTeam(this.team).then(() => {
-          TeamFeature(this.context).showAllTeams();
-      });
+      TeamFeature(this.context.$validAsync(this))
+        .createTeam(this.team).then(() => {
+          TeamFeature(this.context.showAllTeams());
+        });
     },
 
   });
