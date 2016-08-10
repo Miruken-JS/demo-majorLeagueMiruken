@@ -5,7 +5,7 @@ const babel    = require("gulp-babel");
 const sass     = require("gulp-sass");
 const pug      = require("gulp-pug");
 
-gulp.task("build", sequence("clean", ["inject", "buildJavascript", "buildHtml", "buildStyles", "buildImages"]));
+gulp.task("build", sequence("clean", ["inject", "buildJavascript", "buildHtml", "buildStyles", "buildImages", "buildFonts"]));
 
 const base = { base: "./src" };
 
@@ -31,5 +31,12 @@ gulp.task("buildStyles", () => {
 
 gulp.task("buildImages", () => {
     return gulp.src([`${paths.root}/images/**/*`], base)
+        .pipe(gulp.dest(paths.built));
+});
+
+gulp.task("buildFonts", () => {
+    return gulp.src("bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*", {
+            base: "./bower_components/bootstrap-sass/assets"
+        })
         .pipe(gulp.dest(paths.built));
 });
