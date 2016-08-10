@@ -44,7 +44,7 @@ describe("CreateTeamController", () => {
 
 		describe("valid team", () => {
 			it("should call TeamFeature.createTeam()", (done) => {
-				controller.create().then(() => {
+				controller.save().then(() => {
 					calledCreateTeam.should.be.true;
 					calledShowTeams.should.be.true;
 					done();
@@ -59,13 +59,13 @@ describe("CreateTeamController", () => {
 			});
 
 			it("should throw error", (done) => {
-				controller.create().catch(() => {
+				controller.save().catch(() => {
 					done()
 				});
 			});
 
 			it("should have validation data", (done) => {
-				controller.create().catch(() => {
+				controller.save().catch(() => {
 					controller.$validation.should.not.be.nothing;
 					done();
 				});

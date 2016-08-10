@@ -10,14 +10,19 @@ new function() {
 
   const EditTeamController = Controller.extend({
     $properties:{
-      title: "Edit Team",
-      team:  { map: Team }
+      title:      "Edit Team",
+      buttonText: "Save",
+      team:       { map: Team }
     },
 
-    create() {
+    save() {
       TeamFeature(this.context).createTeam(this.team).then(() => {
           TeamFeature(this.context).showTeams();
       });
+    },
+
+    addPlayer() {
+      
     }
 
   });

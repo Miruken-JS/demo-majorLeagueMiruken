@@ -10,19 +10,24 @@ new function() {
 
   const CreateTeamController = Controller.extend({
     $properties:{
-      title: "Create-A-Team",
-      team:  { validate: $nested }
+      title:      "Create-A-Team",
+      buttonText: "Create Team",
+      team:       { validate: $nested }
     },
     constructor() {
       this.team = new Team();
     },
 
-    create() {
+    save() {
       return TeamFeature(this.context.$validAsync(this))
         .createTeam(this.team).then(() => {
             TeamFeature(this.context).showTeams();
         });
     },
+
+    addPlayer() {
+
+    }
 
   });
 
