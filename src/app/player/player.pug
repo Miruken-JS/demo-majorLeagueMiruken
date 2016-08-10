@@ -1,7 +1,40 @@
-h1 Player
-
+.l-Player
   .container-fluid
-      .row
-          .col-sm-10.col-sm-offset-1
-              .wrap
-                  p testing player
+    .row
+      .col-sm-10.col-sm-offset-1
+        .wrap
+          h1 Create a Player
+          .row
+            .col-sm-6
+              .row
+                form
+                  .col-sm-12
+                    .row
+                      .col-sm-12
+                        label
+                          .teamName Player Name
+                    .row
+                      .col-sm-12
+                        input(type="text" placeholder="First Name")
+                        input(type="text"  placeholder="Last Name")
+                    .row
+                      .col-sm-12
+                        label
+                          .teamManager Assign a Number
+                    .row
+                      .col-sm-12
+                        input(type="text"  placeholder="Enter a Number")
+                    .row
+                      .col-sm-12
+                        label
+                         .teamManager Players Date of Birth
+                      .col-sm-12
+                        a(href="")
+                          span(class="glyphicon glyphicon-calendar")
+
+            .col-sm-6
+              .row
+                .col-sm-12
+                  .playerProfile
+            .col-sm-12
+              button.pull-right(class="btn btn-success") Create Player

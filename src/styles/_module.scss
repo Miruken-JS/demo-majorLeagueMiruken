@@ -1,0 +1,27 @@
+// team jerseys
+.jersey.red{
+  .st0{
+    fill: red;
+  }
+}
+
+
+
+// tables
+table{
+  width: 100%;
+  background-color: white;
+  padding: 5px;
+  margin-bottom: 20px;
+  border: thin solid #999;
+  thead{
+    background-color: grey
+  }
+  td,th{
+    padding: 15px;
+  }
+  tbody tr:nth-child(even) {
+    background: #eee;
+  }
+}
+

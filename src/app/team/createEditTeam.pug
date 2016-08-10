@@ -1,6 +1,54 @@
-h1 {{vm.title}}
-
-input(type="text" ng-model="vm.team.name")
-input(type="text" ng-model="vm.team.coach")
-
-button(class="btn" ng-click="vm.create()") Create
+.l-createTeam
+  .container-fluid
+    .row
+      .col-sm-10.col-sm-offset-1
+        .wrap
+          h1 {{vm.title}}
+          .row
+            .col-sm-6
+              .row
+                form
+                  .col-sm-12
+                    .row
+                      .col-sm-12
+                        label
+                          .teamName Team Name
+                    .row
+                      .col-sm-12
+                        input(type="text" ng-model="vm.team.name" placeholder="First Name")
+                    .row
+                      .col-sm-12
+                        label
+                          .teamManager Assign a Manager
+                    .row
+                      .col-sm-12
+                        input(type="text" ng-model="vm.team.coach" placeholder="Enter Name")
+                        input(type="text" ng-model="vm.team.name" placeholder="Last Name")
+                    .row
+                      .col-sm-12
+                        label
+                         .teamManager Assign a Coach
+                      .col-sm-12
+                        input(type="text" ng-model="vm.team.coach" placeholder="Enter Name")
+                        input(type="text" ng-model="vm.team.name" placeholder="Last Name")
+            .col-sm-6
+              .row
+                .col-sm-12
+                  .sectionTitle Roster
+              .row
+                .col-sm-12
+                  table
+                    thead
+                      tr
+                        th Player
+                        th Number
+                        th Birth Date
+                    tbody
+                      tr
+                        td
+                          strong Purdie Dorsey
+                        td 15
+                        td May 8, 1984
+                  button.pull-right(class="btn btn-default btn-xs") + add player
+            .col-sm-12
+              button(class="btn btn-success" ng-click="vm.create()") Create Team
