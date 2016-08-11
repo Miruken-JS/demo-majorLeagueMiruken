@@ -10,14 +10,15 @@ describe("CreateTeamController", () => {
 
 	beforeEach(() => {
 		context = new Context;
-		context.addHandlers(new ValidationCallbackHandler,new ValidateJsCallbackHandler);
-		controller = new CreateTeamController;
+		context.addHandlers(new ValidationCallbackHandler(), new ValidateJsCallbackHandler());
+		controller = new CreateTeamController();
 		controller.context = context;
 
-		controller.team.name    = "Team Name";
-		controller.team.coach   = "Coach";
-		controller.team.manager = "Manager";
-		controller.team.roster  = [];
+    controller.team.fromData({
+      name:    "Team Name",
+      coach:   "Coach",
+      manager: "Manager"
+    });
 	});
 
 	it("can create the controller", () => {
@@ -43,7 +44,7 @@ describe("CreateTeamController", () => {
 		});
 
 		describe("valid team", () => {
-			it("should call TeamFeature.createTeam()", (done) => {
+			it("should call TeamFeature.createTeam()", done => {
 				controller.save().then(() => {
 					calledCreateTeam.should.be.true;
 					calledShowTeams.should.be.true;
@@ -58,13 +59,13 @@ describe("CreateTeamController", () => {
 				controller.team.name = null;
 			});
 
-			it("should throw error", (done) => {
+			it("should throw error", done => {
 				controller.save().catch(() => {
 					done()
 				});
 			});
 
-			it("should have validation data", (done) => {
+			it("should have validation data", done => {
 				controller.save().catch(() => {
 					controller.$validation.should.not.be.nothing;
 					done();
