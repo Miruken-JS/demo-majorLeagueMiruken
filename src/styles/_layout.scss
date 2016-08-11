@@ -16,7 +16,7 @@
 .l-team{
   margin-top: 40px;
   .teamName,.teamManager,.teamCoach{
-    font-size: 2em
+    font-size: 1.5em
   }
   h1{
     border-bottom: thin solid #999
@@ -42,10 +42,23 @@
 
 // edit existing team Page
 .l-players{
+  h1{
+    color: white;
+  }
    margin-top: 40px;
   input{
     width: 40%;
   }
+  .teamName{
+    font-size: 1.25em;
+    margin-top: 0px;
+    padding: 0px;
+  }
+  .playerNum{
+    margin-bottom: -10px;
+    padding: 0px;
+  }
+
 }
 
 // edit existing team Page
