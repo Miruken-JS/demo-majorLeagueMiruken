@@ -9,10 +9,11 @@ new function(){
 	eval(this.imports);
 
 	const teams = [
-		new Team({name: "Accountants", coach: "Ric Deanda"}),
-		new Team({name: "Leaders",     coach: "Curtis Hite", manager: "David O'Hara" }),
-		new Team({name: "Marketeers",  coach: "Diana"}),
-		new Team({name: "Recruiters",  coach: "Gabby Garza-Ramos"})
+		new Team({name: "Dallas",          coach: "David O'hara",    manager: "Ric DeAnda"}),
+		new Team({name: "College Station", coach: "Ed Grannan",      manager: "Mike Abney" }),
+		new Team({name: "Houston",         coach: "Ken Howard",      manager: "Devlin Liles"}),
+		new Team({name: "Columbus",        coach: "Mark Kovacevich", manager: "Jackie Bickle"}),
+    new Team({name: "Minneapolis",     coach: "Barb Gurstelle",  manager: ""})
 	];
 
 	let $q;

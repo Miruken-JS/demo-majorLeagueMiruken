@@ -61,7 +61,7 @@ describe("CreateTeamController", () => {
 
 			it("should throw error", done => {
 				controller.save().catch(() => {
-					done()
+					done();
 				});
 			});
 
