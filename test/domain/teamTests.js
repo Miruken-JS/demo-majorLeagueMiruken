@@ -22,7 +22,7 @@ describe("team", () => {
 		var context;
 	    beforeEach(function() {
 	        context = new Context;
-	        context.addHandlers(new ValidationCallbackHandler, new ValidateJsCallbackHandler);
+	        context.addHandlers(new ValidationCallbackHandler(), new ValidateJsCallbackHandler());
 	    });
 
 	    it("team is valid", () => {

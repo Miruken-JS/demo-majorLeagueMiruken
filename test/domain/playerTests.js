@@ -8,9 +8,9 @@ describe("player", () => {
 
 	beforeEach(() => {
 		player = new Player({
-			firstName: "Scott",
-			lastName : "Sterling",
-			number   : 2,
+			firstName:  "Scott",
+			lastName :  "Sterling",
+			number   :  2,
 			birthdate : "01-31-1990"
 		});
 	});
@@ -26,8 +26,8 @@ describe("player", () => {
 	describe("validation", () => {
 		var context;
 	    beforeEach(function() {
-	        context = new Context;
-	        context.addHandlers(new ValidationCallbackHandler, new ValidateJsCallbackHandler);
+	        context = new Context();
+	        context.addHandlers(new ValidationCallbackHandler(), new ValidateJsCallbackHandler());
 	    });
 
 	    it("player is valid", () => {
