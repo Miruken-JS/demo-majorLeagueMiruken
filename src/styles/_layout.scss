@@ -1,9 +1,5 @@
 // teams Page
 .l-teams{
-  h1{
-    color: white;
-  }
-
   h2.teamName{
     text-transform: uppercase;
   }
@@ -42,9 +38,6 @@
 
 // edit existing team Page
 .l-players{
-  h1{
-    color: white;
-  }
    margin-top: 40px;
   input{
     width: 40%;
@@ -66,6 +59,11 @@
    margin-top: 40px;
   input{
     width: 40%;
+  }
+
+  .playerName,.playerNumber,.playerBirth{
+    font-size: 2em;
+    font-weight: 100;
   }
 
 }

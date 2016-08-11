@@ -15,12 +15,27 @@ h1,h2,h3,h4,h5{
 
 h1{
   padding: 5px;
+  color: white;
 }
 
 p{
   font-weight: normal;
   font-size: 1em;
 }
+
+img{
+  margin: 2px auto;
+  max-width: 300px;
+}
+
+.row.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+
 
 .wrap{
   background-color: rgba(250,250,250, .8);
