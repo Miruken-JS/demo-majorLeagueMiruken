@@ -16,8 +16,14 @@ describe("CreateTeamController", () => {
 
     controller.team.fromData({
       name:    "Team Name",
-      coach:   "Coach",
-      manager: "Manager"
+      coach: {
+        firstName: "David",
+        lastName:  "O'Hara"
+      },
+      manager: {
+        firstName: "Ric",
+        lastName:  "DeAnda"
+      }
     });
 	});
 

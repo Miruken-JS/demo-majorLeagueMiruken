@@ -12,9 +12,21 @@ new function(){
 	const Team = Model.extend({
 		$properties: {
 			name:    { validate: $required },
-			coach:   { validate: $required },
-			manager: { validate: $required },
-			roster:  { map:      Player }
+			coach:   {
+        map: Person,
+        validate: {
+          presence: true,
+          nested:   true
+        }
+      },
+			manager: {
+        map: Person,
+        validate: {
+          presence: true,
+          nested:   true
+        }
+      },
+			roster:  { map: Player }
 		},
 		constructor(data){
 			this.base(data);

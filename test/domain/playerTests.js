@@ -19,10 +19,6 @@ describe("player", () => {
 		player.should.not.be.nothing;
 	});
 
-	it("has a fullName", () => {
-		player.fullName.should.equal("Scott Sterling");
-	});
-
 	describe("validation", () => {
 		var context;
 	    beforeEach(function() {
@@ -54,7 +50,7 @@ describe("player", () => {
 	    	Validator(context).validate(player).valid.should.be.false;
 	    });
 
-		it("must be a number", () => {
+      it("must be a number", () => {
 	    	player.number = "a";
 	    	Validator(context).validate(player).valid.should.be.false;
 	    });

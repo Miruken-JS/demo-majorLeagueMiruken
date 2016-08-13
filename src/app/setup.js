@@ -5,7 +5,8 @@ new function() {
     imports: "miruken.ng,miruken.mvc,miruken.ioc",
     exports: "SetupInstaller,SetupRunner",
     ngModule: [
-        "ui.router"
+        "ui.router",
+        "ngMessages"
     ]
   });
 
