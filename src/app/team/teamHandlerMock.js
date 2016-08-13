@@ -25,12 +25,12 @@ new function(){
 		getTeams(){
 			return $q.resolve(teams);
 		},
-        createTeam(team){
-        	teams.push(team);
-        	return $q.resolve();
-        },
-        deleteTeam(team){},
-        updateTeam(team){}
+    createTeam(team){
+      teams.push(team);
+      return $q.resolve();
+    },
+    deleteTeam(team){},
+    updateTeam(team){}
 	});
 
 	eval(this.exports);

@@ -32,7 +32,11 @@ new function() {
 
   Controller.implement({
     get controllerContext() {
-      return this.context;
+      const context = this.context;
+      return context && context
+          .$recover()         // handle common error scenarios
+          .$validAsync(this)
+          .$ngApplyAsync();  // ensure $digest loop runs after promise
     }
   });
 

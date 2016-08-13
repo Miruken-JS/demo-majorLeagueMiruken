@@ -13,8 +13,8 @@
                     label
                       .teamName Team Name
                     input(type="text" ng-model="vm.team.name" placeholder="Team Name")
-                    div.error(ng-messages='vm.team.$validation.errors.teamName')
-                      div.small(ng-message='required')
+                    div.error(ng-messages='vm.team.$validation.name.errors')
+                      div.small(ng-message='presence')
                         | Team name must be 6 characters
                 .inputWrap
                   .col-sm-12

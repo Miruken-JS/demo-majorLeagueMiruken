@@ -35,13 +35,8 @@ new function(){
 
 		get id(){
 			return _id;
-		},
-		
-		$validateThat: {
-			teamHasEnoughPlayersToPlay: function(){
-				
-			}
 		}
+		
 	});
 
 	eval(this.exports);

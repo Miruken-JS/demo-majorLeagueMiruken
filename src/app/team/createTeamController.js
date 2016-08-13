@@ -19,14 +19,11 @@ new function() {
     },
 
     save() {
-      return TeamFeature(this.context.$validAsync(this))
-        .createTeam(this.team).then(() => {
-            TeamFeature(this.context).showTeams();
-        });
+      return TeamFeature(this.controllerContext)
+        .createTeam(this.team).then(() => TeamFeature(this.context).showTeams());
     },
 
     addPlayer() {
-
     }
 
   });
