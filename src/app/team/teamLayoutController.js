@@ -2,15 +2,15 @@ new function() {
 
   mlm.package(this, {
     name:    "team",
-    imports: "miruken.mvc",
+    imports: "miruken.mvc,mlm.team",
     exports: "TeamLayoutController"
   });
 
   eval(this.imports);
 
   const TeamLayoutController = Controller.extend({
-    constructor() {
-      
+    viewRegionCreated: function (region) {
+      return TeamFeature(region.context).showTeams();
     }
   });
 

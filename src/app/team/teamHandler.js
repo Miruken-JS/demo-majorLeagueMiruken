@@ -2,7 +2,7 @@ new function(){
 
 	mlm.package(this,{
 		name:    "team",
-		imports: "mlm,miruken.callback",
+		imports: "miruken.callback,miruken.mvc,mlm,mlm.team",
 		exports: "TeamHandler"
 	});
 
@@ -16,11 +16,25 @@ new function(){
 		},
 
 		showTeams() {
-			_stateProvider.go("teams");
+      ViewRegion($composer).present({
+        templateUrl:  "app/team/teams.html",
+        controller:   TeamsController,
+        controllerAs: "vm"
+      });
 		},
-
+		showTeam() {
+      ViewRegion($composer).present({
+        templateUrl:  "app/team/team.html",
+        controller:   TeamController,
+        controllerAs: "vm"
+      });
+		},
 		showCreateTeam() {
-			_stateProvider.go("createTeam");
+      ViewRegion($composer).present({
+        templateUrl:  "app/team/createEditTeam.html",
+        controller:   CreateTeamController,
+        controllerAs: "vm"
+      });
 		}
 	});
 

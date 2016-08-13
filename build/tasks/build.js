@@ -5,7 +5,11 @@ const babel    = require("gulp-babel");
 const sass     = require("gulp-sass");
 const pug      = require("gulp-pug");
 
-gulp.task("build", sequence("clean", ["inject", "buildJavascript", "buildHtml", "buildStyles", "buildImages", "buildFonts"]));
+gulp.task("build", sequence("clean", [
+      "inject", "buildJavascript",
+      "buildHtml", "buildStyles", 
+      "buildImages", "buildFonts"
+]));
 
 const base = { base: "./src" };
 

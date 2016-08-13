@@ -14,26 +14,8 @@ new function() {
       $stateProvider
         .state("teams", {
             url:          "/",
-            templateUrl:  "app/team/teams.html",
-            controller:   "TeamsController",
-            controllerAs: "vm"
-        })
-        .state("team", {
-            url:          "/team",
-            templateUrl:  "app/team/team.html",
-            controller:   "TeamController",
-            controllerAs: "vm"
-        })
-        .state("createTeam", {
-            url:          "/createTeam",
-            templateUrl:  "app/team/createEditTeam.html",
-            controller:   "CreateTeamController",
-            controllerAs: "vm"
-        })
-        .state("editTeam", {
-            url:          "/editTeam",
-            templateUrl:  "app/team/createEditTeam.html",
-            controller:   "EditTeamController",
+            templateUrl:  "app/layout.html",
+            controller:   "TeamLayoutController",
             controllerAs: "vm"
         });
     }
