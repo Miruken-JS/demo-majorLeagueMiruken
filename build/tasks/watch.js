@@ -19,6 +19,8 @@ gulp.task("watch", () => {
     watchImages();
 });
 
+const base = { base: "./src" };
+
 function watchForAddedAndRemovedJavascript(){
     const sources = [...paths.source, paths.html]; 
     gulp.src(sources)
@@ -51,8 +53,8 @@ function watchLint(){
 
 function watchJavascript(){
 
-    return gulp.src(paths.source)
-        .pipe(watch(paths.source))
+    return gulp.src(paths.source, base)
+        .pipe(watch(paths.source, base))
         .pipe(plumber())
         .pipe(babel())
         .pipe(gulp.dest(paths.built));
