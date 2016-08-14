@@ -21,7 +21,7 @@ new function() {
          this.teams = teams;
       });
     },
-    
+
     getSelectedDetail(type){
       return type === Team && selectedTeam
         ? Promise.resolve(selectedTeam)

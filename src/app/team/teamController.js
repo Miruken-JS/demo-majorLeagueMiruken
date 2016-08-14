@@ -10,6 +10,7 @@ new function() {
 
   const TeamController = Controller.extend({
     $properties:{
+      team: { map: Team }
     },
 
     initialize() {
