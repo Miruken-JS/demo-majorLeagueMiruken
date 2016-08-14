@@ -15,7 +15,7 @@ new function(){
 			_stateProvider = stateProvider;
 		},
 
-		showAllPlayers() {
+    showPlayers() {
 			_stateProvider.go("allPlayers");
 		},
 

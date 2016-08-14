@@ -2,8 +2,8 @@ new function() {
 
   mlm.package(this, {
     name:    "player",
-    imports: "miruken.ioc",
-    exports: "SetupInstaller"
+    imports: "miruken.ng,miruken.ioc",
+    exports: "SetupInstaller,SetupRunner"
   });
 
   eval(this.imports);
@@ -36,6 +36,14 @@ new function() {
             controller:   "EditPlayerController",
             controllerAs: "vm"
         });
+    }
+  });
+
+  const SetupRunner = Runner.extend({
+    $inject: ["$appContext", "$envContext", "$q", "$state"],
+    constructor(appContext, envContext, q, state){
+      appContext.addHandlers(new PlayerHandler(state));
+      envContext.addHandlers(new PlayerHandlerMock(q));
     }
   });
 

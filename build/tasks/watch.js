@@ -40,7 +40,8 @@ function watchForAddedAndRemovedJavascript(){
 
 function watchIndex(){
     gulp.start('inject');
-    return watch(paths.index, batch((events, done) => {
+    const sources = [paths.index, "build/paths.js"];
+    return watch(sources, batch((events, done) => {
         gulp.start('inject', done);
     }));
 }

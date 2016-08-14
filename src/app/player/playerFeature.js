@@ -12,7 +12,7 @@ new function() {
         deletePlayer(player) {},
         editPlayer(player)   {},
         getPlayers()         {},
-        showAllPlayers()     {},
+        showPlayers()        {},
         showCreatePlayer()   {},
         showEditPlayer()     {},
         showPlayer()         {},
