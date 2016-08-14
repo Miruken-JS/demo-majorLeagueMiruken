@@ -8,53 +8,14 @@
   .col-sm-10.col-sm-offset-1
     .container-fluid
       .row
-        .col-sm-4
+        .col-sm-4(ng-repeat="player in vm.players | orderBy:'lastName'")
           .wrapSmall
             .row
               .col-sm-5
                 img(src="../images/player.svg")
               .col-sm-7
-                p.playerNum #33
-                h2.teamName Sabastian Shaw
-                .row
-                  .col-sm-3
-                    p Age <br> <span> 23</span>
-                  .col-sm-9
-                    p Team <br> <span> Villians</span>
-        .col-sm-4
-          .wrapSmall
-            .row
-              .col-sm-5
-                img(src="../images/player.svg")
-              .col-sm-7
-                p.playerNum #33
-                h2.teamName Sabastian Shaw
-                .row
-                  .col-sm-3
-                    p Age <br> <span> 23</span>
-                  .col-sm-9
-                    p Team <br> <span> Villians</span>
-        .col-sm-4
-          .wrapSmall
-            .row
-              .col-sm-5
-                img(src="../images/player.svg")
-              .col-sm-7
-                p.playerNum #33
-                h2.teamName Sabastian Shaw
-                .row
-                  .col-sm-3
-                    p Age <br> <span> 23</span>
-                  .col-sm-9
-                    p Team <br> <span> Villians</span>
-        .col-sm-4
-          .wrapSmall
-            .row
-              .col-sm-5
-                img(src="../images/player.svg")
-              .col-sm-7
-                p.playerNum #33
-                h2.teamName Sabastian Shaw
+                p.playerNum &#x23{{player.number}}
+                h2.teamName {{player.fullName}}
                 .row
                   .col-sm-3
                     p Age <br> <span> 23</span>

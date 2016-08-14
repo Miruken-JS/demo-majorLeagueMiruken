@@ -11,7 +11,7 @@ new function() {
         createPlayer(player) {},
         deletePlayer(player) {},
         editPlayer(player)   {},
-        getPlayers()         {},
+        players()            {},
         showPlayers()        {},
         showCreatePlayer()   {},
         showEditPlayer()     {},
