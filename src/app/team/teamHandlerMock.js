@@ -9,12 +9,26 @@ new function(){
 	eval(this.imports);
 
 	const teams = [
-		new Team({name: "Dallas",          coach: "David O'hara",    manager: "Ric DeAnda"}),
-		new Team({name: "College Station", coach: "Ed Grannan",      manager: "Mike Abney" }),
-		new Team({name: "Houston",         coach: "Ken Howard",      manager: "Devlin Liles"}),
-		new Team({name: "Columbus",        coach: "Mark Kovacevich", manager: "Jackie Bickle"}),
-    new Team({name: "Minneapolis",     coach: "Barb Gurstelle",  manager: ""})
-	];
+		new Team({
+      name:    "Dallas",
+      coach:   { firstName: "David", lastName: "O'Hara" },
+      manager: { firstName: "Ric",   lastName: "DeAnda" }}),
+		new Team({
+      name:    "College Station",
+      coach:   { firstName: "Ed",   lastName: "Grannan" },
+      manager: { firstName: "Mike", lastName: "Abney" }}),
+		new Team({
+      name:    "Houston",
+      coach:   { firstName: "Ken",    lastName: "Howard" },
+      manager: { firstName: "Devlin", lastName: "Liles" }}),
+		new Team({
+      name:    "Columbus",
+      coach:   { firstName: "Mark",    lastName: "Kovacevich" },
+      manager: { firstName: "Jacquie", lastName: "Bickel" }}),
+    new Team({
+      name:    "Minneapolis",
+      coach:   { firstName: "Barb",  lastName: "Gurstelle" },
+      manager: { firstName:"Leroy" , lastName: "Thydean" }})];
 
 	let $q;
 

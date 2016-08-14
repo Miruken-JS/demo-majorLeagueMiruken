@@ -17,9 +17,9 @@
               .col-sm-7
                 h3.teamName {{team.name}}
                 h3.sectionTitle Team Manager
-                p.managerName {{team.manager}}
+                p.managerName {{team.manager.fullName}}
                 h3.sectionTitle Team Coach
-                p.coachName {{team.coach}}
+                p.coachName {{team.coach.fullName}}
     .row
       .col-sm-12
         button.pull-right(class="btn", ng-click="vm.create()") Create a Team
