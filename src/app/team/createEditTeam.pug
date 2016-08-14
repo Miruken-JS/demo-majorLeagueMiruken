@@ -13,37 +13,37 @@
                     label
                       .teamName Team Name
                     input(type="text" ng-model="vm.team.name" placeholder="Team Name")
-                    div.error(ng-messages='vm.team.$validation.name.errors')
+                    div.error(ng-messages='vm.$validation.team.name.errors')
                       div.small(ng-message='presence')
-                        | Team name must be 6 characters
+                        | Team name is required
                 .inputWrap
                   .col-sm-12
                     label
                       .teamManager Assign a Manager
                   .col-sm-12.col-md-6
                     input(type="text" ng-model="vm.team.manager.firstName" placeholder="First Name")
-                    div.error(ng-messages='vm.team.$validation.errors.firstName')
-                      div.small(ng-message='required')
-                        |  First name required
+                    div.error(ng-messages='vm.$validation.team.manager.firstName.errors')
+                      div.small(ng-message='presence')
+                        |  Manager's first name required
                   .col-sm-12.col-md-6
                     input(type="text" ng-model="vm.team.manager.lastName" placeholder="Last Name")
-                    div.error(ng-messages='vm.team.$validation.errors.lastName')
-                      div.small(ng-message='required')
-                        | Last name required
+                    div.error(ng-messages='vm.$validation.team.manager.lastName.errors')
+                      div.small(ng-message='presence')
+                        | Manager's last name required
                 .inputWrap
                   .col-sm-12
                     label
                      .teamManager Assign a Coach
                   .col-sm-12.col-md-6
                     input(type="text" ng-model="vm.team.coach.firstName" placeholder="First Name")
-                    div.error(ng-messages='vm.team.$validation.errors.coach')
-                      div.small(ng-message='required')
-                        |  First name required
+                    div.error(ng-messages='vm.$validation.team.coach.firstName.errors')
+                      div.small(ng-message='presence')
+                        |  Coaches first name required
                   .col-sm-12.col-md-6
                     input(type="text" ng-model="vm.team.coach.lastName" placeholder="Last Name")
-                    div.error(ng-messages='vm.team.$validation.errors')
-                      div.small(ng-message='required')
-                        |  First name require
+                    div.error(ng-messages='vm.$validation.team.coach.lastName.errors')
+                      div.small(ng-message='presence')
+                        |  Coaches last name require
       .col-sm-6
         .wrapSmall
           .row

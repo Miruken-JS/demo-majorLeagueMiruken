@@ -15,7 +15,10 @@ new function() {
       team:       { validate: $nested }
     },
     constructor() {
-      this.team = new Team();
+      this.team = new Team({
+        coach:   {},
+        manager: {}
+      });
     },
 
     save() {
