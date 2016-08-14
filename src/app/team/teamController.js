@@ -14,7 +14,10 @@ new function() {
 
     initialize() {
       this.base();
-    }  
+      return MasterDetail(this.context).getSelectedDetail(Team).then(team => {
+        this.team = team;
+      });
+    }
   });
 
   eval(this.exports);
