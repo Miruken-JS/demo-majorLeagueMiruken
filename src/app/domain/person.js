@@ -17,16 +17,21 @@ new function(){
 				map: toMoment
 			}
 		},
-		constructor(data){
+		constructor(data) {
 			this.base(data);
 			_id = assignID(this);
 		},
 
-		get fullName(){
+		get fullName() {
 			return `${this.firstName} ${this.lastName}`;
 		},
 
-		get id(){
+    get age() {
+      if(!this.birthdate) return null;
+      return moment().diff(this.birthdate, "years");
+    },
+
+		get id() {
 			return _id;
 		}
 	});
