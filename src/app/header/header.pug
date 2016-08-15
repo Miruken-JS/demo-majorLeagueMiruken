@@ -1,9 +1,12 @@
 .nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="HeaderController as vm")
   .container-fluid
     .navbar-header
-      a.navbar-brand(href="#/") Major League Miruken
+      a.navbar-brand(ng-click="vm.goToTeams()") Major League Miruken
 
     .collapse.navbar-collapse
-      form.navbar-form.navbar-left
-        button.btn.btn-link(ng-click="vm.goToTeams()")   Teams
-        button.btn.btn-link(ng-click="vm.goToPlayers()") Players
+      ul.nav.navbar-nav
+        li
+          a(ng-click="vm.goToTeams()")   Teams
+        li
+          a(ng-click="vm.goToPlayers()") Players
+
