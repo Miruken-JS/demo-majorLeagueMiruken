@@ -36,6 +36,13 @@ new function(){
         controllerAs: "vm"
       });
 		},
+		showEditTeam() {
+      ViewRegion($composer).present({
+        templateUrl:  "app/team/createEditTeam.html",
+        controller:   EditTeamController,
+        controllerAs: "vm"
+      });
+		},
 
     getSelectedDetail(type) {
       return type === Team && _selectedTeam

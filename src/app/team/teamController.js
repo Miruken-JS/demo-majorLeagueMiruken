@@ -12,12 +12,13 @@ new function() {
     $properties:{
       team: { map: Team }
     },
-
     initialize() {
       this.base();
-      return MasterDetail(this.context).getSelectedDetail(Team).then(team => {
-        this.team = team;
-      });
+      return MasterDetail(this.context).getSelectedDetail(Team).then(team => this.team = team );
+    },
+
+    edit() {
+      TeamFeature(this.context).showEditTeam();
     }
   });
 

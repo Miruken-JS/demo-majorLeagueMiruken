@@ -31,3 +31,6 @@
                       strong {{player.fullName}}
                     td {{player.number}}
                     td {{player.birthdate.format("L")}}
+        .row
+          .col-sm-12
+            button.pull-right(class="btn" ng-click="vm.edit()") Edit Team

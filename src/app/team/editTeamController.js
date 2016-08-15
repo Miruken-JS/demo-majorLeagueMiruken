@@ -14,17 +14,15 @@ new function() {
       buttonText: "Save",
       team:       { map: Team }
     },
+    initialize(){
+      return MasterDetail(this.controllerContext).getSelectedDetail(Team).then(team => this.team = team);
+    },
 
     save() {
       TeamFeature(this.context).createTeam(this.team).then(() => {
           TeamFeature(this.context).showTeams();
       });
-    },
-
-    addPlayer() {
-      
     }
-
   });
 
   eval(this.exports);
