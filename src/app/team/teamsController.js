@@ -8,9 +8,7 @@ new function() {
 
   eval(this.imports);
 
-  let selectedTeam;
-
-  const TeamsController= Controller.extend(MasterDetail, {
+  const TeamsController= Controller.extend({
     $properties:{
       teams: []
     },
@@ -22,15 +20,8 @@ new function() {
       });
     },
 
-    getSelectedDetail(type){
-      return type === Team && selectedTeam
-        ? Promise.resolve(selectedTeam)
-        : $NOT_HANDLED;
-    },
-
     goToTeam(team) {
-      selectedTeam = team;
-      TeamFeature(this.context).showTeam();
+      TeamFeature(this.context).showTeam(team);
     },
 
     create() {

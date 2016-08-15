@@ -15,7 +15,7 @@ new function() {
         showTeams()      {},
         showCreateTeam() {},
         showEditTeam()   {},
-        showTeam()       {},
+        showTeam(team)   {},
         updateTeam(team) {}
     });
 
