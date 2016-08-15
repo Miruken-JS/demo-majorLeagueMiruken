@@ -14,10 +14,10 @@ new function() {
       buttonText: "Save",
       team:       { map: Team }
     },
-    initialize(){
-      return MasterDetail(this.controllerContext)
-        .getSelectedDetail(Team)
-        .then(team => this.team = new Team(team.toData()));
+
+    $inject: [Team],
+    constructor(team){
+      this.team = new Team(team.toData());
     },
 
     save() {

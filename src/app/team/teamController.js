@@ -19,7 +19,7 @@ new function() {
     },
 
     edit() {
-      TeamFeature(this.context).showEditTeam();
+      TeamFeature(this.context).showEditTeam(this.team);
     }
   });
 
