@@ -8,19 +8,19 @@ new function() {
 
   eval(this.imports);
 
-  const TeamsController= Controller.extend(MasterDetail, {
+  const TeamsController= Controller.extend({
     $properties:{
       teams: []
     },
 
     initialize() {
       this.base();
-      return TeamFeature(this.context).getTeams().then(teams => this.teams = teams );
+      return TeamFeature(this.context).getTeams()
+        .then(teams => this.teams = teams );
     },
 
     goToTeam(team) {
-      MasterDetail(this.context).selectDetail(team);
-      TeamFeature(this.context).showTeam();
+      TeamFeature(this.context).showTeam(team);
     },
 
     create() {

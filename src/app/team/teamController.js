@@ -10,11 +10,12 @@ new function() {
 
   const TeamController = Controller.extend({
     $properties:{
-      team: { map: Team }
+      team: undefined
     },
-    initialize() {
-      this.base();
-      return MasterDetail(this.context).getSelectedDetail(Team).then(team => this.team = team );
+
+    $inject: [Team],
+    constructor(team) {
+      this.team = team;
     },
 
     edit() {
