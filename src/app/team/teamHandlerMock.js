@@ -44,8 +44,11 @@ new function(){
     },
     deleteTeam(team) {},
     updateTeam(team) {
-      var a = teams;
-      return Promise.resolve();
+      let existing = teams.find(item => item.name === team.name);
+      if(existing){
+        let result = existing.fromData(team);
+      }
+      return Promise.resolve(existing);
     }
 	});
 
