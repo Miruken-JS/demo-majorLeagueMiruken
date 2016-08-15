@@ -1,0 +1,9 @@
+.nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="HeaderController as vm")
+  .container-fluid
+    .navbar-header
+      a.navbar-brand(href="#/") Major League Miruken
+
+    .collapse.navbar-collapse
+      form.navbar-form.navbar-left
+        button.btn.btn-link(ng-click="vm.goToTeams()")   Teams
+        button.btn.btn-link(ng-click="vm.goToPlayers()") Players

@@ -12,7 +12,7 @@ new function() {
     $inject: ["$stateProvider"],
     constructor($stateProvider) {
       $stateProvider
-         .state("allPlayers", {
+         .state("players", {
             url:          "/players",
             templateUrl:  "app/player/players.html",
             controller:   "PlayersController",
