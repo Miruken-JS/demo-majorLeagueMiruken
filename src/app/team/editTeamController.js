@@ -15,11 +15,13 @@ new function() {
       team:       { map: Team }
     },
     initialize(){
-      return MasterDetail(this.controllerContext).getSelectedDetail(Team).then(team => this.team = team);
+      return MasterDetail(this.controllerContext)
+        .getSelectedDetail(Team)
+        .then(team => this.team = new Team(team.toData()));
     },
 
     save() {
-      TeamFeature(this.context).createTeam(this.team).then(() => {
+      TeamFeature(this.context).updateTeam(this.team).then(() => {
           TeamFeature(this.context).showTeams();
       });
     }

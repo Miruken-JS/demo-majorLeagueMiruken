@@ -42,8 +42,11 @@ new function(){
       teams.push(team);
       return Promise.resolve();
     },
-    deleteTeam(team){},
-    updateTeam(team){}
+    deleteTeam(team) {},
+    updateTeam(team) {
+      var a = teams;
+      return Promise.resolve();
+    }
 	});
 
 	eval(this.exports);
