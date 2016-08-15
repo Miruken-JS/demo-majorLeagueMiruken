@@ -8,8 +8,7 @@ new function(){
 
 	eval(this.imports);
 
-	let _id;
-	const Person = Model.extend({
+	const Person = Model.extend(Identifiable, {
 		$properties: {
 			firstName: { validate: $required },
 			lastName:  { validate: $required },
@@ -17,23 +16,14 @@ new function(){
 				map: toMoment
 			}
 		},
-		constructor(data) {
-			this.base(data);
-			_id = assignID(this);
-		},
 
 		get fullName() {
 			return `${this.firstName} ${this.lastName}`;
 		},
-
     get age() {
       if(!this.birthdate) return null;
       return moment().diff(this.birthdate, "years");
-    },
-
-		get id() {
-			return _id;
-		}
+    }
 	});
 
 	eval(this.exports);

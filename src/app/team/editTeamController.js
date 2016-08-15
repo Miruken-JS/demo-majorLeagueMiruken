@@ -12,7 +12,12 @@ new function() {
     $properties:{
       title:      "Edit Team",
       buttonText: "Save",
-      team:       { map: Team }
+      team:       {
+        validate: {
+          presence: true,
+          nested:   true
+        }
+      }
     },
 
     $inject: [Team],
@@ -21,8 +26,9 @@ new function() {
     },
 
     save() {
-      TeamFeature(this.context).updateTeam(this.team).then(() => {
-          TeamFeature(this.context).showTeams();
+      var ctx = this.controllerContext;
+      return TeamFeature(ctx).updateTeam(this.team).then(() => {
+        return TeamFeature(ctx).showTeams();
       });
     }
   });

@@ -8,7 +8,7 @@ new function(){
 
 	eval(this.imports);
 
-	const Player = Person.extend({
+	const Player = Person.extend(Identifiable, {
 		$properties: {
 			birthdate: { 
 				map:      toMoment,
@@ -23,8 +23,7 @@ new function(){
           }
         }
 			}
-		},
-
+		}
 	});
 
 	eval(this.exports);

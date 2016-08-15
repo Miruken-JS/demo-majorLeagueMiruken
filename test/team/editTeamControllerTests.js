@@ -7,39 +7,32 @@ describe("editTeamController", () => {
 	eval(mlm.team.namespace);
 	eval(mlm.namespace);
 
-	let context;
-	let controller;
 
-	beforeEach(() => {
-		context = new Context;
-		context.addHandlers(new ValidationCallbackHandler(), new ValidateJsCallbackHandler());
-		controller = new EditTeamController();
-		controller.context = context;
-	});
+  let context    = new Context();
+  context.addHandlers(new ValidationCallbackHandler(), new ValidateJsCallbackHandler());
+  let team       = new Team({manager: {firstName: "firstName"}});
+  let controller = new EditTeamController(team);
+  controller.context = context;
 
-	describe("something", () => {
+  it("does not change the actual team object detail past in", () => {
+    controller.team.manager.firstName = "foo";
+    team.manager.firstName.should.equal("firstName");
+  });
 
-    let team;
+  describe("validation", () => {
 
-    beforeEach(done => {
-      team = new Team({manager: {firstName: "firstName"}});
-      const Handler = CallbackHandler.extend(MasterDetail, {
-        getSelectedDetail(type){
-          if(type === Team)
-            return Promise.resolve(team);
-        }
-      });
-      context.addHandlers(new Handler());
-      controller.initialize().then(() => {
+    controller.team.manager.firstName = null;
+
+    it("is nested", () => {
+      let result = controller.validate();
+      result.valid.should.be.false;
+    });
+
+    it("validates before saving", done => {
+      controller.save().catch(() => {
         done();
       });
     });
+  });
 
-    it("does not edit the team detail from MasterDetail", () => {
-      controller.team.manager.firstName = "foo";
-
-      team.manager.firstName.should.equal("firstName");
-    });
-
-	});
 });

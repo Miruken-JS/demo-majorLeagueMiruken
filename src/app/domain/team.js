@@ -8,8 +8,7 @@ new function(){
 
 	eval(this.imports);
 
-	let _id;
-	const Team = Model.extend({
+	const Team = Model.extend(Identifiable, {
 		$properties: {
 			name:    { validate: $required },
 			coach:   {
@@ -27,16 +26,7 @@ new function(){
         }
       },
 			roster:  { map: Player }
-		},
-		constructor(data){
-			this.base(data);
-			_id = assignID(this);
-		},
-
-		get id(){
-			return _id;
 		}
-		
 	});
 
 	eval(this.exports);
