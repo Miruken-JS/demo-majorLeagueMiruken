@@ -22,10 +22,10 @@ new function() {
   });
 
   const SetupRunner = Runner.extend({
-    $inject: ["$appContext", "$envContext", "$q", "$state"],
-    constructor(appContext, envContext, q, state){
+    $inject: ["$appContext", "$envContext", "$state"],
+    constructor(appContext, envContext, state){
       appContext.addHandlers(new TeamHandler(state));
-      envContext.addHandlers(new TeamHandlerMock(q));
+      envContext.addHandlers(new TeamHandlerMock());
     }
   });
 

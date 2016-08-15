@@ -8,9 +8,9 @@ new function(){
 
 	eval(this.imports);
 
-	let _stateProvider;
+	let _stateProvider, _selectedTeam;
 
-	const TeamHandler = CallbackHandler.extend(TeamFeature, {
+	const TeamHandler = CallbackHandler.extend(TeamFeature, MasterDetail, {
 		constructor(stateProvider) {
 			_stateProvider = stateProvider;
 		},
@@ -35,7 +35,19 @@ new function(){
         controller:   CreateTeamController,
         controllerAs: "vm"
       });
-		}
+		},
+
+    getSelectedDetail(type) {
+      return type === Team && _selectedTeam
+        ? Promise.resolve(_selectedTeam)
+        : $NOT_HANDLED;
+    },
+
+    selectDetail(detail) {
+      return detail instanceof Team
+        ? _selectedTeam = detail
+        : $NOT_HANDLED;
+    }
 	});
 
 	eval(this.exports);

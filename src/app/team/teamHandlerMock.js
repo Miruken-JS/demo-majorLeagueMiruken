@@ -12,7 +12,11 @@ new function(){
 		new Team({
       name:    "Dallas",
       coach:   { firstName: "David", lastName: "O'Hara" },
-      manager: { firstName: "Ric",   lastName: "DeAnda" }}),
+      manager: { firstName: "Ric",   lastName: "DeAnda" },
+      roster: [
+        { firstName: "Michael", lastName: "Dudley",  number: 7,  birthDate: "08/28/1977" },
+        { firstName: "Craig",   lastName: "Neuwirt", number: 22, birthDate: "07/19/1970" }
+      ]}),
 		new Team({
       name:    "College Station",
       coach:   { firstName: "Ed",   lastName: "Grannan" },
@@ -30,18 +34,13 @@ new function(){
       coach:   { firstName: "Barb",  lastName: "Gurstelle" },
       manager: { firstName:"Leroy" , lastName: "Thydean" }})];
 
-	let $q;
-
 	const TeamHandlerMock = CallbackHandler.extend(TeamFeature, {
-		constructor(q) {
-			$q = q;
-		},
 		getTeams(){
-			return $q.resolve(teams);
+			return Promise.resolve(teams);
 		},
     createTeam(team){
       teams.push(team);
-      return $q.resolve();
+      return Promise.resolve();
     },
     deleteTeam(team){},
     updateTeam(team){}

@@ -9,13 +9,13 @@
               .row
                 .col-sm-6
                   h3.sectionTitle Team Name
-                  p.teamName Accountants
+                  p.teamName {{vm.team.name}}
                 .col-sm-6
                   h3.sectionTitle Team Manager
-                  p.teamManager Mi C. Quill
+                  p.teamManager {{vm.team.manager.fullName}}
                 .col-sm-6
                   h3.sectionTitle Team Coach
-                  p.teamCoach John Doe
+                  p.teamCoach {{vm.team.coach.fullName}}
           .col-sm-7
             .wrapSmall
               h3.sectionTitle Roster
@@ -26,49 +26,8 @@
                     th Number
                     th Birth Date
                 tbody
-                  tr
+                  tr(ng-repeat="player in vm.team.roster | orderBy:'number'")
                     td
-                      strong Purdie Dorsey
-                    td 15
-                    td May 8, 1984
-                  tr
-                    td
-                      strong Harmon Yoxall
-                    td 33
-                    td November 26, 1985
-                  tr
-                    td
-                      strong Ken Trengove
-                    td 50
-                    td August 15, 1979
-                  tr
-                    td
-                      strong Jordan Key
-                    td 12
-                    td May 31, 1998
-                  tr
-                    td
-                      strong Malik Hart
-                    td 34
-                    td November 14, 1995
-                  tr
-                    td
-                      strong Fulbert Stainthorpe
-                    td 43
-                    td March 18, 1990
-                  tr
-                    td
-                      strong Duncan Studwick
-                    td 88
-                    td October 30, 1987, 1988
-                  tr
-                    td
-                      strong Sid Reyer
-                    td  9
-                    td January 19, 1987
-                  tr
-                    td
-                      strong Wheathauler Caulfield
-                    td 3
-
-                    td December 2, 1993
+                      strong {{player.fullName}}
+                    td {{player.number}}
+                    td {{player.birthdate.format("L")}}
