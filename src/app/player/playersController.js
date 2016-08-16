@@ -10,10 +10,20 @@ new function() {
 
   const PlayersController = Controller.extend({
     $properties: {
-      players: {map: Player}
+      players:   [] 
     },
     initialize() {
-      PlayerFeature(this.controllerContext).players().then(players => this.players = players);
+      this.base();
+      return PlayerFeature(this.context).players()
+        .then(players => this.players = players);
+    },
+
+    goToPlayer(player) {
+      PlayerFeature(this.context).showPlayer(player);
+    },
+
+    create() {
+      PlayerFeature(this.context).showCreatePlayer();
     }
   });
 

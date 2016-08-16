@@ -24,9 +24,6 @@ new function() {
     save() {
       return TeamFeature(this.controllerContext)
         .createTeam(this.team).then(() => TeamFeature(this.context).showTeams());
-    },
-
-    addPlayer() {
     }
 
   });
@@ -34,3 +31,4 @@ new function() {
   eval(this.exports);
 
 };
+

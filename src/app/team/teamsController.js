@@ -15,7 +15,7 @@ new function() {
 
     initialize() {
       this.base();
-      return TeamFeature(this.context).getTeams()
+      return TeamFeature(this.context).teams()
         .then(teams => this.teams = teams );
     },
 

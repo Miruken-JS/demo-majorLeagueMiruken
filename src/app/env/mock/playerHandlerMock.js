@@ -2,7 +2,7 @@ new function(){
 
 	mlm.package(this,{
 		name:    "mock",
-		imports: "mlm,mlm.player,miruken.callback",
+		imports: "miruken.callback,mlm,mlm.player",
 		exports: "PlayerHandlerMock"
 	});
 

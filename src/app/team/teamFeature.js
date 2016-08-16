@@ -11,7 +11,7 @@ new function() {
         createTeam(team)   {},
         deleteTeam(team)   {},
         editTeam(team)     {},
-        getTeams()         {},
+        teams()            {},
         showTeams()        {},
         showCreateTeam()   {},
         showEditTeam(team) {},

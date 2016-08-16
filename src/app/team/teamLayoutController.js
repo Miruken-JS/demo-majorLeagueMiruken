@@ -9,10 +9,12 @@ new function() {
   eval(this.imports);
 
   const TeamLayoutController = Controller.extend({
-    viewRegionCreated: function (region) {
+    viewRegionCreated: function(region) {
       return TeamFeature(region.context).showTeams();
     }
   });
 
   eval(this.exports);
+
 };
+

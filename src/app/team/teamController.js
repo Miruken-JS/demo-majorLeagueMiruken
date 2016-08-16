@@ -2,7 +2,7 @@ new function() {
 
   mlm.package(this, {
     name:    "team",
-    imports: "mlm,miruken.mvc",
+    imports: "miruken.mvc,mlm",
     exports: "TeamController"
   });
 
@@ -26,3 +26,4 @@ new function() {
   eval(this.exports);
 
 };
+

@@ -45,7 +45,7 @@ new function(){
       manager: { firstName:"Leroy" , lastName: "Thydean" }})];
 
 	const TeamHandlerMock = CallbackHandler.extend(TeamFeature, {
-		getTeams() {
+		teams() {
 			return Promise.resolve(teams);
 		},
     createTeam(team) {
