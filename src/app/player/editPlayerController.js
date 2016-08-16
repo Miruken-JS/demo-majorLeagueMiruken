@@ -27,8 +27,8 @@ new function() {
 
     save() {
       var ctx = this.controllerContext;
-      return PlayerFeature(ctx).updatePlayer(this.team).then(() => {
-        return PlayerFeature(ctx).showPlayers(); 
+      return PlayerFeature(ctx).updatePlayer(this.player).then(player => {
+        return PlayerFeature(ctx).showPlayers(player);
       });
     }
   });

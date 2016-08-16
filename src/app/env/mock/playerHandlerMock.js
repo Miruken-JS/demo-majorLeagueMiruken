@@ -8,11 +8,16 @@ new function(){
 
 	eval(this.imports);
 
+  let _id = 0;
+  function nextId() {
+    return _id = ++_id;
+  }
+
 	const players = [
-		new Player({firstName: "Cori",    lastName: "Drew", number: 2 }),
-		new Player({firstName: "Craig",   lastName: "Neuwirt", birthdate: "07/19/1970", number: 22 }),
-		new Player({firstName: "Michael", lastName: "Dudley",  birthdate: "08/28/1977", number: 7 }),
-		new Player({firstName: "Kevin",   lastName: "Baker",   birthdate: "02/02/1980", number: 3 })
+		new Player({id: nextId(), firstName: "Cori",    lastName: "Drew", number: 2 }),
+		new Player({id: nextId(), firstName: "Craig",   lastName: "Neuwirt", birthdate: "07/19/1970", number: 22 }),
+		new Player({id: nextId(), firstName: "Michael", lastName: "Dudley",  birthdate: "08/28/1977", number: 7 }),
+		new Player({id: nextId(), firstName: "Kevin",   lastName: "Baker",   birthdate: "02/02/1980", number: 3 })
 	];
 
 	const PlayerHandlerMock = CallbackHandler.extend(PlayerFeature, {
@@ -20,6 +25,7 @@ new function(){
 			return Promise.resolve(players);
 		},
     createPlayer(player) {
+      player.id = nextId();
       players.push(player);
       return Promise.resolve();
     },
@@ -27,7 +33,11 @@ new function(){
 
     },
     updatePlayer(player) {
-
+      let existing = players.find(item => item.id === player.id);
+      if (existing) {
+        let result = existing.fromData(player);
+      }
+      return Promise.resolve(existing);
     }
 	});
 
