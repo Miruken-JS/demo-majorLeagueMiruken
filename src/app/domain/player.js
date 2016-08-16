@@ -8,8 +8,9 @@ new function(){
 
 	eval(this.imports);
 
-	const Player = Person.extend(Identifiable, {
+	const Player = Person.extend({
 		$properties: {
+      id:        null,
 			birthdate: { 
 				map:      toMoment,
 				validate: $required

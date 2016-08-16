@@ -8,8 +8,9 @@ new function(){
 
 	eval(this.imports);
 
-	const Person = Model.extend(Identifiable, {
+	const Person = Model.extend({
 		$properties: {
+      id:        null,
 			firstName: { validate: $required },
 			lastName:  { validate: $required },
 			birthdate: {

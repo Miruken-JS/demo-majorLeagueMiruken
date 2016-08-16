@@ -8,8 +8,9 @@ new function(){
 
 	eval(this.imports);
 
-	const Team = Model.extend(Identifiable, {
+	const Team = Model.extend({
 		$properties: {
+      id:      null,
 			name:    { validate: $required },
 			coach:   {
         map: Person,
