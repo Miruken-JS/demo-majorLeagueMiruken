@@ -13,8 +13,8 @@
                 h3.sectionTitle Player Name
                 p.playerName  {{vm.player.fullName}}
                 h3.sectionTitle Player Number
-                p.playerNumber #33
+                p.playerNumber &#x23{{vm.player.number}}
                 h3.SectionTitle Players Date of Birth
-                p.playerBirth March 9, 1999
+                p.playerBirth {{vm.player.birthdate.format("L")}}
       .col-sm-12
-        button.pull-right(class="btn btn-success") Edit Player
+        button.pull-right.btn.btn-success(ng-click="vm.edit()") Edit Player
