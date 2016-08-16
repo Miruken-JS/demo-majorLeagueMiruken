@@ -14,8 +14,10 @@ const paths   = {
     appRoot + "app/team/createTeamController.js",
     appRoot + "app/team/editTeamController.js",
     appRoot + "app/team/teamHandler.js",
-    appRoot + "app/team/teamHandlerMock.js",
-    appRoot + "app/team/setup.js",
+    appRoot + "app/player/**/*.js",
+    appRoot + "app/env/mock/teamHandlerMock.js",
+    appRoot + "app/env/mock/playerHandlerMock.js",
+    appRoot + "app/env/mock/setup.js",
     appRoot + "**/*.js"
   ],
   html       : appRoot + "**/*.pug",

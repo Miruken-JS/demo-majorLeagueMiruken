@@ -1,8 +1,8 @@
 new function(){
 
 	mlm.package(this,{
-		name:    "player",
-		imports: "mlm,miruken.callback",
+		name:    "mock",
+		imports: "mlm,mlm.player,miruken.callback",
 		exports: "PlayerHandlerMock"
 	});
 

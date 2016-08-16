@@ -1,8 +1,8 @@
 new function(){
 
 	mlm.package(this, {
-		name:    "team",
-		imports: "mlm,miruken.callback",
+		name:    "mock",
+		imports: "mlm,mlm.team,miruken.callback",
 		exports: "TeamHandlerMock"
 	});
 

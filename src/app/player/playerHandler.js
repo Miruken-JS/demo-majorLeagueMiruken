@@ -8,18 +8,11 @@ new function(){
 
 	eval(this.imports);
 
-	let _stateProvider;
-
 	const PlayerHandler = CallbackHandler.extend(PlayerFeature, {
-		constructor(stateProvider) {
-			_stateProvider = stateProvider;
-		},
-
     showPlayers() {
 			_stateProvider.go("allPlayers");
 		},
-
-		showCreatePlayer() {
+		showCreatePlayer(player) {
 			_stateProvider.go("createPlayer");
 		}
 	});

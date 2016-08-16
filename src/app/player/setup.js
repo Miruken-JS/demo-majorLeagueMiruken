@@ -40,10 +40,9 @@ new function() {
   });
 
   const SetupRunner = Runner.extend({
-    $inject: ["$appContext", "$envContext", "$state"],
-    constructor(appContext, envContext, state){
-      appContext.addHandlers(new PlayerHandler(state));
-      envContext.addHandlers(new PlayerHandlerMock());
+    $inject: ["$appContext"],
+    constructor(appContext){
+      appContext.addHandlers(new PlayerHandler());
     }
   });
 
