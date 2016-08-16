@@ -33,6 +33,8 @@
                         div.error(ng-messages='vm.$validation.player.number.errors')
                           div.small(ng-message='presence')
                             |  Player's number is required
+                          div.small(ng-message='numericality')
+                            |  Must be a number greater than 0
                     .row
                       .col-sm-12
                         label
