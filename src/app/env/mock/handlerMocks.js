@@ -18,11 +18,7 @@ new function(){
       id:      nextId(),
       name:    "Dallas",
       coach:   { firstName: "David", lastName: "O'Hara" },
-      manager: { firstName: "Ric",   lastName: "DeAnda" },
-      roster: [
-        { firstName: "Michael", lastName: "Dudley",  number: 7,  birthDate: "08/28/1977" },
-        { firstName: "Craig",   lastName: "Neuwirt", number: 22, birthDate: "07/19/1970" }
-      ]}),
+      manager: { firstName: "Ric",   lastName: "DeAnda" }}),
 		new Team({
       id:      nextId(),
       name:    "College Station",
@@ -38,6 +34,11 @@ new function(){
       name:    "Columbus",
       coach:   { firstName: "Mark",    lastName: "Kovacevich" },
       manager: { firstName: "Jacquie", lastName: "Bickel" }}),
+		new Team({
+      id:      nextId(),
+      name:    "Calgary",
+      coach:   { firstName: "Wendy", lastName: "Brown" },
+      manager: { firstName: "Brian", lastName: "Donaldson" }}),
     new Team({
       id:      nextId(),
       name:    "Minneapolis",
@@ -46,10 +47,27 @@ new function(){
 
 	const players = [
 		new Player({ id: nextId(), teamId: 1, firstName: "Cori",    lastName: "Drew", number: 2 }),
-		new Player({ id: nextId(), teamId: 1, firstName: "Craig",   lastName: "Neuwirt", birthdate: "07/19/1970", number: 22 }),
-		new Player({ id: nextId(), teamId: 1, firstName: "Michael", lastName: "Dudley",  birthdate: "08/28/1977", number: 7 }),
-		new Player({ id: nextId(), teamId: 1, firstName: "Kevin",   lastName: "Baker",   birthdate: "02/02/1980", number: 3 })
+		new Player({ id: nextId(), teamId: 1, firstName: "Craig",   lastName: "Neuwirt",   birthdate: "07/19/1970", number: 22 }),
+		new Player({ id: nextId(), teamId: 1, firstName: "Michael", lastName: "Dudley",    birthdate: "08/28/1977", number: 7 }),
+		new Player({ id: nextId(), teamId: 1, firstName: "Kevin",   lastName: "Baker",     birthdate: "02/02/1980", number: 3 }),
+		new Player({ id: nextId(), teamId: 5, firstName: "Glen",    lastName: "Donaldson", birthdate: "01/01/1976", number: 11 })
 	];
+
+  Player.implement({
+    get team() {
+      return teams.find(team => {
+        return this.teamId === team.id;
+      });
+    }
+  });
+
+  Team.implement({
+    get roster() {
+      return players.filter(player => {
+        return this.id === player.teamId;
+      });
+    }
+  });
 
 	const TeamHandlerMock = CallbackHandler.extend(TeamFeature, {
 		teams() {

@@ -24,10 +24,10 @@ new function(){
           }
         }
 			},
-      teamId:    null,
-      team:      null,
-		}
-	});
+      teamId: null,
+      team:   { ignore: true }
+    }
+  });
 
 	eval(this.exports);
 

@@ -58,11 +58,11 @@
                     th Number
                     th Birth Date
                 tbody
-                  tr
+                  tr(ng-repeat="player in vm.team.roster | orderBy:'number'")
                     td
-                      strong Purdie Dorsey
-                    td 15
-                    td May 8, 1984
+                      strong {{player.fullName}}
+                    td {{player.number}}
+                    td {{player.birthdate.format("L")}}
               button.pull-right(class="btn btn-default btn-xs") + add player
       .row
         .col-sm-12
