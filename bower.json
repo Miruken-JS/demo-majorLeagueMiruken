@@ -19,6 +19,10 @@
     "bootstrap-sass": "~3.3.7",
     "jquery": "~2.1.4",
     "miruken-angular": "~0.0.87",
-    "moment": "^2.14.1"
+    "moment": "^2.14.1",
+    "angular-messages": "1.4.7"
+  },
+  "resolutions": {
+    "angular-messages": "1.4.7"
   }
 }

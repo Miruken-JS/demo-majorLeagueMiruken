@@ -17,7 +17,7 @@ gulp.task("serve", ["build"], () => {
             }
         }
     });
-    
+
     watch([
         paths.built + "**/*.html",
         paths.built + "**/*.js",
@@ -25,8 +25,8 @@ gulp.task("serve", ["build"], () => {
         paths.built + "images/**/*"
     ], batch((events, done) => {
         reload();
-        done();     
+        done();
     }));
-    
+
 });
-    
+

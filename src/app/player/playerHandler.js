@@ -2,25 +2,40 @@ new function(){
 
 	mlm.package(this,{
 		name:    "player",
-		imports: "mlm,miruken.callback",
+		imports: "miruken.callback,miruken.mvc,mlm,mlm.player",
 		exports: "PlayerHandler"
 	});
 
 	eval(this.imports);
 
-	let _stateProvider;
-
 	const PlayerHandler = CallbackHandler.extend(PlayerFeature, {
-		constructor(stateProvider) {
-			_stateProvider = stateProvider;
+		showPlayers() {
+      ViewRegion($composer).present({
+          templateUrl:  "app/player/players.html",
+          controller:   PlayersController,
+          controllerAs: "vm"
+      });
 		},
-
-		showAllPlayers() {
-			_stateProvider.go("allPlayers");
+		showPlayer(player) {
+      ViewRegion($composer.$$provide([Player, player])).present({
+          templateUrl:  "app/player/player.html",
+          controller:   PlayerController,
+          controllerAs: "vm"
+      });
 		},
-
 		showCreatePlayer() {
-			_stateProvider.go("createPlayer");
+      ViewRegion($composer).present({
+        templateUrl:  "app/player/createEditPlayer.html",
+        controller:   CreatePlayerController,
+        controllerAs: "vm"
+      });
+		},
+		showEditPlayer(player) {
+      ViewRegion($composer.$$provide([Player, player])).present({
+        templateUrl:  "app/player/createEditPlayer.html",
+        controller:   EditPlayerController,
+        controllerAs: "vm"
+      });
 		}
 	});
 

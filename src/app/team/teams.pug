@@ -8,7 +8,7 @@
   .col-sm-10.col-sm-offset-1
     .container-fluid
       .row
-        .col-sm-4(ng-repeat="team in vm.teams")
+        .col-sm-4(ng-repeat="team in vm.teams | orderBy:'name'" ng-click="vm.goToTeam(team)")
           .wrapSmall
             .row
               .col-sm-5
@@ -17,9 +17,9 @@
               .col-sm-7
                 h3.teamName {{team.name}}
                 h3.sectionTitle Team Manager
-                p.managerName Placeholder Name
+                p.managerName {{team.manager.fullName}}
                 h3.sectionTitle Team Coach
-                p.coachName Placeholder Name
+                p.coachName {{team.coach.fullName}}
     .row
       .col-sm-12
-        button.pull-right(class="btn", ng-click="vm.create()") Create a Team
+        button.pull-right.btn.btn-success(ng-click="vm.create()") Create a Team

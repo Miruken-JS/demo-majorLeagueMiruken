@@ -15,18 +15,15 @@ new function() {
       team:       { validate: $nested }
     },
     constructor() {
-      this.team = new Team();
+      this.team = new Team({
+        coach:   {},
+        manager: {}
+      });
     },
 
     save() {
-      return TeamFeature(this.context.$validAsync(this))
-        .createTeam(this.team).then(() => {
-            TeamFeature(this.context).showTeams();
-        });
-    },
-
-    addPlayer() {
-
+      return TeamFeature(this.controllerContext)
+        .createTeam(this.team).then(() => TeamFeature(this.context).showTeams());
     }
 
   });
@@ -34,3 +31,4 @@ new function() {
   eval(this.exports);
 
 };
+

@@ -6,7 +6,7 @@ const pug     = require("gulp-pug");
 
 gulp.task("inject", () => {
     const target  = gulp.src(paths.index);
-    const sources = gulp.src([...paths.source, paths.style], {read: false});
+    const sources = gulp.src([...paths.source], {read: false});
 
     return target.pipe(inject(sources, {
             ignorePath  : paths.root,

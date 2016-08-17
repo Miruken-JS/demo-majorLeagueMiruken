@@ -19,6 +19,8 @@ gulp.task("watch", () => {
     watchImages();
 });
 
+const base = { base: "./src" };
+
 function watchForAddedAndRemovedJavascript(){
     const sources = [...paths.source, paths.html]; 
     gulp.src(sources)
@@ -38,7 +40,8 @@ function watchForAddedAndRemovedJavascript(){
 
 function watchIndex(){
     gulp.start('inject');
-    return watch(paths.index, batch((events, done) => {
+    const sources = [paths.index, "build/paths.js"];
+    return watch(sources, batch((events, done) => {
         gulp.start('inject', done);
     }));
 }
@@ -51,8 +54,8 @@ function watchLint(){
 
 function watchJavascript(){
 
-    return gulp.src(paths.source)
-        .pipe(watch(paths.source))
+    return gulp.src(paths.source, base)
+        .pipe(watch(paths.source, base))
         .pipe(plumber())
         .pipe(babel())
         .pipe(gulp.dest(paths.built));

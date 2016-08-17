@@ -15,14 +15,17 @@ new function() {
 
     initialize() {
       this.base();
-      TeamFeature(this.context).getTeams().then(teams => {
-         this.teams = teams;
-      });      
+      return TeamFeature(this.context).teams()
+        .then(teams => this.teams = teams );
+    },
+
+    goToTeam(team) {
+      TeamFeature(this.context).showTeam(team);
     },
 
     create() {
       TeamFeature(this.context).showCreateTeam();
-    },
+    }
 
   });
 

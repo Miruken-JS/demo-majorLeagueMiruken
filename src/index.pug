@@ -5,33 +5,9 @@ head
     link(rel="stylesheet", type="text/css", href="styles/style.css")
 
 body
-    nav(class="navbar navbar-inverse navbar-fixed-top")
-        div(class="container-fluid")
-            div(class="navbar-header")
-                a(class="navbar-brand", href="#/") Major League Miruken
-
-            div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
-                ul(class="nav navbar-nav")
-                    li
-                        a(href="#/")            Teams
-                    li
-                        a(href="#/team")        Team
-                    li
-                        a(href="#/createTeam")  CreateTeam
-                    li
-                        a(href="#/editTeam")    EditTeam
-                    li
-                        a(href="#players")      Players
-                    li
-                        a(href="#player")       Player
-                    li
-                        a(href="#createPlayer") CreatePlayer
-                    li
-                        a(href="#editPlayer")   EditPlayer
-
+    div(ng-include="'app/header/header.html'")
 
     div(class="container-fluid", ui-view="")
-
 
     script(src="../node_modules/babel-polyfill/dist/polyfill.js")
 

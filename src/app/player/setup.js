@@ -2,8 +2,8 @@ new function() {
 
   mlm.package(this, {
     name:    "player",
-    imports: "miruken.ioc",
-    exports: "SetupInstaller"
+    imports: "miruken.ng,miruken.ioc",
+    exports: "SetupInstaller,SetupRunner"
   });
 
   eval(this.imports);
@@ -12,33 +12,23 @@ new function() {
     $inject: ["$stateProvider"],
     constructor($stateProvider) {
       $stateProvider
-         .state("allPlayers", {
+         .state("players", {
             url:          "/players",
-            templateUrl:  "app/player/players.html",
-            controller:   "PlayersController",
-            controllerAs: "vm"
-        })
-        .state("player", {
-            url:          "/player",
-            templateUrl:  "app/player/player.html",
-            controller:   "PlayerController",
-            controllerAs: "vm"
-        })
-        .state("createPlayer", {
-            url:          "/createPlayer",
-            templateUrl:  "app/player/createEditPlayer.html",
-            controller:   "CreatePlayerController",
-            controllerAs: "vm"
-        })
-        .state("editPlayer", {
-            url:          "/editPlayer",
-            templateUrl:  "app/player/createEditPlayer.html",
-            controller:   "EditPlayerController",
+            templateUrl:  "app/layout.html",
+            controller:   "PlayerLayoutController",
             controllerAs: "vm"
         });
+    }
+  });
+
+  const SetupRunner = Runner.extend({
+    $inject: ["$appContext"],
+    constructor(appContext){
+      appContext.addHandlers(new PlayerHandler());
     }
   });
 
   eval(this.exports);
 
 };
+

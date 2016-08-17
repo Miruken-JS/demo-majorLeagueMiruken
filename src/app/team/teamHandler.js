@@ -2,25 +2,40 @@ new function(){
 
 	mlm.package(this,{
 		name:    "team",
-		imports: "mlm,miruken.callback",
+		imports: "miruken.callback,miruken.mvc,mlm,mlm.team",
 		exports: "TeamHandler"
 	});
 
 	eval(this.imports);
 
-	let _stateProvider;
-
 	const TeamHandler = CallbackHandler.extend(TeamFeature, {
-		constructor(stateProvider) {
-			_stateProvider = stateProvider;
-		},
-
 		showTeams() {
-			_stateProvider.go("teams");
+      ViewRegion($composer).present({
+          templateUrl:  "app/team/teams.html",
+          controller:   TeamsController,
+          controllerAs: "vm"
+      });
 		},
-
+		showTeam(team) {
+      ViewRegion($composer.$$provide([Team, team])).present({
+          templateUrl:  "app/team/team.html",
+          controller:   TeamController,
+          controllerAs: "vm"
+      });
+		},
 		showCreateTeam() {
-			_stateProvider.go("createTeam");
+      ViewRegion($composer).present({
+        templateUrl:  "app/team/createEditTeam.html",
+        controller:   CreateTeamController,
+        controllerAs: "vm"
+      });
+		},
+		showEditTeam(team) {
+      ViewRegion($composer.$$provide([Team, team])).present({
+        templateUrl:  "app/team/createEditTeam.html",
+        controller:   EditTeamController,
+        controllerAs: "vm"
+      });
 		}
 	});
 

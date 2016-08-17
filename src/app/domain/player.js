@@ -8,27 +8,22 @@ new function(){
 
 	eval(this.imports);
 
-	const Player = Model.extend({
+	const Player = Person.extend({
 		$properties: {
-			firstName: { validate: $required },
-			lastName:  { validate: $required },
+      id:        null,
 			birthdate: { 
-				map:      toMoment, 
-				validate: $required 
+				map:      toMoment,
+				validate: $required
 			},
 			number: { 
 				validate: {
 					presence: true,
 					numericality: {
-	                    onlyInteger: true,
-	                    greaterThanOrEqualTo: 0
-	                }
-                } 
+              onlyInteger: true,
+              greaterThanOrEqualTo: 0
+          }
+        }
 			}
-		},
-
-		get fullName(){
-			return `${this.firstName} ${this.lastName}`;
 		}
 	});
 

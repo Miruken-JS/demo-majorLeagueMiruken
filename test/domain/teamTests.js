@@ -7,10 +7,16 @@ describe("team", () => {
 	let team;
 
 	beforeEach(() => {
-		team = new Team({
+		team = new Team().fromData({
 			name:    "Improving",
-			coach:   "Neuwirt",
-			manager: "O'Hara"
+      coach: {
+        firstName: "David",
+        lastName:  "O'Hara"
+      },
+      manager: {
+        firstName: "Ric",
+        lastName:  "DeAnda"
+      }
 		});
 	});
 
@@ -22,7 +28,7 @@ describe("team", () => {
 		var context;
 	    beforeEach(function() {
 	        context = new Context;
-	        context.addHandlers(new ValidationCallbackHandler, new ValidateJsCallbackHandler);
+	        context.addHandlers(new ValidationCallbackHandler(), new ValidateJsCallbackHandler());
 	    });
 
 	    it("team is valid", () => {
@@ -37,6 +43,12 @@ describe("team", () => {
 	    it("requires coach", () => {
 	    	team.coach = null;
 	    	Validator(context).validate(team).valid.should.be.false;
+	    });
+
+	    it("requires valid coach", () => {
+	    	team.coach.firstName = null;
+	    	let result = Validator(context).validate(team);
+        result.valid.should.be.false;
 	    });
 
 	    it("requires manager", () => {

@@ -15,15 +15,26 @@
                           .teamName Player Name
                     .row
                       .col-sm-12
-                        input(type="text" placeholder="First Name")
-                        input(type="text"  placeholder="Last Name")
+                        input(type="text" placeholder="First Name" ng-model="vm.player.firstName")
+                        div.error(ng-messages='vm.$validation.player.firstName.errors')
+                          div.small(ng-message='presence')
+                            |  Player's first name required
+                        input(type="text"  placeholder="Last Name" ng-model="vm.player.lastName")
+                        div.error(ng-messages='vm.$validation.player.lastName.errors')
+                          div.small(ng-message='presence')
+                            |  Player's last name required
                     .row
                       .col-sm-12
                         label
                           .teamManager Assign a Number
                     .row
                       .col-sm-12
-                        input(type="text"  placeholder="Enter a Number")
+                        input(type="text"  placeholder="Enter a Number" ng-model="vm.player.number")
+                        div.error(ng-messages='vm.$validation.player.number.errors')
+                          div.small(ng-message='presence')
+                            |  Player's number is required
+                          div.small(ng-message='numericality')
+                            |  Must be a number greater than 0
                     .row
                       .col-sm-12
                         label
@@ -31,10 +42,14 @@
                       .col-sm-12
                         a(href="")
                           span(class="glyphicon glyphicon-calendar")
+                        input(type="text"  placeholder="MM/DD/YYYY" ng-model="vm.player.birthdate")
+                        div.error(ng-messages='vm.$validation.player.birthdate.errors')
+                          div.small(ng-message='presence')
+                            |  Player's birthdate is required
 
             .col-sm-6
               .row
                 .col-sm-12
                   .playerProfile
             .col-sm-12
-              button.pull-right(class="btn btn-success") Create Player
+              button.pull-right.btn.btn-success(ng-click="vm.save()") {{vm.buttonText}}

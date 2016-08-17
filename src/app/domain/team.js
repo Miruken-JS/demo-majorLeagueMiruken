@@ -8,27 +8,25 @@ new function(){
 
 	eval(this.imports);
 
-	let _id;
 	const Team = Model.extend({
 		$properties: {
+      id:      null,
 			name:    { validate: $required },
-			coach:   { validate: $required },
-			manager: { validate: $required },
-			roster:  { map:      Player }
-		},
-		constructor(data){
-			this.base(data);
-			_id = assignID(this);
-		},
-
-		get id(){
-			return _id;
-		},
-		
-		$validateThat: {
-			teamHasEnoughPlayersToPlay: function(){
-				
-			}
+			coach:   {
+        map: Person,
+        validate: {
+          presence: true,
+          nested:   true
+        }
+      },
+			manager: {
+        map: Person,
+        validate: {
+          presence: true,
+          nested:   true
+        }
+      },
+			roster:  { map: Player }
 		}
 	});
 

@@ -12,19 +12,25 @@ new function() {
     $properties:{
       title:      "Edit Team",
       buttonText: "Save",
-      team:       { map: Team }
+      team:       {
+        validate: {
+          presence: true,
+          nested:   true
+        }
+      }
+    },
+
+    $inject: [Team],
+    constructor(team){
+      this.team = new Team(team.toData());
     },
 
     save() {
-      TeamFeature(this.context).createTeam(this.team).then(() => {
-          TeamFeature(this.context).showTeams();
+      var ctx = this.controllerContext;
+      return TeamFeature(ctx).updateTeam(this.team).then(() => {
+        return TeamFeature(ctx).showTeams();
       });
-    },
-
-    addPlayer() {
-      
     }
-
   });
 
   eval(this.exports);
