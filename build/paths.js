@@ -21,8 +21,7 @@ const paths   = {
     appRoot + "app/player/editPlayerController.js",
     appRoot + "app/player/playerHandler.js",
     appRoot + "app/player/**/*.js",
-    appRoot + "app/env/mock/teamHandlerMock.js",
-    appRoot + "app/env/mock/playerHandlerMock.js",
+    appRoot + "app/env/mock/handlerMocks.js",
     appRoot + "app/env/mock/setup.js",
     appRoot + "**/*.js"
   ],

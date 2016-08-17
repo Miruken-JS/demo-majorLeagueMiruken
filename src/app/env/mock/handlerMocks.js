@@ -2,8 +2,8 @@ new function(){
 
 	mlm.package(this, {
 		name:    "mock",
-		imports: "mlm,mlm.team,miruken.callback",
-		exports: "TeamHandlerMock"
+		imports: "mlm,mlm.team,mlm.player,miruken.callback",
+		exports: "TeamHandlerMock,PlayerHandlerMock"
 	});
 
 	eval(this.imports);
@@ -44,6 +44,13 @@ new function(){
       coach:   { firstName: "Barb",  lastName: "Gurstelle" },
       manager: { firstName:"Leroy" , lastName: "Thydean" }})];
 
+	const players = [
+		new Player({ id: nextId(), teamId: 1, firstName: "Cori",    lastName: "Drew", number: 2 }),
+		new Player({ id: nextId(), teamId: 1, firstName: "Craig",   lastName: "Neuwirt", birthdate: "07/19/1970", number: 22 }),
+		new Player({ id: nextId(), teamId: 1, firstName: "Michael", lastName: "Dudley",  birthdate: "08/28/1977", number: 7 }),
+		new Player({ id: nextId(), teamId: 1, firstName: "Kevin",   lastName: "Baker",   birthdate: "02/02/1980", number: 3 })
+	];
+
 	const TeamHandlerMock = CallbackHandler.extend(TeamFeature, {
 		teams() {
 			return Promise.resolve(teams);
@@ -58,6 +65,27 @@ new function(){
       let existing = teams.find(item => item.id === team.id);
       if (existing) {
         let result = existing.fromData(team);
+      }
+      return Promise.resolve(existing);
+    }
+	});
+
+	const PlayerHandlerMock = CallbackHandler.extend(PlayerFeature, {
+		players() {
+			return Promise.resolve(players);
+		},
+    createPlayer(player) {
+      player.id = nextId();
+      players.push(player);
+      return Promise.resolve();
+    },
+    deletePlayer(player) {
+
+    },
+    updatePlayer(player) {
+      let existing = players.find(item => item.id === player.id);
+      if (existing) {
+        let result = existing.fromData(player);
       }
       return Promise.resolve(existing);
     }

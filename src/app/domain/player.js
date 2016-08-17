@@ -23,7 +23,9 @@ new function(){
               greaterThanOrEqualTo: 0
           }
         }
-			}
+			},
+      teamId:    null,
+      team:      null,
 		}
 	});
 
