@@ -2,13 +2,13 @@ new function() {
 
   mlm.package(this, {
     name:    "team",
-    imports: "mlm,miruken.mvc",
+    imports: "miruken.mvc,mlm,mlm.player",
     exports: "EditTeamController"
   });
 
   eval(this.imports);
 
-  const EditTeamController = Controller.extend({
+  const EditTeamController = Controller.extend(MasterDetail, {
     $properties:{
       title:      "Edit Team",
       buttonText: "Save",
@@ -30,6 +30,14 @@ new function() {
       return TeamFeature(ctx).updateTeam(this.team).then(() => {
         return TeamFeature(ctx).showTeams();
       });
+    },
+    addPlayer() {
+      PlayerFeature(this.controllerContext).showChoosePlayer();
+    },
+    getSelectedDetail(type){
+      return type === Team
+        ? Promise.resolve(this.team)
+        : $NOT_HANDLED;
     }
   });
 

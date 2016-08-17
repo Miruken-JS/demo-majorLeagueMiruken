@@ -36,6 +36,25 @@ new function(){
         controller:   EditPlayerController,
         controllerAs: "vm"
       });
+		},
+		showChoosePlayer() {
+      return ViewRegion($composer.modal({
+        title: "Choose Player",
+        buttons: [ 
+          { text: "Ok", css: "btn-sm btn-primary" },
+          "Cancel" ]
+      })).present({
+        templateUrl:  "app/player/choosePlayer.html",
+        controller:   ChoosePlayerController,
+        controllerAs: "vm"
+      }).then(context => {
+        context.modalResult.then(function (result) {
+          if (result && result.button != 'Cancel') {
+            const controller = context.resolve(player.ChoosePlayerController);
+            return controller.Player;
+          }
+        });
+      });
 		}
 	});
 

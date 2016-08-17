@@ -63,7 +63,7 @@
                       strong {{player.fullName}}
                     td {{player.number}}
                     td {{player.birthdate.format("L")}}
-              button.pull-right(class="btn btn-default btn-xs") + add player
+              button.pull-right(class="btn btn-default btn-xs" ng-click="vm.addPlayer()") + add player
       .row
         .col-sm-12
           button.pull-right(class="btn btn-success" ng-click="vm.save()") {{vm.buttonText}}

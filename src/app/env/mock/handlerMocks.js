@@ -50,6 +50,7 @@ new function(){
 		new Player({ id: nextId(), teamId: 1, firstName: "Craig",   lastName: "Neuwirt",   birthdate: "07/19/1970", number: 22 }),
 		new Player({ id: nextId(), teamId: 1, firstName: "Michael", lastName: "Dudley",    birthdate: "08/28/1977", number: 7 }),
 		new Player({ id: nextId(), teamId: 1, firstName: "Kevin",   lastName: "Baker",     birthdate: "02/02/1980", number: 3 }),
+		new Player({ id: nextId(),            firstName: "Tim",     lastName: "Rayburn",   birthdate: "01/02/1976", number: 55 }),
 		new Player({ id: nextId(), teamId: 5, firstName: "Glen",    lastName: "Donaldson", birthdate: "01/01/1976", number: 11 })
 	];
 
@@ -85,6 +86,10 @@ new function(){
         let result = existing.fromData(team);
       }
       return Promise.resolve(existing);
+    },
+    addPlayer(player, team) {
+      player.teamId = team.id;
+      return Promise.resolve();
     }
 	});
 

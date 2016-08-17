@@ -1,0 +1,2 @@
+div(ng-repeat="player in vm.players | orderBy:'firstName'")
+  a.btn.btn.link(ng-click="vm.addPlayer(player)") {{player.fullName}}
