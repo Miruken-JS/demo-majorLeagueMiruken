@@ -87,8 +87,8 @@ new function(){
       }
       return Promise.resolve(existing);
     },
-    addPlayer(player, team) {
-      player.teamId = team.id;
+    addPlayers(players, team) {
+      players.forEach(player => player.teamId = team.id);
       return Promise.resolve();
     }
 	});

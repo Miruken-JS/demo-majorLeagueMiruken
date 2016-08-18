@@ -48,10 +48,10 @@ new function(){
         controller:   ChoosePlayerController,
         controllerAs: "vm"
       }).then(context => {
-        context.modalResult.then(function (result) {
+        return context.modalResult.then(function (result) {
           if (result && result.button != 'Cancel') {
-            const controller = context.resolve(player.ChoosePlayerController);
-            return controller.Player;
+            const controller = ViewRegion(context).controller;
+            return controller.selectedPlayers;
           }
         });
       });

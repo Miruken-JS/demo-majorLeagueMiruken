@@ -32,9 +32,14 @@ new function() {
       });
     },
     addPlayer() {
-      PlayerFeature(this.controllerContext).showChoosePlayer();
+      var ctx = this.controllerContext;
+      return PlayerFeature(ctx).showChoosePlayer().then(players => {
+        if(players) {
+          return TeamFeature(ctx).addPlayers(players, this.team);
+        };
+      });
     },
-    getSelectedDetail(type){
+    getSelectedDetail(type) {
       return type === Team
         ? Promise.resolve(this.team)
         : $NOT_HANDLED;
