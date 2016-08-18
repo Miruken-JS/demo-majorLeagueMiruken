@@ -3,3 +3,6 @@ select(chosen multiple width="'100%'" data-placeholder="Choose players")
   option This is fun
   option I like Chosen so much
   option I also like bunny rabbits
+
+div(ng-repeat="player in vm.players")
+  a(ng-click="vm.addPlayer(player)") {{player.fullName}}
