@@ -39,8 +39,8 @@ new function(){
 		},
 		showChoosePlayer() {
       return ViewRegion($composer.modal({
-        title: "Choose Player",
-        buttons: [ 
+        title: "Select Your Players",
+        buttons: [
           { text: "Ok", css: "btn-sm btn-primary" },
           "Cancel" ]
       })).present({

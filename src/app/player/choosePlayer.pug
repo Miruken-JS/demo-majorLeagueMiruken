@@ -1,2 +1,5 @@
-div(ng-repeat="player in vm.players | orderBy:'firstName'")
-  a.btn.btn.link(ng-click="vm.addPlayer(player)") {{player.fullName}}
+select(chosen multiple width="'100%'" data-placeholder="Choose players")
+  option(value="")
+  option This is fun
+  option I like Chosen so much
+  option I also like bunny rabbits

@@ -6,7 +6,8 @@ new function() {
     exports: "SetupInstaller,SetupRunner",
     ngModule: [
         "ui.router",
-        "ngMessages"
+        "ngMessages",
+        "localytics.directives"
     ]
   });
 
