@@ -4,9 +4,7 @@ select(
   chosen
   multiple
   width="'100%'"
-  data-placeholder="Choose players")
+  placeholder-text-multiple="'Players...'")
 
   option(value="")
 
-div(ng-repeat="player in vm.players")
-  a(ng-click="vm.addPlayer(player)") {{player.fullName}}
