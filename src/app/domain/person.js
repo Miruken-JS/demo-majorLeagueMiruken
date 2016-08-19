@@ -13,9 +13,14 @@ new function(){
       id:        null,
 			firstName: { validate: $required },
 			lastName:  { validate: $required },
-			birthdate: {
-				map: toMoment
-			}
+      birthdate: {
+        get() {
+          return this._birthdate;
+        },
+        set(value) {
+          this._birthdate = toMoment(value);
+        }
+      }
 		},
 
 		get fullName() {

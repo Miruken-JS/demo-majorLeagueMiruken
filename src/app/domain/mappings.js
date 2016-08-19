@@ -9,7 +9,7 @@ new function(){
 	eval(this.imports);
 
   	function toMoment(dateTime) {
-        return dateTime && moment(dateTime);
+        return dateTime && moment(dateTime, DATE_FORMATS, true);
     }
 
   	const mapMoment = Object.freeze({ map: toMoment });
