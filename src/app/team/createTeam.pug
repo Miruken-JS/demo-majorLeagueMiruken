@@ -1,0 +1,70 @@
+.l-createTeam
+  .container-fluid
+    .col-sm-10.col-sm-offset-1
+      h1 {{vm.title}}
+    .col-sm-10.col-sm-offset-1
+      .col-sm-6
+        .wrapSmall
+          .row
+            .col-sm-12
+              form
+                .inputWrap
+                  .col-sm-12
+                    label
+                      .teamName Team Name
+                    input(type="text" ng-model="vm.team.name" placeholder="Team Name")
+                    div.error(ng-messages='vm.$validation.team.name.errors')
+                      div.small(ng-message='presence')
+                        | Team name is required
+                .inputWrap
+                  .col-sm-12
+                    label
+                      .teamManager Select a team color
+                  .col-sm-12
+                    .teamColor
+                      a.btn.btn-default.btn-lg(href='#', role='button')
+                      a.btn.btn-primary.btn-lg(href='#', role='button')
+                      a.btn.btn-success.btn-lg(href='#', role='button')
+                      a.btn.btn-warning.btn-lg(href='#', role='button')
+                      a.btn.btn-info.btn-lg(href='#', role='button')
+                      a.btn.btn-danger.btn-lg(href='#', role='button')
+      .col-sm-6
+        .wrapSmall
+          .row
+            .col-sm-12
+              .sectionTitle Assign Coaches
+          .row
+            .col-sm-12
+              .inputWrap
+                .col-sm-12
+                  label
+                    .teamManager Assign a Manager
+                .col-sm-12.col-md-6
+                  input(type="text" ng-model="vm.team.manager.firstName" placeholder="First Name")
+                  div.error(ng-messages='vm.$validation.team.manager.firstName.errors')
+                    div.small(ng-message='presence')
+                      |  Manager's first name required
+                .col-sm-12.col-md-6
+                  input(type="text" ng-model="vm.team.manager.lastName" placeholder="Last Name")
+                  div.error(ng-messages='vm.$validation.team.manager.lastName.errors')
+                    div.small(ng-message='presence')
+                      | Manager's last name required
+              .inputWrap
+                .col-sm-12
+                  label
+                   .teamManager Assign a Coach
+                .col-sm-12.col-md-6
+                  input(type="text" ng-model="vm.team.coach.firstName" placeholder="First Name")
+                  div.error(ng-messages='vm.$validation.team.coach.firstName.errors')
+                    div.small(ng-message='presence')
+                      |  Coach's first name required
+                .col-sm-12.col-md-6
+                  input(type="text" ng-model="vm.team.coach.lastName" placeholder="Last Name")
+                  div.error(ng-messages='vm.$validation.team.coach.lastName.errors')
+                    div.small(ng-message='presence')
+                      |  Coach's last name required
+      .row
+        .col-sm-12
+          button.pull-right(class="btn btn-success" ng-click="vm.save()") {{vm.buttonText}}
+
+

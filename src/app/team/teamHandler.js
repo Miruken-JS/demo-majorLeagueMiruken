@@ -25,14 +25,14 @@ new function(){
 		},
 		showCreateTeam() {
       ViewRegion($composer).present({
-        templateUrl:  "app/team/createEditTeam.html",
+        templateUrl:  "app/team/createTeam.html",
         controller:   CreateTeamController,
         controllerAs: "vm"
       });
 		},
 		showEditTeam(team) {
       ViewRegion($composer.$$provide([Team, team])).present({
-        templateUrl:  "app/team/createEditTeam.html",
+        templateUrl:  "app/team/editTeam.html",
         controller:   EditTeamController,
         controllerAs: "vm"
       });
