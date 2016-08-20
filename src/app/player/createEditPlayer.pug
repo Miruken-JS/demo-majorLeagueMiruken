@@ -44,9 +44,9 @@
                           a(href="")
                             span(class="glyphicon glyphicon-calendar")
                         input(type="text"  placeholder="MM/DD/YYYY" to-moment ng-model="vm.player.birthdate")
-                          div.error(ng-messages='vm.$validation.player.birthdate.errors')
-                            div.small(ng-message='presence')
-                              |  Player's birthdate is required
+                        div.error(ng-messages='vm.$validation.player.birthdate.errors')
+                          div.small(ng-message='presence')
+                            |  Player's birthdate is required
                           div.small(ng-message='invalid')
                             | Invalid date.  Must be "MM/DD/YYYY"
         .col-sm-6
