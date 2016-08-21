@@ -13,17 +13,25 @@ new function(){
       id:        null,
 			firstName: { validate: $required },
 			lastName:  { validate: $required },
-			birthdate: {
-				map: toMoment
-			}
+      birthdate: {
+        get() {
+          return this._birthdate;
+        },
+        set(value) {
+          this._birthdate = toMoment(value);
+        }
+      }
 		},
 
 		get fullName() {
-			return `${this.firstName} ${this.lastName}`;
+			return `${this.firstName || ""} ${this.lastName || ""}`;
 		},
     get age() {
-      if(!this.birthdate) return null;
-      return moment().diff(this.birthdate, "years");
+      if(!this.birthdate || !this.birthdate.isValid()) return null;
+      const years =  moment().diff(this.birthdate, "years");
+      return years >= 0 
+        ? years
+        : null;
     }
 	});
 

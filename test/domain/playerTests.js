@@ -50,6 +50,11 @@ describe("player", () => {
 	    	Validator(context).validate(player).valid.should.be.false;
 	    });
 
+	    it("birthdate must be a valid date", () => {
+	    	player.birthdate = moment("13/45/2016", "MM/DD/YYYY");
+	    	Validator(context).validate(player).valid.should.be.false;
+	    });
+
       it("must be a number", () => {
 	    	player.number = "a";
 	    	Validator(context).validate(player).valid.should.be.false;

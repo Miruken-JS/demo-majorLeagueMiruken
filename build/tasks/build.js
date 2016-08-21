@@ -8,7 +8,8 @@ const pug      = require("gulp-pug");
 gulp.task("build", sequence("clean", [
       "inject", "buildJavascript",
       "buildHtml", "buildStyles", 
-      "buildImages", "buildFonts"
+      "buildImages", "buildFonts",
+      "buildCssDependencies"
 ]));
 
 const base = { base: "./src" };
@@ -31,6 +32,11 @@ gulp.task("buildStyles", () => {
     return gulp.src(paths.style, base)
         .pipe(sass())
         .pipe(gulp.dest(paths.built));
+});
+
+gulp.task("buildCssDependencies", () => {
+  return gulp.src("bower_components/bootstrap-chosen/*.png")
+    .pipe(gulp.dest(paths.built + "styles"));
 });
 
 gulp.task("buildImages", () => {

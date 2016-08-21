@@ -5,8 +5,8 @@
 
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        li
+        li(ng-class="{ active: $state.includes('teams') }")
           a(ng-click="vm.goToTeams()")   Teams
-        li
+        li(ng-class="{ active: $state.includes('players') }")
           a(ng-click="vm.goToPlayers()") Players
 

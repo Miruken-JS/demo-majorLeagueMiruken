@@ -8,15 +8,16 @@ new function() {
     eval(this.imports);
 
     const TeamFeature = StrictProtocol.extend({
-        createTeam(team)   {},
-        deleteTeam(team)   {},
-        editTeam(team)     {},
-        teams()            {},
-        showTeams()        {},
-        showCreateTeam()   {},
-        showEditTeam(team) {},
-        showTeam(team)     {},
-        updateTeam(team)   {}
+        createTeam(team)          {},
+        deleteTeam(team)          {},
+        editTeam(team)            {},
+        teams()                   {},
+        showTeams()               {},
+        showCreateTeam()          {},
+        showEditTeam(team)        {},
+        showTeam(team)            {},
+        updateTeam(team)          {},
+        addPlayers(players, team) {}
     });
 
     eval(this.exports);

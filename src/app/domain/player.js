@@ -11,11 +11,7 @@ new function(){
 	const Player = Person.extend({
 		$properties: {
       id:        null,
-			birthdate: { 
-				map:      toMoment,
-				validate: $required
-			},
-			number: { 
+      number: {
 				validate: {
 					presence: true,
 					numericality: {
@@ -23,9 +19,23 @@ new function(){
               greaterThanOrEqualTo: 0
           }
         }
-			}
-		}
-	});
+			},
+      teamId: null,
+      team:   { ignore: true }
+    },
+
+    $validateThat: {
+      dateIsProvided(validation) {
+        const birthdate = this.birthdate;
+        if (!birthdate) {
+          validation.results.addKey("birthdate").addError("presence");
+        }
+        if(birthdate && !birthdate.isValid()){
+          validation.results.addKey("birthdate") .addError("invalid");
+        }
+      }
+    }
+  });
 
 	eval(this.exports);
 

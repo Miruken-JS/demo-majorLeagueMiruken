@@ -1,0 +1,10 @@
+select(
+  ng-model="vm.selectedPlayers"
+  ng-options="item as item.fullName for item in vm.players"
+  chosen
+  multiple
+  width="'100%'"
+  placeholder-text-multiple="'Players...'")
+
+  option(value="")
+

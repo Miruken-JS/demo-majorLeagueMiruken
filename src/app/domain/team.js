@@ -26,7 +26,10 @@ new function(){
           nested:   true
         }
       },
-			roster:  { map: Player }
+			roster:  {
+        map:    Player,
+        ignore: true
+      }
 		}
 	});
 
