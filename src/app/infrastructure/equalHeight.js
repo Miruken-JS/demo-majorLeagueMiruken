@@ -12,10 +12,10 @@ new function() {
     restrict: "A",
     require:  "?ngModel",
     link(scope, elm, attrs, modelCtrl) {
-      elm.css("visibility", "hidden");
+      elm.css("opacity", "0");
       setTimeout(() => {
         $(".js-equal-height").matchHeight();
-        elm.css("visibility", "visible");
+        elm.css("opacity", "");
       }, 0);
     }
   });

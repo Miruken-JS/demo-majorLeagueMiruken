@@ -1,17 +1,27 @@
 // team jerseys
-.jersey.red{
+.jersey.black{
   .st2{
-    fill: red;
+    fill: black;
   }
 }
 .jersey.blue{
   .st2{
-    fill: Blue;
+    fill: blue;
   }
 }
-.jersey.yellow{
+.jersey.green{
   .st2{
-    fill: yellow;
+    fill: green;
+  }
+}
+.jersey.lightBlue{
+  .st2{
+    fill: lightBlue;
+  }
+}
+.jersey.maroon{
+  .st2{
+    fill: maroon;
   }
 }
 .jersey.orange{
@@ -19,9 +29,14 @@
     fill: orange;
   }
 }
-.jersey.green{
+.jersey.red{
   .st2{
-    fill: green;
+    fill: red;
+  }
+}
+.jersey.yellow{
+  .st2{
+    fill: yellow;
   }
 }
 //create team
