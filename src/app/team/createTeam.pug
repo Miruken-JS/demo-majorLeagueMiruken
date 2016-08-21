@@ -22,12 +22,10 @@
                       .teamManager Select a team color
                   .col-sm-12
                     .teamColor
-                      a.btn.btn-default.btn-lg(href='#', role='button')
-                      a.btn.btn-primary.btn-lg(href='#', role='button')
-                      a.btn.btn-success.btn-lg(href='#', role='button')
-                      a.btn.btn-warning.btn-lg(href='#', role='button')
-                      a.btn.btn-info.btn-lg(href='#', role='button')
-                      a.btn.btn-danger.btn-lg(href='#', role='button')
+                      a.btn.btn-default.btn-lg(
+                        ng-repeat="color in vm.color.items" 
+                        ng-click="vm.selectColor(color)"
+                        ng-class="color.value")
       .col-sm-6
         .wrapSmall
           .row

@@ -12,7 +12,8 @@ new function() {
     $properties:{
       title:      "Create-A-Team",
       buttonText: "Create Team",
-      team:       { validate: $nested }
+      team:       { validate: $nested },
+      color:      Color
     },
     constructor() {
       this.team = new Team({
@@ -24,6 +25,9 @@ new function() {
     save() {
       return TeamFeature(this.controllerContext)
         .createTeam(this.team).then(() => TeamFeature(this.context).showTeams());
+    },
+    selectColor(color) {
+      this.team.color = color;
     }
 
   });
