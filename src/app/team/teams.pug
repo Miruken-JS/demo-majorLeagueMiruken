@@ -9,7 +9,7 @@
     .container-fluid
       .row
         .col-sm-4(ng-repeat="team in vm.teams | orderBy:'name'" ng-click="vm.goToTeam(team)")
-          .wrapSmall.js-equal-height
+          .wrapSmall.active.js-equal-height
             .row
               .col-sm-5
                 .jersey
