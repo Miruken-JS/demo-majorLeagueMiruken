@@ -24,11 +24,14 @@ new function(){
 		},
 
 		get fullName() {
-			return `${this.firstName} ${this.lastName}`;
+			return `${this.firstName || ""} ${this.lastName || ""}`;
 		},
     get age() {
-      if(!this.birthdate) return null;
-      return moment().diff(this.birthdate, "years");
+      if(!this.birthdate || !this.birthdate.isValid()) return null;
+      const years =  moment().diff(this.birthdate, "years");
+      return years >= 0 
+        ? years
+        : null;
     }
 	});
 
