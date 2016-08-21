@@ -12,6 +12,7 @@ new function(){
 		$properties: {
       id:      null,
 			name:    { validate: $required },
+      color:   { map: Color },
 			coach:   {
         map: Person,
         validate: {
