@@ -2,7 +2,7 @@ new function(){
 
 	mlm.package(this, {
 		name:    "mock",
-		imports: "mlm,mlm.team,mlm.player,miruken.callback",
+		imports: "miruken.callback,mlm,mlm.team,mlm.player",
 		exports: "TeamHandlerMock,PlayerHandlerMock"
 	});
 
@@ -17,31 +17,37 @@ new function(){
 		new Team({
       id:      nextId(),
       name:    "Dallas",
+      color:   Color.blue,
       coach:   { firstName: "David", lastName: "O'Hara" },
       manager: { firstName: "Ric",   lastName: "DeAnda" }}),
 		new Team({
       id:      nextId(),
       name:    "College Station",
+      color:   Color.maroon,
       coach:   { firstName: "Ed",   lastName: "Grannan" },
       manager: { firstName: "Mike", lastName: "Abney" }}),
 		new Team({
       id:      nextId(),
       name:    "Houston",
+      color:   Color.lightBlue,
       coach:   { firstName: "Ken",    lastName: "Howard" },
       manager: { firstName: "Devlin", lastName: "Liles" }}),
 		new Team({
       id:      nextId(),
       name:    "Columbus",
+      color:   Color.red,
       coach:   { firstName: "Mark",    lastName: "Kovacevich" },
       manager: { firstName: "Jacquie", lastName: "Bickel" }}),
 		new Team({
       id:      nextId(),
       name:    "Calgary",
+      color:   Color.black,
       coach:   { firstName: "Wendy", lastName: "Brown" },
       manager: { firstName: "Brian", lastName: "Donaldson" }}),
     new Team({
       id:      nextId(),
       name:    "Minneapolis",
+      color:   Color.yellow,
       coach:   { firstName: "Barb",  lastName: "Gurstelle" },
       manager: { firstName:"Leroy" , lastName: "Thydean" }})];
 

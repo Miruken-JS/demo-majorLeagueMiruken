@@ -12,7 +12,7 @@
           .wrapSmall.js-equal-height
             .row
               .col-sm-5
-                .jersey.red
+                .jersey(ng-class="team.color.value")
                   object(data="../images/redTeam.svg" type="image/svg+xml")
               .col-sm-7
                 h3.teamName {{team.name}}
