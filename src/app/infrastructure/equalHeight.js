@@ -14,12 +14,7 @@ new function() {
     link(scope, elm, attrs, modelCtrl) {
       elm.css("visibility", "hidden");
       setTimeout(() => {
-        const children = $(".js-equal-height").children();
-        const heights = children.map(function() {
-              return $(this).height();
-        });
-        const maxHeight = Math.max.apply(null, heights);
-        children.height(maxHeight);
+        $(".js-equal-height").matchHeight();
         elm.css("visibility", "visible");
       }, 0);
     }
