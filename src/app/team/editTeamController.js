@@ -17,7 +17,8 @@ new function() {
           presence: true,
           nested:   true
         }
-      }
+      },
+      color: Color
     },
 
     $inject: [Team],
@@ -43,6 +44,9 @@ new function() {
       return type === Team
         ? Promise.resolve(this.team)
         : $NOT_HANDLED;
+    },
+    selectColor(color) {
+      this.team.color = color;
     }
   });
 

@@ -44,6 +44,16 @@
                     div.error(ng-messages='vm.$validation.team.coach.lastName.errors')
                       div.small(ng-message='presence')
                         |  Coach's last name required
+                .inputWrap
+                  .col-sm-12
+                    label
+                      .teamManager Select a team color
+                  .col-sm-12
+                    .teamColor
+                      a.btn.btn-default.btn-lg(
+                        ng-repeat="color in vm.color.items" 
+                        ng-click="vm.selectColor(color)"
+                        ng-class="color.value")
       .col-sm-6
         .wrapSmall
           .row
@@ -67,32 +77,4 @@
       .row
         .col-sm-12
           button.pull-right(class="btn btn-success" ng-click="vm.save()") {{vm.buttonText}}
-
-//- // Modal
-//- #addPlayer.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-//-   .modal-dialog(role='document')
-//-     .modal-content
-//-       .modal-header
-//-         button.close(type='button', data-dismiss='modal', aria-label='Close')
-//-           span(aria-hidden='true') ×
-//-         h4#myModalLabel.modal-title Select players to add
-//-       .modal-body
-//-         input(type='CHECKBOX', name='mushrooms')
-//-         |  Player One
-//-         br
-//-         input(type='CHECKBOX', name='greenpeppers')
-//-         |  Player Two
-//-         br
-//-         input(type='CHECKBOX', name='onions')
-//-         |  Player Three
-//-         br
-//-         input(type='CHECKBOX', name='tomatoes')
-//-         |  Player Four
-//-         br
-//-         input(type='CHECKBOX', name='olives')
-//-         |  Player Five
-
-//-       .modal-footer
-//-         button.btn.btn-default(type='button', data-dismiss='modal') Close
-//-         button.btn.btn-primary(type='button') Save changes
 
