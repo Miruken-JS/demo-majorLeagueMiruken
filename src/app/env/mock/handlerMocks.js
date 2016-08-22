@@ -41,7 +41,7 @@ new function(){
 		new Team({
       id:      nextId(),
       name:    "Calgary",
-      color:   Color.black,
+      color:   Color.white,
       coach:   { firstName: "Wendy", lastName: "Brown" },
       manager: { firstName: "Brian", lastName: "Donaldson" }}),
     new Team({

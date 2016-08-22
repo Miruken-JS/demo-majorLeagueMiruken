@@ -14,6 +14,7 @@ new function(){
     green:     "green",
     lightBlue: "lightBlue",
     maroon:    "maroon",
+    orange:    "orange",
     red:       "red",
     white:     "white",
     yellow:    "yellow"
