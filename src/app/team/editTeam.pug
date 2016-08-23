@@ -48,6 +48,18 @@
         .wrapSmall
           .row
             .col-sm-12
+              .inputWrap
+                .col-sm-12
+                  label
+                    .teamManager Select a team color
+                .col-sm-12
+                  .teamColor
+                    a.btn.btn-default.btn-lg(
+                      ng-repeat="color in vm.color.items"
+                      ng-click="vm.selectColor(color)"
+                      ng-class="color.value")
+          .row
+            .col-sm-12
               .sectionTitle Roster
           .row
             .col-sm-12
