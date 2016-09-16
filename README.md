@@ -16,6 +16,10 @@ Install [bower](http://bower.io) globally.
 $ npm install -g bower
 ```
 
+Install [karma-cli](https://www.npmjs.com/package/karma-cli) globally.
+```
+$ npm install -g karma-cli
+```
 
 ###Install application dependencies
 Install npm dependencies
