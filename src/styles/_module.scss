@@ -9,6 +9,12 @@ $white:     #fff;
 $yellow:    $brand-warning;
 
 // team jerseys
+.jersey{
+  svg{
+    max-width: 250px;
+  }
+}
+
 .jersey.black{
   .st2{
     fill: $black;
