@@ -6,7 +6,7 @@ const sass     = require("gulp-sass");
 const pug      = require("gulp-pug");
 
 gulp.task("build", sequence("clean", [
-      "inject", "buildJavascript",
+      "inject", "buildFavIcon", "buildJavascript",
       "buildHtml", "buildStyles", 
       "buildImages", "buildFonts",
       "buildCssDependencies"
@@ -48,5 +48,10 @@ gulp.task("buildFonts", () => {
     return gulp.src("bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*", {
             base: "./bower_components/bootstrap-sass/assets"
         })
+        .pipe(gulp.dest(paths.built));
+});
+
+gulp.task("buildFavIcon", () => {
+    return gulp.src("src/favicon.ico")
         .pipe(gulp.dest(paths.built));
 });
