@@ -1,3 +1,5 @@
+include ../../jersey.pug
+
 .l-createTeam
   .container-fluid
     .col-sm-10.col-sm-offset-1
@@ -5,6 +7,9 @@
     .col-sm-10.col-sm-offset-1
       .col-sm-6
         .wrapSmall
+          .row
+            .col-sm-4
+              +jersey('{{vm.team.color.value}}')
           .row
             .col-sm-12
               form
@@ -51,23 +56,11 @@
                   .col-sm-12
                     .teamColor
                       a.btn.btn-default.btn-lg(
-                        ng-repeat="color in vm.color.items" 
+                        ng-repeat="color in vm.color.items"
                         ng-click="vm.selectColor(color)"
                         ng-class="color.value")
       .col-sm-6
         .wrapSmall
-          .row
-            .col-sm-12
-              .inputWrap
-                .col-sm-12
-                  label
-                    .teamManager Select a team color
-                .col-sm-12
-                  .teamColor
-                    a.btn.btn-default.btn-lg(
-                      ng-repeat="color in vm.color.items"
-                      ng-click="vm.selectColor(color)"
-                      ng-class="color.value")
           .row
             .col-sm-12
               .sectionTitle Roster
@@ -89,4 +82,3 @@
       .row
         .col-sm-12
           button.pull-right(class="btn btn-success" ng-click="vm.save()") {{vm.buttonText}}
-
