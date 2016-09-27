@@ -5,9 +5,9 @@ include ../../jersey.pug
     .row
       .col-sm-10.col-sm-offset-1
         h1 View Team
-        .row.row-eq-height
+        .row(equal-height)
           .col-sm-5
-            .wrapSmall
+            .wrapSmall.js-equal-height
               .row
                 .col-sm-6
                   h3.sectionTitle Team Name
@@ -19,7 +19,7 @@ include ../../jersey.pug
                   h3.sectionTitle Team Coach
                   p.teamCoach {{vm.team.coach.fullName}}
           .col-sm-7
-            .wrapSmall
+            .wrapSmall.js-equal-height
               .col-sm-3
                 h3.sectionTitle Team Color
                 +jersey('{{vm.team.color.value}}')

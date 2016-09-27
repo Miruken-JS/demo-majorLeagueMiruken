@@ -2,9 +2,9 @@
   .col-sm-10.col-sm-offset-1
     h1 {{vm.title}}
     .container-fluid
-      .row
+      .row(equal-height)
         .col-sm-6
-          .wrapSmall
+          .wrapSmall.js-equal-height
             .row
               .col-sm-12
                 .row
@@ -52,7 +52,7 @@
                             div.small(ng-message='invalid')
                               | Invalid date.  Must be "MM/DD/YYYY"
         .col-sm-6
-          .wrapSmall
+          .wrapSmall.js-equal-height
             .row
               .col-sm-5
                 img(src="./images/player.svg")

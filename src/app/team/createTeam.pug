@@ -4,9 +4,9 @@ include ../../jersey.pug
   .container-fluid
     .col-sm-10.col-sm-offset-1
       h1 {{vm.title}}
-    .col-sm-10.col-sm-offset-1
+    .col-sm-10.col-sm-offset-1(equal-height)
       .col-sm-6
-        .wrapSmall
+        .wrapSmall.js-equal-height
           .row
             .col-sm-5
               +jersey('{{vm.team.color.value}}')
@@ -32,7 +32,7 @@ include ../../jersey.pug
                         ng-click="vm.selectColor(color)"
                         ng-class="color.value")
       .col-sm-6
-        .wrapSmall
+        .wrapSmall.js-equal-height
           .row
             .col-sm-12
               .inputWrap
