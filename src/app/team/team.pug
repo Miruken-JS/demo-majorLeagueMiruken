@@ -31,12 +31,14 @@ include ../../jersey.pug
                       th Player
                       th Number
                       th Birth Date
+                      th Age
                   tbody
                     tr(ng-repeat="player in vm.team.roster | orderBy:'number'")
                       td
                         strong {{player.fullName}}
                       td {{player.number}}
                       td {{player.birthdate.format("L")}}
+                      td {{player.age}}
         .row
           .col-sm-12
             button.pull-right(class="btn" ng-click="vm.edit()") Edit Team
