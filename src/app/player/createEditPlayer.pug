@@ -43,7 +43,9 @@
                         .col-sm-12
                           a(href="")
                             span(class="glyphicon glyphicon-calendar")
-                          input(type="text"  placeholder="MM/DD/YYYY" to-moment ng-model="vm.player.birthdate")
+                          input(type="text" placeholder="MM/DD/YYYY" min="1920-01-01" to-moment ng-model="vm.player.birthdate")
+                          //div.datetimepicker1(class='input-group date')
+                            //input(type='text' class="form-control")
                           div.error(ng-messages='vm.$validation.player.birthdate.errors')
                             div.small(ng-message='presence')
                               |  Player's birthdate is required
@@ -52,13 +54,17 @@
         .col-sm-6
           .wrapSmall
             .row
-              .col-sm-12
-                h3.sectionTitle Player Preview
-                p.playerName  {{vm.player.fullname}}
-                h3.sectionTitle Player Number
-                p.playerNumber &#x23{{vm.player.number}}
-                h3.SectionTitle Players Age
-                p.playerBirth {{vm.player.age}}
+              .col-sm-5
+                img(src="./images/player.svg")
+              .col-sm-7
+                h2.sectionTitle Player's Name
+                span.playerName  {{vm.player.fullName}}
+                h2.sectionTitle Player's Number
+                span.playerNumber &#x23{{vm.player.number}}
+                h2.sectionTitle DOB
+                span.playerDOB {{vm.player.birthdate}}
+                h2.SectionTitle Player's Age
+                span.playerBirth {{vm.player.age}}
               .col-sm-6
                 .row
                   .col-sm-12

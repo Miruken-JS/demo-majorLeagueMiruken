@@ -19,6 +19,7 @@ new function() {
             if (inputValue == undefined) {
                 return "";
             }
+            
             return moment(inputValue, DATE_FORMATS, true);
         });
         modelCtrl.$formatters.push(value => {

@@ -8,6 +8,7 @@ new function(){
 
 	eval(this.imports);
 
+
 	const Person = Model.extend({
 		$properties: {
       id:        null,
@@ -20,7 +21,8 @@ new function(){
         set(value) {
           this._birthdate = toMoment(value);
         }
-      }
+      },
+			foo: null
 		},
 
 		get fullName() {
@@ -29,7 +31,7 @@ new function(){
     get age() {
       if(!this.birthdate || !this.birthdate.isValid()) return null;
       const years =  moment().diff(this.birthdate, "years");
-      return years >= 0 
+      return years >= 0
         ? years
         : null;
     }
