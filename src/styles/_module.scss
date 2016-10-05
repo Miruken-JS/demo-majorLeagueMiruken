@@ -91,23 +91,23 @@ $yellow:    $brand-warning;
   }
 }
 
-// tables
-table{
-  width: 100%;
-  background-color: white;
-  padding: 5px;
-  margin-bottom: 20px;
-  border: thin solid #999;
-  thead{
-    background-color: grey
-  }
-  td,th{
-    padding: 15px;
-  }
-  tbody tr:nth-child(even) {
-    background: #eee;
-  }
-}
+// // tables
+// table{
+//   width: 100%;
+//   background-color: white;
+//   padding: 5px;
+//   margin-bottom: 20px;
+//   border: thin solid #999;
+//   thead{
+//     background-color: grey
+//   }
+//   td,th{
+//     padding: 15px;
+//   }
+//   tbody tr:nth-child(even) {
+//     background: #eee;
+//   }
+// }
 
 .inputWrap{
   margin-bottom: 20px;
@@ -119,5 +119,5 @@ table{
 }
 
 .playerNum{
-  font-size: 40px;
+  font-size: 1.5em;
 }

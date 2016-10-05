@@ -19,8 +19,8 @@ new function() {
             if (inputValue == undefined) {
                 return "";
             }
-            
-            return moment(inputValue, DATE_FORMATS, true);
+
+            return moment(inputValue, 'MM/dd/yyyy', false);
         });
         modelCtrl.$formatters.push(value => {
           return value && moment.isMoment(value)

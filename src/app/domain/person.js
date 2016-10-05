@@ -16,13 +16,13 @@ new function(){
 			lastName:  { validate: $required },
       birthdate: {
         get() {
-          return this._birthdate;
-        },
-        set(value) {
-          this._birthdate = toMoment(value);
+					if (!this.dob)
+						return null;
+
+          return moment(this.dob);
         }
-      },
-			foo: null
+			},
+			dob: null
 		},
 
 		get fullName() {

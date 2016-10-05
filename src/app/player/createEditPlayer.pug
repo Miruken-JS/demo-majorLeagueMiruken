@@ -6,7 +6,7 @@
         .col-sm-6
           .wrapSmall.js-equal-height
             .row
-              .col-sm-12
+              .col-sm-6
                 .row
                   form
                     .col-sm-12
@@ -43,31 +43,50 @@
                         .col-sm-12
                           a(href="")
                             span(class="glyphicon glyphicon-calendar")
-                          input(type="text" placeholder="MM/DD/YYYY" min="1920-01-01" to-moment ng-model="vm.player.birthdate")
-                          //div.datetimepicker1(class='input-group date')
-                            //input(type='text' class="form-control")
+                          input(type="text" placeholder="MM/DD/YYYY" to-moment ng-model="vm.player.dob" data-date-format="MM/dd/yyyy" data-container="body" bs-datepicker)
                           div.error(ng-messages='vm.$validation.player.birthdate.errors')
                             div.small(ng-message='presence')
                               |  Player's birthdate is required
                             div.small(ng-message='invalid')
                               | Invalid date.  Must be "MM/DD/YYYY"
+              .col-sm-6
+                img(src="./images/player.svg")
         .col-sm-6
           .wrapSmall.js-equal-height
+            //- .row
+            //-   .col-sm-12
+            //-     h2 Player Preview
             .row
-              .col-sm-5
-                img(src="./images/player.svg")
-              .col-sm-7
-                h2.sectionTitle Player's Name
-                span.playerName  {{vm.player.fullName}}
-                h2.sectionTitle Player's Number
-                span.playerNumber &#x23{{vm.player.number}}
-                h2.sectionTitle DOB
-                span.playerDOB {{vm.player.birthdate}}
-                h2.SectionTitle Player's Age
-                span.playerBirth {{vm.player.age}}
-              .col-sm-6
+              .col-sm-3
+                img(src="../images/player.svg")
+              .col-sm-9
                 .row
-                  .col-sm-12
-                    .playerProfile
-              .col-sm-12
-                button.pull-right.btn.btn-success(ng-click="vm.save()") {{vm.buttonText}}
+                  .col-sm-9
+                    h2.teamName {{vm.player.fullName}}
+                  .col-sm-3
+                    span.playerNum &#x23{{vm.player.number}}
+                //- .row
+                //-   .col-sm-6 Team
+                //-   .col-sm-6 {{vm.player.team.name}}
+                .row
+                  .col-sm-6 Age
+                  .col-sm-6 {{vm.player.age}}
+            //- .row
+            //-   .col-sm-12
+            //-     table.table.table-bordered.table-striped
+            //-       tbody
+            //-         tr
+            //-           td Player's Name
+            //-           td {{vm.player.fullName}}
+            //-         tr
+            //-           td Player's Number
+            //-           td &#x23{{vm.player.number}}
+            //-         tr
+            //-           td DOB
+            //-           td {{vm.player.birthdate}}
+            //-         tr
+            //-           td Player's Age
+            //-           td {{vm.player.age}}
+      .row
+        .col-sm-12
+          button.pull-right.btn.btn-success(ng-click="vm.save()") {{vm.buttonText}}

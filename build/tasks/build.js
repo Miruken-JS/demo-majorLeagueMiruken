@@ -1,18 +1,23 @@
-const paths    = require("../paths");
-const gulp     = require("gulp");
-const sequence = require("gulp-sequence");
-const babel    = require("gulp-babel");
-const sass     = require("gulp-sass");
-const pug      = require("gulp-pug");
+const paths      = require("../paths");
+const gulp       = require("gulp");
+const sequence   = require("gulp-sequence");
+const babel      = require("gulp-babel");
+const sass       = require("gulp-sass");
+const pug        = require("gulp-pug");
 
 gulp.task("build", sequence("clean", [
       "inject", "buildFavIcon", "buildJavascript",
-      "buildHtml", "buildStyles", 
+      "buildHtml", "bootstrapAdditions", "buildStyles",
       "buildImages", "buildFonts",
       "buildCssDependencies"
 ]));
 
 const base = { base: "./src" };
+
+gulp.task('bootstrapAdditions', function(){
+    gulp.src(paths.cssSource)
+        .pipe(gulp.dest(paths.built + paths.cssDest));
+});
 
 gulp.task("buildJavascript", () => {
     return gulp.src(paths.source, base)

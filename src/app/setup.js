@@ -7,7 +7,11 @@ new function() {
     ngModule: [
         "ui.router",
         "ngMessages",
-        "localytics.directives"
+        "localytics.directives",
+        "mgcrea.ngStrap",
+        "mgcrea.ngStrap.helpers.dimensions",
+        "mgcrea.ngStrap.tooltip",
+        "mgcrea.ngStrap.helpers.dateParser"
     ]
   });
 
