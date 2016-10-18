@@ -26,13 +26,15 @@ const paths   = {
     appRoot + "app/env/mock/setup.js",
     appRoot + "**/*.js"
   ],
-  html       : appRoot + "**/*.pug",
-  style      : appRoot + "styles/style.scss",
-  index      : appRoot + "index.pug",
-  built      : "built/",
-  dist       : "dist/",
-  packageName: pkg.name,
-  ignore     : []
+  html            : appRoot + "**/*.pug",
+  cssSource      : "bower_components/bootstrap-additions/dist/**/*.css",
+  cssDest        : "styles/bootstrap-additions",
+  style           : appRoot + "styles/**/*.scss",
+  index           : appRoot + "index.pug",
+  built           : "built/",
+  dist            : "dist/",
+  packageName     : pkg.name,
+  ignore          : []
 };
 
 paths.files = [

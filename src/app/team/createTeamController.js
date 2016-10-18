@@ -18,7 +18,8 @@ new function() {
     constructor() {
       this.team = new Team({
         coach:   {},
-        manager: {}
+        manager: {},
+        color: 'white'
       });
     },
 
@@ -35,4 +36,3 @@ new function() {
   eval(this.exports);
 
 };
-
