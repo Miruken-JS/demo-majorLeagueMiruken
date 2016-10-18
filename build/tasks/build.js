@@ -1,18 +1,23 @@
-const paths    = require("../paths");
-const gulp     = require("gulp");
-const sequence = require("gulp-sequence");
-const babel    = require("gulp-babel");
-const sass     = require("gulp-sass");
-const pug      = require("gulp-pug");
+const paths     = require("../paths");
+const gulp      = require("gulp");
+const sequence  = require("gulp-sequence");
+const babel     = require("gulp-babel");
+const sass      = require("gulp-sass");
+const pug       = require("gulp-pug");
 
 gulp.task("build", sequence("clean", [
-      "inject", "buildJavascript",
-      "buildHtml", "buildStyles", 
+      "inject", "buildFavIcon", "buildJavascript",
+      "buildHtml", "bootstrapAdditions", "buildStyles",
       "buildImages", "buildFonts",
       "buildCssDependencies"
 ]));
 
 const base = { base: "./src" };
+
+gulp.task("bootstrapAdditions", function(){
+    gulp.src(paths.cssSource)
+        .pipe(gulp.dest(paths.built + paths.cssDest));
+});
 
 gulp.task("buildJavascript", () => {
     return gulp.src(paths.source, base)
@@ -48,5 +53,10 @@ gulp.task("buildFonts", () => {
     return gulp.src("bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*", {
             base: "./bower_components/bootstrap-sass/assets"
         })
+        .pipe(gulp.dest(paths.built));
+});
+
+gulp.task("buildFavIcon", () => {
+    return gulp.src("src/favicon.ico")
         .pipe(gulp.dest(paths.built));
 });
