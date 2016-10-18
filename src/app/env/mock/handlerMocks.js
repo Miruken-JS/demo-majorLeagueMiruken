@@ -52,12 +52,12 @@ new function(){
       manager: { firstName:"Leroy" , lastName: "Thydean" }})];
 
 	const players = [
-		new Player({ id: nextId(), teamId: 1, firstName: "Cori",    lastName: "Drew",      dob: "06/06/1980", number: 2 }),
-		new Player({ id: nextId(), teamId: 1, firstName: "Craig",   lastName: "Neuwirt",   dob: "07/19/1970", number: 22 }),
-		new Player({ id: nextId(), teamId: 1, firstName: "Michael", lastName: "Dudley",    dob: "08/28/1977", number: 7 }),
-		new Player({ id: nextId(), teamId: 1, firstName: "Kevin",   lastName: "Baker",     dob: "02/02/1980", number: 3 }),
-		new Player({ id: nextId(),            firstName: "Tim",     lastName: "Rayburn",   dob: "01/02/1976", number: 55 }),
-		new Player({ id: nextId(), teamId: 5, firstName: "Glen",    lastName: "Donaldson", dob: "01/01/1976", number: 11 })
+		new Player({ id: nextId(), teamId: 1, firstName: "Cori",    lastName: "Drew",      birthdate: "06/06/1980", number: 1 }),
+		new Player({ id: nextId(), teamId: 1, firstName: "Craig",   lastName: "Neuwirt",   birthdate: "07/19/1970", number: 22 }),
+		new Player({ id: nextId(), teamId: 1, firstName: "Michael", lastName: "Dudley",    birthdate: "08/28/1977", number: 7 }),
+		new Player({ id: nextId(), teamId: 1, firstName: "Kevin",   lastName: "Baker",     birthdate: "02/02/1980", number: 3 }),
+		new Player({ id: nextId(),            firstName: "Tim",     lastName: "Rayburn",   birthdate: "01/02/1976", number: 55 }),
+		new Player({ id: nextId(), teamId: 5, firstName: "Glen",    lastName: "Donaldson", birthdate: "01/01/1976", number: 11 })
 	];
 
   Player.implement({

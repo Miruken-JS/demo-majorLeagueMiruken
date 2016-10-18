@@ -43,7 +43,7 @@
                         .col-sm-12
                           a(href="")
                             span(class="glyphicon glyphicon-calendar")
-                          input(type="text" placeholder="MM/DD/YYYY" to-moment ng-model="vm.player.dob" data-date-format="MM/dd/yyyy" data-container="body" bs-datepicker)
+                          input(type="text" placeholder="MM/DD/YYYY" ng-model="vm.player.birthdate" data-date-format="MM/dd/yyyy" data-container="body" bs-datepicker)
                           div.error(ng-messages='vm.$validation.player.birthdate.errors')
                             div.small(ng-message='presence')
                               |  Player's birthdate is required

@@ -25,13 +25,9 @@ new function(){
     },
 
     $validateThat: {
-      dateIsProvided(validation) {
-        const birthdate = this.birthdate;
-        if (!birthdate) {
+      birthdateIsProvided(validation) {
+        if (!this.birthdate) {
           validation.results.addKey("birthdate").addError("presence");
-        }
-        if(birthdate && !birthdate.isValid()){
-          validation.results.addKey("birthdate") .addError("invalid");
         }
       }
     }

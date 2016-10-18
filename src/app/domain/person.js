@@ -8,33 +8,37 @@ new function(){
 
 	eval(this.imports);
 
+  const DATE_FORMAT = "MM/DD/YYYY";
 
 	const Person = Model.extend({
 		$properties: {
-      id:        null,
+      id:        undefined,
 			firstName: { validate: $required },
 			lastName:  { validate: $required },
-      birthdate: {
-        get() {
-					if (!this.dob)
-						return null;
-
-          return moment(this.dob);
-        }
-			},
-			dob: null
+      birthdate: undefined
 		},
 
 		get fullName() {
 			return `${this.firstName || ""} ${this.lastName || ""}`;
 		},
     get age() {
-      if(!this.birthdate || !this.birthdate.isValid()) return null;
-      const years =  moment().diff(this.birthdate, "years");
+      if(!this.birthdate) return null;
+      const years =  moment().diff(moment(this.birthdate, DATE_FORMAT), "years");
       return years >= 0
         ? years
         : null;
+    },
+    get birthdate(){
+      return this._birthdate;
+    },
+    set birthdate(value) {
+      if(!value) return;
+      var selected = moment(value, DATE_FORMAT);
+      if(selected.isValid()){
+        this._birthdate = selected.format(DATE_FORMAT);
+      }
     }
+
 	});
 
 	eval(this.exports);
