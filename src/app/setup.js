@@ -3,7 +3,7 @@ new function() {
   base2.package(this, {
     name:    "mlm",
     imports: "miruken.ng,miruken.mvc,miruken.ioc",
-    exports: "SetupInstaller,SetupRunner,DATE_FORMATS",
+    exports: "SetupInstaller,SetupRunner",
     ngModule: [
         "ui.router",
         "ngMessages",
@@ -16,7 +16,6 @@ new function() {
   });
 
   eval(this.imports);
-  const DATE_FORMATS = ["M/D/YYYY", "M/D/YY", "M-D-YYYY", "M-D-YY"];
   moment.fn.toJSON   = function() { return this.format("L"); };
   moment.fn.toString = function() { return this.format("L"); };
 

@@ -2,11 +2,11 @@
   .col-sm-10.col-sm-offset-1
     h1 {{vm.title}}
     .container-fluid
-      .row
+      .row(equal-height)
         .col-sm-6
-          .wrapSmall
+          .wrapSmall.js-equal-height
             .row
-              .col-sm-12
+              .col-sm-6
                 .row
                   form
                     .col-sm-12
@@ -43,25 +43,50 @@
                         .col-sm-12
                           a(href="")
                             span(class="glyphicon glyphicon-calendar")
-                          input(type="text"  placeholder="MM/DD/YYYY" to-moment ng-model="vm.player.birthdate")
+                          input(type="text" placeholder="MM/DD/YYYY" ng-model="vm.player.birthdate" data-date-format="MM/dd/yyyy" data-container="body" bs-datepicker)
                           div.error(ng-messages='vm.$validation.player.birthdate.errors')
                             div.small(ng-message='presence')
                               |  Player's birthdate is required
                             div.small(ng-message='invalid')
                               | Invalid date.  Must be "MM/DD/YYYY"
-        .col-sm-6
-          .wrapSmall
-            .row
-              .col-sm-12
-                h3.sectionTitle Player Preview
-                p.playerName  {{vm.player.fullname}}
-                h3.sectionTitle Player Number
-                p.playerNumber &#x23{{vm.player.number}}
-                h3.SectionTitle Players Age
-                p.playerBirth {{vm.player.age}}
               .col-sm-6
+                img(src="./images/player.svg")
+        .col-sm-6
+          .wrapSmall.js-equal-height
+            //- .row
+            //-   .col-sm-12
+            //-     h2 Player Preview
+            .row
+              .col-sm-3
+                img(src="../images/player.svg")
+              .col-sm-9
                 .row
-                  .col-sm-12
-                    .playerProfile
-              .col-sm-12
-                button.pull-right.btn.btn-success(ng-click="vm.save()") {{vm.buttonText}}
+                  .col-sm-9
+                    h2.teamName {{vm.player.fullName}}
+                  .col-sm-3
+                    span.playerNum &#x23{{vm.player.number}}
+                //- .row
+                //-   .col-sm-6 Team
+                //-   .col-sm-6 {{vm.player.team.name}}
+                .row
+                  .col-sm-6 Age
+                  .col-sm-6 {{vm.player.age}}
+            //- .row
+            //-   .col-sm-12
+            //-     table.table.table-bordered.table-striped
+            //-       tbody
+            //-         tr
+            //-           td Player's Name
+            //-           td {{vm.player.fullName}}
+            //-         tr
+            //-           td Player's Number
+            //-           td &#x23{{vm.player.number}}
+            //-         tr
+            //-           td DOB
+            //-           td {{vm.player.birthdate}}
+            //-         tr
+            //-           td Player's Age
+            //-           td {{vm.player.age}}
+      .row
+        .col-sm-12
+          button.pull-right.btn.btn-success(ng-click="vm.save()") {{vm.buttonText}}

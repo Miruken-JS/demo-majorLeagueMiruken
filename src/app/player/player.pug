@@ -2,12 +2,12 @@
   .container-fluid
     .col-sm-10.col-sm-offset-1
       h1 View Player
-      .row.row-eq-height
+      .row(equal-height)
         .col-sm-12.col-md-4
-          .wrapSmall
+          .wrapSmall.js-equal-height
             img(src="../images/player.svg")
         .col-sm-12.col-md-8
-          .wrapSmall
+          .wrapSmall.js-equal-height
             .row
               .col-sm-12
                 h3.sectionTitle Player Name
@@ -15,6 +15,6 @@
                 h3.sectionTitle Player Number
                 p.playerNumber &#x23{{vm.player.number}}
                 h3.SectionTitle Players Date of Birth
-                p.playerBirth {{vm.player.birthdate.format("L")}}
+                p.playerBirth {{vm.player.birthdate}}
       .col-sm-12
         button.pull-right.btn.btn-success(ng-click="vm.edit()") Edit Player

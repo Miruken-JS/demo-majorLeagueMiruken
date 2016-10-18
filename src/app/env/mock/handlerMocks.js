@@ -52,7 +52,7 @@ new function(){
       manager: { firstName:"Leroy" , lastName: "Thydean" }})];
 
 	const players = [
-		new Player({ id: nextId(), teamId: 1, firstName: "Cori",    lastName: "Drew", number: 2 }),
+		new Player({ id: nextId(), teamId: 1, firstName: "Cori",    lastName: "Drew",      birthdate: "06/06/1980", number: 1 }),
 		new Player({ id: nextId(), teamId: 1, firstName: "Craig",   lastName: "Neuwirt",   birthdate: "07/19/1970", number: 22 }),
 		new Player({ id: nextId(), teamId: 1, firstName: "Michael", lastName: "Dudley",    birthdate: "08/28/1977", number: 7 }),
 		new Player({ id: nextId(), teamId: 1, firstName: "Kevin",   lastName: "Baker",     birthdate: "02/02/1980", number: 3 }),
