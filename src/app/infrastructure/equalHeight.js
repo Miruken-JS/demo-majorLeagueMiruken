@@ -14,7 +14,9 @@ new function() {
     link(scope, elm, attrs, modelCtrl) {
       elm.css("opacity", "0");
       setTimeout(() => {
-        $(".js-equal-height").matchHeight();
+        $(".js-equal-height").matchHeight({
+          property: "min-height"
+        });
         elm.css("opacity", "");
       }, 0);
     }
