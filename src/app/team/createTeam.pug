@@ -8,9 +8,6 @@ include ../../jersey.pug
       .col-sm-6
         .wrapSmall.js-equal-height
           .row
-            .col-sm-5
-              +jersey('{{vm.team.color.value}}')
-          .row
             .col-sm-12
               form
                 .inputWrap
@@ -31,38 +28,46 @@ include ../../jersey.pug
                         ng-repeat="color in vm.color.items"
                         ng-click="vm.selectColor(color)"
                         ng-class="color.value")
+                .inputWrap
+                  .col-sm-12
+                    label
+                      .teamManager Assign a Manager
+                  .col-sm-12.col-md-6
+                    input(type="text" ng-model="vm.team.manager.firstName" placeholder="First Name")
+                    div.error(ng-messages='vm.$validation.team.manager.firstName.errors')
+                      div.small(ng-message='presence')
+                        |  Manager's first name required
+                  .col-sm-12.col-md-6
+                    input(type="text" ng-model="vm.team.manager.lastName" placeholder="Last Name")
+                    div.error(ng-messages='vm.$validation.team.manager.lastName.errors')
+                      div.small(ng-message='presence')
+                        | Manager's last name required
+                .inputWrap
+                  .col-sm-12
+                    label
+                     .teamManager Assign a Coach
+                  .col-sm-12.col-md-6
+                    input(type="text" ng-model="vm.team.coach.firstName" placeholder="First Name")
+                    div.error(ng-messages='vm.$validation.team.coach.firstName.errors')
+                      div.small(ng-message='presence')
+                        |  Coach's first name required
+                  .col-sm-12.col-md-6
+                    input(type="text" ng-model="vm.team.coach.lastName" placeholder="Last Name")
+                    div.error(ng-messages='vm.$validation.team.coach.lastName.errors')
+                      div.small(ng-message='presence')
+                        |  Coach's last name required
       .col-sm-6
         .wrapSmall.js-equal-height
           .row
-            .col-sm-12
-              .inputWrap
-                .col-sm-12
-                  label
-                    .teamManager Assign a Manager
-                .col-sm-12.col-md-6
-                  input(type="text" ng-model="vm.team.manager.firstName" placeholder="First Name")
-                  div.error(ng-messages='vm.$validation.team.manager.firstName.errors')
-                    div.small(ng-message='presence')
-                      |  Manager's first name required
-                .col-sm-12.col-md-6
-                  input(type="text" ng-model="vm.team.manager.lastName" placeholder="Last Name")
-                  div.error(ng-messages='vm.$validation.team.manager.lastName.errors')
-                    div.small(ng-message='presence')
-                      | Manager's last name required
-              .inputWrap
-                .col-sm-12
-                  label
-                   .teamManager Assign a Coach
-                .col-sm-12.col-md-6
-                  input(type="text" ng-model="vm.team.coach.firstName" placeholder="First Name")
-                  div.error(ng-messages='vm.$validation.team.coach.firstName.errors')
-                    div.small(ng-message='presence')
-                      |  Coach's first name required
-                .col-sm-12.col-md-6
-                  input(type="text" ng-model="vm.team.coach.lastName" placeholder="Last Name")
-                  div.error(ng-messages='vm.$validation.team.coach.lastName.errors')
-                    div.small(ng-message='presence')
-                      |  Coach's last name required
+            .col-sm-5
+              +jersey('{{vm.team.color.value}}')
+            .col-sm-7
+              h3.teamName {{vm.team.name}}
+              h3.sectionTitle(ng-show="vm.team.manager.fullName") Team Manager
+              p.managerName {{vm.team.manager.fullName}}
+              h3.sectionTitle(ng-show="vm.team.coach.fullName")  Team Coach
+              p.coachName {{vm.team.coach.fullName}}
+
       .row
         .col-sm-12
           button.pull-right(class="btn btn-success" ng-click="vm.save()") {{vm.buttonText}}

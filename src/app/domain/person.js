@@ -19,6 +19,7 @@ new function(){
 		},
 
 		get fullName() {
+      if(!this.firstName && !this.lastName) return null;
 			return `${this.firstName || ""} ${this.lastName || ""}`;
 		},
     get age() {

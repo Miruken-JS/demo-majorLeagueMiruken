@@ -29,8 +29,13 @@ new function() {
     },
     selectColor(color) {
       this.team.color = color;
+    },
+    get hasManager(){
+      return this.team.manager.fullName;
+    },
+    get hasCoach(){
+      return this.team.coach.fullName;
     }
-
   });
 
   eval(this.exports);
