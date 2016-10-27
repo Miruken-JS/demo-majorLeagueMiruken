@@ -6,24 +6,20 @@ include ../../jersey.pug
       .col-sm-10.col-sm-offset-1
         h1 View Team
         .row(equal-height)
-          .col-sm-5
+          .col-sm-6
             .wrapSmall.js-equal-height
               .row
-                .col-sm-6
-                  h3.sectionTitle Team Name
-                  p.teamName {{vm.team.name}}
-                .col-sm-6
+                .col-sm-5
+                  +jersey('{{vm.team.color.value}}')
+                .col-sm-7
+                  h3.teamName {{vm.team.name}}
                   h3.sectionTitle Team Manager
-                  p.teamManager {{vm.team.manager.fullName}}
-                .col-sm-6
+                  p.managerName {{vm.team.manager.fullName}}
                   h3.sectionTitle Team Coach
-                  p.teamCoach {{vm.team.coach.fullName}}
-          .col-sm-7
+                  p.coachName {{vm.team.coach.fullName}}
+          .col-sm-6
             .wrapSmall.js-equal-height
-              .col-sm-3
-                h3.sectionTitle Team Color
-                +jersey('{{vm.team.color.value}}')
-              .col-sm-9
+              .col-sm-12
                 h3.sectionTitle Roster
                 table.table
                   thead
