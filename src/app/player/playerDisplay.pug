@@ -1,0 +1,21 @@
+mixin playerDisplay(playerModel)
+  .row.player
+    .col-sm-5
+      img.person(src="../images/player.svg")
+    .col-sm-7
+      h3.playerName &#x23{{#{playerModel}.number}} {{#{playerModel}.fullName}}
+
+      .row
+        -var ifName = playerModel + ".team.name";
+        .col-sm-12(ng-show=ifName)
+          p.teamName {{#{playerModel}.team.name}}
+      .row
+        -var ifBirthdate = playerModel + ".birthdate";
+        .col-sm-6(ng-show=ifBirthdate)
+          h3.sectionTitle Birthdate
+          p {{#{playerModel}.birthdate}}
+
+        -var ifAge = playerModel + ".age != undefined";
+        .col-sm-6(ng-show=ifAge)
+          h3.sectionTitle(ng-if=ifAge) Age
+          p {{#{playerModel}.age}}

@@ -91,24 +91,6 @@ $yellow:    $brand-warning;
   }
 }
 
-// // tables
-// table{
-//   width: 100%;
-//   background-color: white;
-//   padding: 5px;
-//   margin-bottom: 20px;
-//   border: thin solid #999;
-//   thead{
-//     background-color: grey
-//   }
-//   td,th{
-//     padding: 15px;
-//   }
-//   tbody tr:nth-child(even) {
-//     background: #eee;
-//   }
-// }
-
 .inputWrap{
   margin-bottom: 20px;
   .teamColor{
@@ -120,4 +102,8 @@ $yellow:    $brand-warning;
 
 .playerNum{
   font-size: 1.5em;
+}
+
+img.person{
+  max-width: 145px;
 }

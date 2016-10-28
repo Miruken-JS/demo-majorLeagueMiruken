@@ -1,3 +1,5 @@
+include playerDisplay.pug
+
 .l-players
   .col-sm-10.col-sm-offset-1
     .container-fluid
@@ -10,31 +12,7 @@
       .row
         .col-sm-4(ng-repeat="player in vm.players | orderBy:'lastName'" ng-click="vm.goToPlayer(player)")
           .wrapSmall.active.js-equal-height
-            .row
-              .col-sm-3
-                img(src="../images/player.svg")
-              .col-sm-9
-                .row
-                  .col-sm-9
-                    h2.teamName {{player.fullName}}
-                  .col-sm-3
-                    span.playerNum &#x23{{player.number}}
-                .row
-                  .col-sm-6 Team
-                  .col-sm-6 {{player.team.name}}
-                .row
-                  .col-sm-6 Age
-                  .col-sm-6 {{player.age}}
-                //- .row
-                //-   .col-sm-9
-                //-     h2.teamName {{player.fullName}}
-                //-   .col-sm-3
-                //-     p.playerNum &#x23{{player.number}}
-                //- .row
-                //-   .col-sm-3
-                //-     p Age <br> <span>{{player.age}}</span>
-                //-   .col-sm-9
-                //-     p Team <br> <span>{{player.team.name}}</span>
+            +playerDisplay("player")
     .row
       .col-sm-12
         button.pull-right.btn.btn-success(ng-click="vm.create()") Create a Player

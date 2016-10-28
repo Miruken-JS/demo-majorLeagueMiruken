@@ -33,7 +33,6 @@
 
 }
 
-
 // edit existing team Page
 .l-players{
    margin-top: 40px;
@@ -41,7 +40,6 @@
     width: 40%;
   }
   .teamName{
-    font-size: 1.25em;
     margin-top: 0px;
     padding: 0px;
   }
@@ -54,9 +52,14 @@
 
 // edit existing team Page
 .l-player{
-   margin-top: 40px;
+  margin-top:40px;
+
   input{
     width: 40%;
+  }
+
+  .teamName{
+    font-weight: bold;
   }
 
   .playerName,.playerNumber,.playerBirth{
