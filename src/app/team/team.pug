@@ -1,4 +1,4 @@
-include teamMixin.pug
+include teamDisplay.pug
 
 .l-team
   .container-fluid
@@ -8,7 +8,7 @@ include teamMixin.pug
         .row(equal-height)
           .col-sm-6
             .wrapSmall.js-equal-height
-              +teamMixin('vm.team')
+              +teamDisplay('vm.team')
           .col-sm-6
             .wrapSmall.js-equal-height
               .row

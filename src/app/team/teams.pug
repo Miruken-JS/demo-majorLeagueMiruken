@@ -1,4 +1,4 @@
-include teamMixin.pug
+include teamDisplay.pug
 
 .l-teams
   .col-sm-10.col-sm-offset-1
@@ -12,7 +12,7 @@ include teamMixin.pug
       .row
         .col-sm-4(ng-repeat="team in vm.teams | orderBy:'name'" ng-click="vm.goToTeam(team)")
           .wrapSmall.active.js-equal-height
-            +teamMixin('team')
+            +teamDisplay('team')
     .row
       .col-sm-12
         button.pull-right.btn.btn-success(ng-click="vm.create()") Create a Team
