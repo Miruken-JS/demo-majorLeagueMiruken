@@ -1,0 +1,17 @@
+include ../../jersey.pug
+
+mixin teamMixin(teamModel)
+  .row
+    .col-sm-5
+      - var color = '{{' + teamModel + '.color.value}}'
+      +jersey(color)
+    .col-sm-7
+      h3.teamName {{#{teamModel}.name}}
+
+      - var ifManager = teamModel + ".manager.fullName";
+      h3.sectionTitle(ng-if=ifManager) Team Manager
+      p.managerName {{#{teamModel}.manager.fullName}}
+
+      - var ifCoach = teamModel + ".coach.fullName";
+      h3.sectionTitle(ng-if=ifCoach) Team Coach
+      p.coachName {{#{teamModel}.coach.fullName}}

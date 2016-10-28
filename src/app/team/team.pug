@@ -1,4 +1,4 @@
-include ../../jersey.pug
+include teamMixin.pug
 
 .l-team
   .container-fluid
@@ -8,15 +8,7 @@ include ../../jersey.pug
         .row(equal-height)
           .col-sm-6
             .wrapSmall.js-equal-height
-              .row
-                .col-sm-5
-                  +jersey('{{vm.team.color.value}}')
-                .col-sm-7
-                  h3.teamName {{vm.team.name}}
-                  h3.sectionTitle Team Manager
-                  p.managerName {{vm.team.manager.fullName}}
-                  h3.sectionTitle Team Coach
-                  p.coachName {{vm.team.coach.fullName}}
+              +teamMixin('vm.team')
           .col-sm-6
             .wrapSmall.js-equal-height
               .row
