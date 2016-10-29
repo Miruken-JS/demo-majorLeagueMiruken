@@ -1,21 +1,27 @@
 mixin playerDisplay(playerModel)
+  -var ifPlayerName = playerModel + ".fullName";
+  -var ifTeamName   = playerModel + ".team.name";
+  -var ifBirthdate  = playerModel + ".birthdate";
+  -var ifAge        = playerModel + ".age != undefined";
+
   .row.player
     .col-sm-5
       img.person(src="../images/player.svg")
     .col-sm-7
-      h3.playerName &#x23{{#{playerModel}.number}} {{#{playerModel}.fullName}}
+      h3.playerName(ng-show=ifPlayerName) {{#{playerModel}.fullName}}
 
       .row
-        -var ifName = playerModel + ".team.name";
-        .col-sm-12(ng-show=ifName)
+        .col-sm-6(ng-if=ifTeamName)
           p.teamName {{#{playerModel}.team.name}}
+
+        .col-sm-6(ng-if=ifPlayerName)
+          p.teamName &#x23{{#{playerModel}.number}} 
+
       .row
-        -var ifBirthdate = playerModel + ".birthdate";
         .col-sm-6(ng-show=ifBirthdate)
           h3.sectionTitle Birthdate
           p {{#{playerModel}.birthdate}}
 
-        -var ifAge = playerModel + ".age != undefined";
         .col-sm-6(ng-show=ifAge)
           h3.sectionTitle(ng-if=ifAge) Age
           p {{#{playerModel}.age}}
