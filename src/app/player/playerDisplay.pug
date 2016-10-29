@@ -3,6 +3,7 @@ mixin playerDisplay(playerModel)
   -var ifTeamName   = playerModel + ".team.name";
   -var ifBirthdate  = playerModel + ".birthdate";
   -var ifAge        = playerModel + ".age != undefined";
+  -var ifNumber     = playerModel + ".number != undefined";
 
   .row.player
     .col-sm-5
@@ -14,7 +15,7 @@ mixin playerDisplay(playerModel)
         .col-sm-6(ng-if=ifTeamName)
           p.teamName {{#{playerModel}.team.name}}
 
-        .col-sm-6(ng-if=ifPlayerName)
+        .col-sm-6(ng-if=ifNumber)
           p.teamName &#x23{{#{playerModel}.number}} 
 
       .row
