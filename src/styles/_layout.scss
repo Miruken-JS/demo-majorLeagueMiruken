@@ -4,8 +4,6 @@
   h2.teamName{
     text-transform: uppercase;
   }
-
-
 }
 
 
@@ -19,17 +17,15 @@
 
 
 // creating a new team Page
-.l-createTeam{
+.l-createTeam, .l-createPlayer{
   margin-top: 40px;
   input{
     width: 100%;
-
   }
 }
 
 // edit existing team Page
 .l-editTeam{
-
 
 }
 
@@ -47,7 +43,6 @@
     margin-bottom: -10px;
     padding: 0px;
   }
-
 }
 
 // edit existing team Page
@@ -62,7 +57,7 @@
     font-weight: bold;
   }
 
-  .playerName,.playerNumber,.playerBirth{
+  .playerNumber,.playerBirth{
     font-size: 2em;
     font-weight: 100;
   }
@@ -70,13 +65,6 @@
 }
 
 // edit existing team Page
-.l-createPlayer{
-  margin-top: 40px;
-
-}
-
-// edit existing team Page
 .l-editPlayer{
-
 
 }
