@@ -1,13 +1,14 @@
 include playerDisplay.pug
 
 .l-Player
-  .container-fluid
-    .col-sm-10.col-sm-offset-1
+  .row
+    .col-sm-12
       h1 View Player
-      .row(equal-height)
-        .col-sm-6
-          .wrapSmall.js-equal-height
-            +playerDisplay("vm.player")
+  .row(equal-height)
+    .col-sm-6
+      .wrapSmall.js-equal-height
+        +playerDisplay("vm.player")
 
-      .col-sm-6
-        button.pull-right.btn.btn-success(ng-click="vm.edit()") Edit Player
+  .row
+    .col-sm-6
+      button.pull-right.btn.btn-success(ng-click="vm.edit()") Edit Player
