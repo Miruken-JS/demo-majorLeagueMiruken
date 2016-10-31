@@ -14,25 +14,25 @@ new function() {
       $stateProvider
         .state("teams", {
             url:          "/teams",
-            templateUrl:  "app/layout.html",
+            templateUrl:  "app/region.html",
             controller:   "TeamsRoute",
             controllerAs: "vm"
         })
         .state("team", {
             url:          "/team/{id}",
-            templateUrl:  "app/layout.html",
+            templateUrl:  "app/region.html",
             controller:   "TeamRoute",
             controllerAs: "vm"
         })
         .state("createTeam", {
             url:          "/create/team",
-            templateUrl:  "app/layout.html",
+            templateUrl:  "app/region.html",
             controller:   "CreateTeamRoute",
             controllerAs: "vm"
         })
         .state("editTeam", {
             url:          "/edit/team/{id}",
-            templateUrl:  "app/layout.html",
+            templateUrl:  "app/region.html",
             controller:   "EditTeamRoute",
             controllerAs: "vm"
         });

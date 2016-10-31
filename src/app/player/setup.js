@@ -2,8 +2,9 @@ new function() {
 
   mlm.package(this, {
     name:    "player",
-    imports: "miruken.ng,miruken.ioc",
-    exports: "SetupInstaller,SetupRunner"
+    imports: "miruken.ng,miruken.ioc,miruken.mvc",
+    exports: "SetupInstaller,SetupRunner," + 
+        "PlayersRoute"
   });
 
   eval(this.imports);
@@ -14,8 +15,8 @@ new function() {
       $stateProvider
          .state("players", {
             url:          "/players",
-            templateUrl:  "app/layout.html",
-            controller:   "PlayerLayoutController",
+            templateUrl:  "app/region.html",
+            controller:   "PlayersRoute",
             controllerAs: "vm"
         });
     }
@@ -25,6 +26,12 @@ new function() {
     $inject: ["$appContext"],
     constructor(appContext){
       appContext.addHandlers(new PlayerHandler());
+    }
+  });
+
+  const PlayersRoute = Controller.extend({
+    viewRegionCreated: function(region) {
+      return PlayerFeature(region.context).showPlayers();
     }
   });
 
