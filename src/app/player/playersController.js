@@ -1,32 +1,32 @@
 new function() {
 
-  mlm.package(this, {
-    name:    "player",
-    imports: "miruken.mvc,mlm",
-    exports: "PlayersController"
-  });
+    mlm.package(this, {
+        name:    "player",
+        imports: "miruken.mvc,mlm",
+        exports: "PlayersController"
+    });
 
-  eval(this.imports);
+    eval(this.imports);
 
-  const PlayersController = Controller.extend({
-    $properties: {
-      players:   [] 
-    },
-    initialize() {
-      this.base();
-      return PlayerFeature(this.context).players()
-        .then(players => this.players = players);
-    },
+    const PlayersController = Controller.extend({
+        $properties: {
+            players:   [] 
+        },
+        initialize() {
+            this.base();
+            return PlayerFeature(this.context).players()
+                .then(players => this.players = players);
+        },
 
-    goToPlayer(player) {
-      PlayerFeature(this.context).showPlayer(player);
-    },
+        goToPlayer(player) {
+            PlayerFeature(this.context).showPlayer(player);
+        },
 
-    create() {
-      PlayerFeature(this.context).showCreatePlayer();
-    }
-  });
+        create() {
+            PlayerFeature(this.context).showCreatePlayer();
+        }
+    });
 
-  eval(this.exports);
+    eval(this.exports);
 
 };
