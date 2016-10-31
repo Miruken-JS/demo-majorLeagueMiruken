@@ -2,13 +2,11 @@ include teamDisplay.pug
 
 .l-teams
   .row
-    .col-sm-12
+    .col-sm-6
       h1 Teams
-  div(equal-height)
-      .row
-        .col-sm-4(ng-repeat="team in vm.teams | orderBy:'name'" ng-click="vm.goToTeam(team)")
-          .wrapSmall.active.js-equal-height
-            +teamDisplay('team')
-      .row
-        .col-sm-12
-          button.pull-right.btn.btn-success(ng-click="vm.create()") Create a Team
+    .col-sm-6
+      button.pull-right.btn.btn-success.top(ng-click="vm.create()") Create a Team
+  .row(equal-height)
+    .col-sm-4(ng-repeat="team in vm.teams | orderBy:'name'" ng-click="vm.goToTeam(team)")
+      .wrapSmall.active.js-equal-height
+        +teamDisplay('team')
