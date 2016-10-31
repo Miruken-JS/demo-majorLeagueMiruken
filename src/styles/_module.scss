@@ -1,0 +1,128 @@
+$black:     #000;
+$blue:      $brand-primary;
+$green:     $brand-success;
+$lightBlue: $brand-info;
+$maroon:    #500000;
+$orange:    orange;
+$red:       $brand-danger;
+$white:     #fff;
+$yellow:    $brand-warning;
+
+//error
+.error-banner {
+    position:   fixed;
+    margin-top: 50px;
+    width:      100%;
+    z-index:    1060;
+    opacity:    .9;
+    .alert {
+       border-radius: 0;
+    }
+}
+
+// team jerseys
+.jersey{
+  svg{
+    max-width: 145px;
+  }
+}
+
+.jersey.black{
+  .st2{
+    fill: $black;
+  }
+}
+.jersey.blue{
+  .st2{
+    fill: $blue;
+  }
+}
+.jersey.green{
+  .st2{
+    fill: $green;
+  }
+}
+.jersey.lightBlue{
+  .st2{
+    fill: $lightBlue;
+  }
+}
+.jersey.maroon{
+  .st2{
+    fill: $maroon;
+  }
+}
+.jersey.orange{
+  .st2{
+    fill: $orange;
+  }
+}
+.jersey.red{
+  .st2{
+    fill: $red;
+  }
+}
+.jersey.white{
+  .st2{
+    fill: $white;
+  }
+}
+.jersey.yellow{
+  .st2{
+    fill: $yellow;
+  }
+}
+//create team
+.teamColor{
+  .black{
+    background-color: $black;
+  }
+  .blue{
+    background-color: $blue;
+  }
+  .green{
+    background-color: $green;
+  }
+  .lightBlue{
+    background-color: $lightBlue;
+  }
+  .maroon{
+    background-color: $maroon;
+  }
+  .orange{
+    background-color: $orange;
+  }
+  .red{
+    background-color: $red;
+  }
+  .white{
+    background-color: $white;
+  }
+  .yellow{
+    background-color: $yellow;
+  }
+}
+
+.inputWrap{
+  margin-bottom: 20px;
+  .teamColor{
+    a{
+      margin-right: 10px;
+    }
+  }
+}
+
+.playerNum{
+  font-size: 1.5em;
+}
+
+img.person{
+  max-width: 145px;
+}
+
+.player{
+  .teamName{
+    font-weight: bold;
+  }
+}
+

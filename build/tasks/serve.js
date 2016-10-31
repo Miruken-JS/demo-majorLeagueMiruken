@@ -17,15 +17,16 @@ gulp.task("serve", ["build"], () => {
             }
         }
     });
-    
+
     watch([
         paths.built + "**/*.html",
         paths.built + "**/*.js",
-        paths.built + "**/*.css"
+        paths.built + "**/*.css",
+        paths.built + "images/**/*"
     ], batch((events, done) => {
         reload();
-        done();     
+        done();
     }));
-    
+
 });
-    
+

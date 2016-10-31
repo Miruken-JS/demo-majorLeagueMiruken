@@ -1,2 +1,13 @@
-h1 Players
+include playerDisplay.pug
 
+.l-players
+  .row
+    .col-sm-12
+      h1 Players
+  .row(equal-height)
+    .col-sm-4(ng-repeat="player in vm.players | orderBy:'lastName'" ng-click="vm.goToPlayer(player)")
+      .wrapSmall.active.js-equal-height
+        +playerDisplay("player")
+  .row
+    .col-sm-12
+      button.pull-right.btn.btn-success(ng-click="vm.create()") Create a Player

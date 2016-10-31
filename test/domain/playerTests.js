@@ -8,9 +8,9 @@ describe("player", () => {
 
 	beforeEach(() => {
 		player = new Player({
-			firstName: "Scott",
-			lastName : "Sterling",
-			number   : 2,
+			firstName:  "Scott",
+			lastName :  "Sterling",
+			number   :  2,
 			birthdate : "01-31-1990"
 		});
 	});
@@ -19,15 +19,11 @@ describe("player", () => {
 		player.should.not.be.nothing;
 	});
 
-	it("has a fullName", () => {
-		player.fullName.should.equal("Scott Sterling");
-	});
-
 	describe("validation", () => {
 		var context;
 	    beforeEach(function() {
-	        context = new Context;
-	        context.addHandlers(new ValidationCallbackHandler, new ValidateJsCallbackHandler);
+	        context = new Context();
+	        context.addHandlers(new ValidationCallbackHandler(), new ValidateJsCallbackHandler());
 	    });
 
 	    it("player is valid", () => {
@@ -54,7 +50,12 @@ describe("player", () => {
 	    	Validator(context).validate(player).valid.should.be.false;
 	    });
 
-		it("must be a number", () => {
+	    it("birthdate must be a valid date", () => {
+	    	player.birthdate = moment("13/45/2016", "MM/DD/YYYY");
+	    	Validator(context).validate(player).valid.should.be.false;
+	    });
+
+      it("must be a number", () => {
 	    	player.number = "a";
 	    	Validator(context).validate(player).valid.should.be.false;
 	    });

@@ -1,2 +1,14 @@
-h1 Player
+include playerDisplay.pug
 
+.l-Player
+  .row
+    .col-sm-12
+      h1 View Player
+  .row(equal-height)
+    .col-sm-6
+      .wrapSmall.js-equal-height
+        +playerDisplay("vm.player")
+
+  .row
+    .col-sm-6
+      button.pull-right.btn.btn-success(ng-click="vm.edit()") Edit Player

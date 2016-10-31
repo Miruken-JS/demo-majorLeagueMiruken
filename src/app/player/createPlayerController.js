@@ -1,30 +1,30 @@
 new function() {
 
-  mlm.package(this, {
-    name:    "player",
-    imports: "mlm,miruken.mvc",
-    exports: "CreatePlayerController"
-  });
+    mlm.package(this, {
+        name:    "player",
+        imports: "mlm,miruken.mvc,miruken.validate",
+        exports: "CreatePlayerController"
+    });
 
-  eval(this.imports);
+    eval(this.imports);
 
-  const CreatePlayerController = Controller.extend({
-    $properties:{
-      title:  "Create-A-Player",
-      player: { map: Player }
-    },
-    constructor() {
-      this.player = new Player();
-    },
+    const CreatePlayerController = Controller.extend({
+        $properties:{
+            title:      "Create-A-Player",
+            buttonText: "Create Player",
+            player:     { validate: $nested }
+        },
+        constructor() {
+            this.player = new Player();
+        },
 
-    create() {
-      PlayerFeature(this.context).createPlayer(this.player).then(() => {
-          PlayerFeature(this.context).showAllPlayers();
-      });
-    },
+        save() {
+            return PlayerFeature(this.controllerContext)
+                .createPlayer(this.player).then(() => PlayerFeature(this.context).showPlayers());
+        }
 
-  });
+    });
 
-  eval(this.exports);
+    eval(this.exports);
 
 };

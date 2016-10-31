@@ -1,0 +1,74 @@
+// teams Page
+.l-teams{
+  margin-top: 40px;
+  h2.teamName{
+    text-transform: uppercase;
+  }
+}
+
+// single team Page
+.l-team{
+  margin-top: 40px;
+  .teamName,.teamManager,.teamCoach{
+    font-size: 1.5em
+  }
+}
+
+// creating a new team Page
+.l-createTeam{
+  margin-top: 40px;
+  input{
+    width: 100%;
+  }
+}
+
+// edit existing team Page
+.l-editTeam{
+
+}
+
+// edit existing team Page
+.l-players{
+   margin-top: 40px;
+  input{
+    width: 40%;
+  }
+  .teamName{
+    margin-top: 0px;
+    padding: 0px;
+  }
+  .playerNum{
+    margin-bottom: -10px;
+    padding: 0px;
+  }
+}
+
+// edit existing team Page
+.l-player{
+  margin-top:40px;
+
+  input{
+    width: 40%;
+  }
+
+  .teamName{
+    font-weight: bold;
+  }
+
+  .playerNumber,.playerBirth{
+    font-size: 2em;
+    font-weight: 100;
+  }
+
+}
+
+// edit existing team Page
+.l-createPlayer, .l-editPlayer{
+  margin-top:40px;
+  form {
+    padding: 15px;
+  }
+  input{
+    width: 100%;
+  }
+}

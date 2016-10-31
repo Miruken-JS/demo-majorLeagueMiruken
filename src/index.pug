@@ -1,35 +1,16 @@
 html(ng-app="mlm")
 head
     title Major League Miruken
-
+    
     link(rel="stylesheet", type="text/css", href="styles/style.css")
+    link(rel="stylesheet", type="text/css", href="styles/bootstrap-additions/bootstrap-additions.css")
+    link(rel="stylesheet", type="text/css", href="styles/bootstrap-additions/modules/tooltip.css")
+    link(rel="stylesheet", type="text/css", href="styles/bootstrap-additions/modules/datepicker.css")
 
 body
-    nav(class="navbar navbar-default navbar-fixed-top")
-        div(class="container-fluid")
-            div(class="navbar-header")
-                a(class="navbar-brand", href="#/") Major League Miruken
-
-            div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
-                ul(class="nav navbar-nav")
-                    li
-                        a(href="#/")            Teams
-                    li
-                        a(href="#/team")        Team
-                    li
-                        a(href="#/createTeam")  CreateTeam
-                    li
-                        a(href="#/editTeam")    EditTeam
-                    li
-                        a(href="#players")      Players
-                    li
-                        a(href="#player")       Player
-                    li
-                        a(href="#createPlayer") CreatePlayer
-                    li
-                        a(href="#editPlayer")   EditPlayer
-
-    div(class="container-fluid", ui-view="")
+    div(ng-include="'app/header/header.html'")
+    .error-banner(ng-include="'app/error/error.html'")
+    div.container-fluid.col-sm-10.col-sm-offset-1(ui-view="")
 
     script(src="../node_modules/babel-polyfill/dist/polyfill.js")
 
@@ -38,4 +19,3 @@ body
 
     <!-- inject:js -->
     <!-- endinject -->
-

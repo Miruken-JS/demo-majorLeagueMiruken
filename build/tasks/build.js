@@ -5,10 +5,22 @@ const babel    = require("gulp-babel");
 const sass     = require("gulp-sass");
 const pug      = require("gulp-pug");
 
-gulp.task("build", sequence("clean", ["inject", "buildJavascript", "buildHtml", "buildStyles"]));
+gulp.task("build", sequence("clean", [
+      "inject", "buildFavIcon", "buildJavascript",
+      "buildHtml", "bootstrapAdditions", "buildStyles",
+      "buildImages", "buildFonts",
+      "buildCssDependencies"
+]));
+
+const base = { base: "./src" };
+
+gulp.task("bootstrapAdditions", function(){
+    gulp.src(paths.cssSource)
+        .pipe(gulp.dest(paths.built + paths.cssDest));
+});
 
 gulp.task("buildJavascript", () => {
-    return gulp.src(paths.source, { base: "./src"})
+    return gulp.src(paths.source, base)
         .pipe(babel())
         .pipe(gulp.dest(paths.built));
 });
@@ -22,7 +34,29 @@ gulp.task("buildHtml", () => {
 });
 
 gulp.task("buildStyles", () => {
-    return gulp.src(paths.style, { base: "./src"})
+    return gulp.src(paths.style, base)
         .pipe(sass())
+        .pipe(gulp.dest(paths.built));
+});
+
+gulp.task("buildCssDependencies", () => {
+  return gulp.src("bower_components/bootstrap-chosen/*.png")
+    .pipe(gulp.dest(paths.built + "styles"));
+});
+
+gulp.task("buildImages", () => {
+    return gulp.src([`${paths.root}/images/**/*`], base)
+        .pipe(gulp.dest(paths.built));
+});
+
+gulp.task("buildFonts", () => {
+    return gulp.src("bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*", {
+            base: "./bower_components/bootstrap-sass/assets"
+        })
+        .pipe(gulp.dest(paths.built));
+});
+
+gulp.task("buildFavIcon", () => {
+    return gulp.src("src/favicon.ico")
         .pipe(gulp.dest(paths.built));
 });

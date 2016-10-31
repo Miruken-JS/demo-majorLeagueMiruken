@@ -1,1 +1,53 @@
-h1 {{vm.title}}
+include playerDisplay.pug
+
+.l-createPlayer
+  .row
+    .col-sm-12
+      h1 {{vm.title}}
+  .row(equal-height)
+    .col-sm-6
+      .wrapSmall.js-equal-height
+          form
+            .row
+              .inputWrap 
+                .col-sm-12
+                  label
+                    .teamName Player Name
+                .col-sm-12.col-md-6
+                  input(type="text" placeholder="First Name" ng-model="vm.player.firstName")
+                  div.error(ng-messages='vm.$validation.player.firstName.errors')
+                    div.small(ng-message='presence')
+                      |  Player's first name required
+                .col-sm-12.col-md-6
+                  input(type="text"  placeholder="Last Name" ng-model="vm.player.lastName")
+                  div.error(ng-messages='vm.$validation.player.lastName.errors')
+                   div.small(ng-message='presence')
+                      |  Player's last name required
+
+            .row
+                .col-sm-12.col-md-6
+                  .inputWrap
+                    label
+                      .teamManager Assign a Number
+                    input(type="text"  placeholder="Number" ng-model="vm.player.number")
+                    div.error(ng-messages='vm.$validation.player.number.errors')
+                      div.small(ng-message='presence')
+                        |  Player's number is required
+                      div.small(ng-message='numericality')
+                        |  Must be a number greater than 0
+                .col-sm-12.col-md-6
+                  .inputWrap
+                    label
+                      .teamManager Players Date of Birth
+                    input(type="text" placeholder="MM/DD/YYYY" ng-model="vm.player.birthdate" data-date-format="MM/dd/yyyy" data-container="body" bs-datepicker)
+                    div.error(ng-messages='vm.$validation.player.birthdate.errors')
+                      div.small(ng-message='presence')
+                        |  Player's birthdate is required
+                      div.small(ng-message='invalid')
+                        | Invalid date.  Must be "MM/DD/YYYY"
+    .col-sm-6
+      .wrapSmall.js-equal-height
+        +playerDisplay("vm.player")
+  .row
+    .col-sm-12
+      button.pull-right.btn.btn-success(ng-click="vm.save()") {{vm.buttonText}}
