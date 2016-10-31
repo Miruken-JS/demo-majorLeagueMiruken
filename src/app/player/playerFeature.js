@@ -11,12 +11,13 @@ new function() {
         createPlayer(player)   {},
         deletePlayer(player)   {},
         editPlayer(player)     {},
+        player(id)             {},
         players()              {},
-        showPlayers()          {},
+        showChoosePlayer(team) {},
         showCreatePlayer()     {},
         showEditPlayer(team)   {},
         showPlayer(team)       {},
-        showChoosePlayer(team) {},
+        showPlayers()          {},
         updatePlayer(player)   {}
     });
 
