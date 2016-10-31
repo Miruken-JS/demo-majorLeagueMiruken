@@ -8,6 +8,18 @@ $red:       $brand-danger;
 $white:     #fff;
 $yellow:    $brand-warning;
 
+//error
+.error-banner {
+    position:   fixed;
+    margin-top: 50px;
+    width:      100%;
+    z-index:    1060;
+    opacity:    .9;
+    .alert {
+       border-radius: 0;
+    }
+}
+
 // team jerseys
 .jersey{
   svg{
@@ -113,3 +125,4 @@ img.person{
     font-weight: bold;
   }
 }
+

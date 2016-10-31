@@ -1,0 +1,8 @@
+div(ng-controller="ErrorController as vm")
+    div(ng-if="vm.error")
+        .alert.alert-danger.row
+            .col-xs-8
+                h4 {{ vm.heading }}
+                p  {{ vm.subtext }}
+            .col-xs-4.text-right
+                button.btn.btn-xl.btn-danger(ng-click="vm.refresh()") Refresh
