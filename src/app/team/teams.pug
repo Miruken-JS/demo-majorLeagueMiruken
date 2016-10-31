@@ -4,10 +4,11 @@ include teamDisplay.pug
   .row
     .col-sm-12
       h1 Teams
-  .row(equal-height)
-    .col-sm-4(ng-repeat="team in vm.teams | orderBy:'name'" ng-click="vm.goToTeam(team)")
-      .wrapSmall.active.js-equal-height
-        +teamDisplay('team')
-  .row
-    .col-sm-12
-      button.pull-right.btn.btn-success(ng-click="vm.create()") Create a Team
+  div(equal-height)
+      .row
+        .col-sm-4(ng-repeat="team in vm.teams | orderBy:'name'" ng-click="vm.goToTeam(team)")
+          .wrapSmall.active.js-equal-height
+            +teamDisplay('team')
+      .row
+        .col-sm-12
+          button.pull-right.btn.btn-success(ng-click="vm.create()") Create a Team
