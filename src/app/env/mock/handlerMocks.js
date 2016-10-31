@@ -80,6 +80,9 @@ new function(){
 		teams() {
 			return Promise.resolve(teams);
 		},
+    team(id) {
+      return Promise.resolve(teams.find(item => item.id == id));
+    },
     createTeam(team) {
       team.id = nextId();
       teams.push(team);
