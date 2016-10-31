@@ -1,25 +1,25 @@
 new function(){
 
-	base2.package(this, {
-		name   : "mlm",
-		imports: "miruken",
-		exports: "Color"
-	});
+    base2.package(this, {
+        name   : "mlm",
+        imports: "miruken",
+        exports: "Color"
+    });
 
-	eval(this.imports);
+    eval(this.imports);
 
-	const Color = Enum({
-    black:     "black",
-    blue:      "blue",
-    green:     "green",
-    lightBlue: "lightBlue",
-    maroon:    "maroon",
-    orange:    "orange",
-    red:       "red",
-    white:     "white",
-    yellow:    "yellow"
-	});
+    const Color = Enum({
+        black:     "black",
+        blue:      "blue",
+        green:     "green",
+        lightBlue: "lightBlue",
+        maroon:    "maroon",
+        orange:    "orange",
+        red:       "red",
+        white:     "white",
+        yellow:    "yellow"
+    });
 
-	eval(this.exports);
+    eval(this.exports);
 
 };
