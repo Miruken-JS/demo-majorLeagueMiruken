@@ -6,7 +6,7 @@ const sass     = require("gulp-sass");
 const pug      = require("gulp-pug");
 
 gulp.task("build", sequence("clean", [
-      "inject", "buildFavIcon", "buildJavascript",
+      "buildFavIcon", "buildJavascript",
       "buildHtml", "bootstrapAdditions", "buildStyles",
       "buildImages", "buildFonts",
       "buildCssDependencies"
@@ -26,7 +26,7 @@ gulp.task("buildJavascript", () => {
 });
 
 gulp.task("buildHtml", () => {
-    return gulp.src(["!" + paths.index, paths.html])
+    return gulp.src(paths.html)
     	.pipe(pug({
     		pretty: true
     	}))

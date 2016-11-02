@@ -10,8 +10,6 @@ const pug      = require("gulp-pug");
 const through2 = require("through2");
 
 gulp.task("watch", () => {
-    watchForAddedAndRemovedJavascript();
-    watchIndex();
     watchJavascript();
     watchHtml();
     watchStyles();
@@ -20,31 +18,6 @@ gulp.task("watch", () => {
 });
 
 const base = { base: "./src" };
-
-function watchForAddedAndRemovedJavascript(){
-    const sources = [...paths.source, paths.html]; 
-    gulp.src(sources)
-        .pipe(watch(sources))
-        .pipe(plumber())
-        .pipe(filter((file) => {
-            return file.event === "add" || file.event === "unlink";
-        }))
-        .pipe(through2.obj((file, encoding, done) => {
-            console.log("injecting files");
-            gulp.start("inject", done);
-            if(this.push){
-                this.push(file);
-            }
-        }));
-}
-
-function watchIndex(){
-    gulp.start('inject');
-    const sources = [paths.index, "build/paths.js"];
-    return watch(sources, batch((events, done) => {
-        gulp.start('inject', done);
-    }));
-}
 
 function watchLint(){
     return watch([...paths.source, "test/**/*.js", "build/**/*.js"], batch((events, done) => {

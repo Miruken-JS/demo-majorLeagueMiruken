@@ -31,7 +31,7 @@ window.showModuleRelationships = function () {
       var dependencies = module.deps
         .map(displayName)
         .map(function (dependencyName) {
-          return "[" + name + "]->[" + dependencyName + "]"
+          return "[" + name + "]->[" + dependencyName + "]";
         });
 
       dependencyDefinitions = dependencyDefinitions.concat(dependencies);

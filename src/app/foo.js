@@ -1,3 +1,3 @@
-import a from "./message.js";
+//import a from "./message";
 
-console.log("*** " + a + " ***");
+//console.log("*** " + a + " ***");
