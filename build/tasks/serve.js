@@ -7,13 +7,15 @@ const batch       = require("gulp-batch");
 
 gulp.task("serve", ["build"], () => {
     browserSync({
+        logLevel: "debug",
         notify: false,
         port: 9100,
         server: {
             baseDir: paths.built,
             routes: {
                 "/bower_components": "bower_components",
-                "/node_modules":     "node_modules"
+                "/node_modules":     "node_modules",
+                "/jspm_packages":    "jspm_packages"
             }
         }
     });

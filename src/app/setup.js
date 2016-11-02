@@ -56,4 +56,7 @@ new function() {
 
     eval(this.exports);
 
+    angular.element(() => {
+        angular.bootstrap(document, ["mlm"]);
+    });
 };
