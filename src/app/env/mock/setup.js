@@ -1,3 +1,5 @@
+import "./handlerMocks.js";
+
 new function() {
 
     mlm.package(this, {

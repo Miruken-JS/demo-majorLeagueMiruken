@@ -1,3 +1,6 @@
+import "../../team/teamFeature.js";
+import "../../player/playerFeature.js";
+
 new function(){
 
     mlm.package(this, {

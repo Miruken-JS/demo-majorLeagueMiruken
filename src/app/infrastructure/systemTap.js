@@ -1,3 +1,4 @@
+/*
 var normalize = System.normalize;
 System.normalize = function (name, parentName, parentAddress) {
   console.log("normalize: " + JSON.stringify({
@@ -31,3 +32,4 @@ System.instantiate = function (load) {
   console.log("before instantiate: " + JSON.stringify(load));
   return systemInstantiate.call(this, load);
 };
+*/

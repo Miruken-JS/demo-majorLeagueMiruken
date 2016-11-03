@@ -1,18 +1,16 @@
+import "./header/headerController.js";
+import "./error/errorController.js";
+import "./infrastructure/equalHeight.js";
+import "./team/setup.js";
+import "./player/setup.js";
+import "./env/mock/setup.js";
+
 new function() {
 
     base2.package(this, {
         name:    "mlm",
         imports: "miruken.ng,miruken.mvc,miruken.ioc,miruken.callback",
-        exports: "SetupInstaller,SetupRunner",
-        ngModule: [
-            "ui.router",
-            "ngMessages",
-            "localytics.directives",
-            "mgcrea.ngStrap",
-            "mgcrea.ngStrap.helpers.dimensions",
-            "mgcrea.ngStrap.tooltip",
-            "mgcrea.ngStrap.helpers.dateParser"
-        ]
+        exports: "SetupInstaller,SetupRunner"
     });
 
     eval(this.imports);
@@ -59,4 +57,5 @@ new function() {
     angular.element(() => {
         angular.bootstrap(document, ["mlm"]);
     });
+
 };

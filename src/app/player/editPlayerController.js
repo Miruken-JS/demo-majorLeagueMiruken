@@ -1,6 +1,6 @@
 new function() {
 
-    mlm.package(this, {
+    base2.mlm.package(this, {
         name:    "player",
         imports: "mlm,miruken.mvc",
         exports: "EditPlayerController"

@@ -1,6 +1,8 @@
+import "../domain/team.js";
+
 new function() {
 
-    mlm.package(this, {
+    base2.mlm.package(this, {
         name:    "team",
         imports: "miruken.mvc,mlm",
         exports: "TeamController"

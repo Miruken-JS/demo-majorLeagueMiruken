@@ -1,6 +1,12 @@
+import "./teamHandler.js";
+import "./createTeamController.js";
+import "./editTeamController.js";
+import "./teamController.js";
+import "./teamsController.js";
+
 new function() {
 
-    mlm.package(this, {
+    base2.mlm.package(this, {
         name:    "team",
         imports: "miruken.ng,miruken.ioc,miruken.mvc",
         exports: "SetupInstaller,SetupRunner,TeamsRoute,TeamRoute,CreateTeamRoute,EditTeamRoute"

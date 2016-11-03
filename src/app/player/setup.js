@@ -1,6 +1,14 @@
+import "./playerFeature.js";
+import "./playerHandler.js";
+import "./choosePlayerController.js";
+import "./createPlayerController.js";
+import "./editPlayerController.js";
+import "./playerController.js";
+import "./playersController.js";
+
 new function() {
 
-    mlm.package(this, {
+    base2.mlm.package(this, {
         name:    "player",
         imports: "miruken.ng,miruken.ioc,miruken.mvc",
         exports: "SetupInstaller,SetupRunner," + 

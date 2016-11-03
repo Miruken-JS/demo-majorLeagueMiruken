@@ -1,6 +1,12 @@
+import "./teamFeature.js";
+import "./teamController.js";
+import "./teamsController.js";
+import "./createTeamController.js";
+import "./editTeamController.js";
+
 new function(){
 
-	mlm.package(this,{
+	base2.mlm.package(this,{
 		name:    "team",
 		imports: "miruken.callback,miruken.mvc,mlm,mlm.team",
 		exports: "TeamHandler"

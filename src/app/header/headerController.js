@@ -1,6 +1,6 @@
 new function() {
 
-    mlm.package(this, {
+    base2.mlm.package(this, {
         name:    "header",
         imports: "miruken,miruken.mvc",
         exports: "HeaderController"

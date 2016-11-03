@@ -1,6 +1,6 @@
 new function() {
 
-    mlm.package(this, {
+    base2.mlm.package(this, {
         name:    "team",
         imports: "mlm,miruken.mvc,miruken.validate",
         exports: "CreateTeamController"

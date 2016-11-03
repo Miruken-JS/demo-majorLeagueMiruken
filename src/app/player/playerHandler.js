@@ -1,3 +1,10 @@
+import "./playerFeature.js";
+import "./choosePlayerController.js";
+import "./createPlayerController.js";
+import "./editPlayerController.js";
+import "./playerController.js";
+import "./playersController.js";
+
 new function(){
 
     mlm.package(this,{
