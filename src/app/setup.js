@@ -1,6 +1,6 @@
+import "./infrastructure/equalHeight.js";
 import "./header/headerController.js";
 import "./error/errorController.js";
-import "./infrastructure/equalHeight.js";
 import "./team/setup.js";
 import "./player/setup.js";
 import "./env/mock/setup.js";
