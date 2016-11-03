@@ -17,11 +17,16 @@ System.config({
     "angular": "github:angular/bower-angular@1.5.8",
     "angular-chosen-localytics": "npm:angular-chosen-localytics@1.5.0",
     "angular-messages": "github:angular/bower-angular-messages@1.5.8",
+    "angular-strap": "github:mgcrea/angular-strap@2.3.10",
     "angular-ui-router": "github:angular-ui/angular-ui-router-bower@0.3.1",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
+    "bootstrap-additions": "npm:bootstrap-additions@0.3.1",
+    "bootstrap-chosen": "npm:bootstrap-chosen@1.4.2",
+    "bootstrap-sass": "github:twbs/bootstrap-sass@3.3.7",
     "core-js": "npm:core-js@1.2.7",
     "jquery": "npm:jquery@3.1.1",
+    "moment": "npm:moment@2.15.2",
     "github:angular-ui/angular-ui-router-bower@0.3.1": {
       "angular": "github:angular/bower-angular@1.5.8"
     },
@@ -46,6 +51,9 @@ System.config({
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
+    "github:mgcrea/angular-strap@2.3.10": {
+      "angular": "github:angular/bower-angular@1.5.8"
+    },
     "npm:angular-chosen-localytics@1.5.0": {
       "angular": "npm:angular@1.5.8",
       "chosen-js": "npm:chosen-js@1.6.2",
@@ -60,6 +68,9 @@ System.config({
     },
     "npm:babel-runtime@5.8.38": {
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:bootstrap-additions@0.3.1": {
+      "path": "github:jspm/nodelibs-path@0.1.0"
     },
     "npm:buffer@3.6.0": {
       "base64-js": "npm:base64-js@0.0.8",
