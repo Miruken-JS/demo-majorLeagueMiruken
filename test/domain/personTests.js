@@ -1,3 +1,5 @@
+import "../../src/app/domain/person.js";
+
 describe("person", () => {
 	
 	eval(miruken.context.namespace);

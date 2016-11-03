@@ -1,19 +1,29 @@
 const paths = require("./build/paths");
 
 var vendorFiles = [
-        'jspm_packages/npm/moment@2.15.2/moment.js" ',
-        'jspm_packages/github/angular/bower-angular@1.5.8/angular.js',
-        'jspm_packages/github/miruken-es5/bower-miruken-es5-angular@1.0.2/miruken-ng-bundle.js'
-    ]
-var files = vendorFiles.concat(paths.source);
-files.push('test/**/*.js');
+    'jspm_packages/npm/moment@2.15.2/moment.js',
+    'jspm_packages/github/angular/bower-angular@1.5.8/angular.js',
+    'jspm_packages/github/miruken-es5/bower-miruken-es5-angular@1.0.2/miruken-ng-bundle.js'
+];
 
 module.exports = function(config) {
   config.set({
+    basePath:   "",
 
-    frameworks: ['mocha','chai'],
+    frameworks: ['mocha','chai','jspm'],
 
-    files: files,
+    files: vendorFiles,
+
+    jspm: {
+        loadFiles:  ["test/**/*.js"],
+        serveFiles: ["jspm_packages/**/*.js", "src/app/**/*.js"]
+    },
+
+    proxies: {
+        "/jspm_packages" : '/base/jspm_packages',
+        "/src": "/base/src",
+        "/test": "/base/test"
+    },
 
     preprocessors: {
         'src/**/*.js' : ['babel'],

@@ -1,3 +1,5 @@
+import "../../src/app/team/createTeamController.js";
+
 describe("CreateTeamController", () => {
 	
 	eval(miruken.context.namespace);

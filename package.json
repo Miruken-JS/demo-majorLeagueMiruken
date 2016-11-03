@@ -68,6 +68,7 @@
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^1.0.1",
+    "karma-jspm": "^2.2.0",
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.1.0",
     "mocha": "^3.0.1",
