@@ -12,7 +12,6 @@ gulp.task("serve", ["build"], () => {
         server: {
             baseDir: paths.built,
             routes: {
-                "/bower_components": "bower_components",
                 "/node_modules":     "node_modules",
                 "/jspm_packages":    "jspm_packages"
             }

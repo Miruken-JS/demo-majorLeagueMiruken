@@ -1,11 +1,11 @@
 const paths = require("./build/paths");
 
-var bowerFiles = [
-        'bower_components/moment/moment.js',
-        'bower_components/angular/angular.js',
-        'bower_components/miruken-angular/miruken-ng-bundle.js',
+var vendorFiles = [
+        'jspm_packages/npm/moment@2.15.2/moment.js" ',
+        'jspm_packages/github/angular/bower-angular@1.5.8/angular.js',
+        'jspm_packages/github/miruken-es5/bower-miruken-es5-angular@1.0.2/miruken-ng-bundle.js'
     ]
-var files = bowerFiles.concat(paths.source);
+var files = vendorFiles.concat(paths.source);
 files.push('test/**/*.js');
 
 module.exports = function(config) {

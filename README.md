@@ -11,9 +11,9 @@ Install the [gulp-cli](http://gulpjs.com) globally.
 $ npm install -g gulp-cli
 ```
 
-Install [bower](http://bower.io) globally.
+Install [jspm](http://jspm.io) globally.
 ```
-$ npm install -g bower
+$ npm install -g jspm
 ```
 
 Install [karma-cli](https://www.npmjs.com/package/karma-cli) globally.
@@ -27,9 +27,9 @@ Install npm dependencies
 $ npm install
 ```
 
-Install bower dependencies
+Install jspm dependencies
 ```
-$ bower install
+$ jspm install
 ```
 
 ###Run Application
