@@ -7,7 +7,6 @@ const batch       = require("gulp-batch");
 
 gulp.task("serve", ["build"], () => {
     browserSync({
-        logLevel: "debug",
         notify: false,
         port: 9100,
         server: {

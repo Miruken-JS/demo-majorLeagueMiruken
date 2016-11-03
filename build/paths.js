@@ -27,7 +27,7 @@ const paths   = {
     appRoot + "**/*.js"
   ],
   html            : appRoot + "**/*.pug",
-  cssSource      : "bower_components/bootstrap-additions/dist/**/*.css",
+  cssSource      : "jspm_packages/npm/bootstrap-additions@0.3.1/dist/**/*.css",
   cssDest        : "styles/bootstrap-additions",
   style           : appRoot + "styles/**/*.scss",
   index           : appRoot + "index.pug",

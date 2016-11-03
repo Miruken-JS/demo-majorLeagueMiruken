@@ -40,7 +40,7 @@ gulp.task("buildStyles", () => {
 });
 
 gulp.task("buildCssDependencies", () => {
-  return gulp.src("bower_components/bootstrap-chosen/*.png")
+  return gulp.src("jspm_packages/npm/bootstrap-chosen@1.4.2/*.png")
     .pipe(gulp.dest(paths.built + "styles"));
 });
 
@@ -50,8 +50,8 @@ gulp.task("buildImages", () => {
 });
 
 gulp.task("buildFonts", () => {
-    return gulp.src("bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*", {
-            base: "./bower_components/bootstrap-sass/assets"
+    return gulp.src("jspm_packages/github/twbs/bootstrap-sass@3.3.7/assets/fonts/bootstrap/**/*", {
+            base: "jspm_packages/github/twbs/bootstrap-sass@3.3.7/assets"
         })
         .pipe(gulp.dest(paths.built));
 });
