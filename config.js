@@ -26,6 +26,8 @@ System.config({
     "bootstrap-sass": "github:twbs/bootstrap-sass@3.3.7",
     "core-js": "npm:core-js@1.2.7",
     "jquery": "npm:jquery@3.1.1",
+    "liabru/jquery-match-height": "github:liabru/jquery-match-height@0.7.0",
+    "miruken-es5/bower-miruken-es5-angular": "github:miruken-es5/bower-miruken-es5-angular@1.0.2",
     "moment": "npm:moment@2.15.2",
     "github:angular-ui/angular-ui-router-bower@0.3.1": {
       "angular": "github:angular/bower-angular@1.5.8"
