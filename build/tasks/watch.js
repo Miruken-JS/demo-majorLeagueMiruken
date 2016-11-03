@@ -35,7 +35,7 @@ function watchJavascript(){
 }
 
 function watchHtml(){
-    const sources = ["!" + paths.index, paths.html];
+    const sources = paths.html;
     return gulp.src(sources)
         .pipe(watch(sources))
         .pipe(plumber())
