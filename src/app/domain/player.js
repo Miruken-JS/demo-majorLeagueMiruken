@@ -1,3 +1,5 @@
+import "./person.js";
+
 new function(){
 
     base2.package(this, {

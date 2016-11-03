@@ -4,6 +4,7 @@ import "./createPlayerController.js";
 import "./editPlayerController.js";
 import "./playerController.js";
 import "./playersController.js";
+import "../domain/player.js";
 
 new function(){
 

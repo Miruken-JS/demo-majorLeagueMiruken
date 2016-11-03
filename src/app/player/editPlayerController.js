@@ -1,3 +1,5 @@
+import "../domain/player.js";
+
 new function() {
 
     base2.mlm.package(this, {

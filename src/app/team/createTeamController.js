@@ -1,3 +1,5 @@
+import "../domain/team.js";
+
 new function() {
 
     base2.mlm.package(this, {
