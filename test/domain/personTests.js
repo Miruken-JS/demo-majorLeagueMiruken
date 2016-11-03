@@ -45,9 +45,5 @@ describe("person", () => {
 	    	Validator(context).validate(person).valid.should.be.false;
 	    });
 
-	    it("birthdate is a moment object", () => {
-	    	moment.isMoment(person.birthdate).should.be.true;
-	    });
-
 	});
 });

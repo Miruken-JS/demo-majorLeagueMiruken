@@ -1,3 +1,5 @@
+import "../../src/app/domain/player.js";
+
 describe("player", () => {
 	
 	eval(miruken.context.namespace);
@@ -50,11 +52,6 @@ describe("player", () => {
 	    	Validator(context).validate(player).valid.should.be.false;
 	    });
 
-	    it("birthdate must be a valid date", () => {
-	    	player.birthdate = moment("13/45/2016", "MM/DD/YYYY");
-	    	Validator(context).validate(player).valid.should.be.false;
-	    });
-
       it("must be a number", () => {
 	    	player.number = "a";
 	    	Validator(context).validate(player).valid.should.be.false;
@@ -63,10 +60,6 @@ describe("player", () => {
 	    it("number cannot be negative", () => {
 	    	player.number = -1;
 	    	Validator(context).validate(player).valid.should.be.false;
-	    });
-
-	    it("birthdate is a moment object", () => {
-	    	moment.isMoment(player.birthdate).should.be.true;
 	    });
 
 	});

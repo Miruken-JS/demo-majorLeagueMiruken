@@ -1,3 +1,4 @@
+import "../setup.js";
 import "../domain/team.js";
 import "../player/playerFeature.js";
 

@@ -1,3 +1,4 @@
+import "../setup.js";
 import "../domain/player.js";
 
 new function() {

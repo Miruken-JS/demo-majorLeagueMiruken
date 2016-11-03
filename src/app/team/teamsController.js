@@ -1,3 +1,4 @@
+import "../setup.js";
 import "./teamFeature.js";
 
 new function() {

@@ -1,3 +1,6 @@
+import "../setup.js";
+import "./playerFeature.js";
+
 new function() {
 
     base2.mlm.package(this, {

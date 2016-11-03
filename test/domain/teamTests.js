@@ -1,3 +1,5 @@
+import "../../src/app/domain/team.js";
+
 describe("team", () => {
 	
 	eval(miruken.context.namespace);
