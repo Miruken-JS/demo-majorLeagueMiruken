@@ -9,7 +9,7 @@ new function() {
     base2.mlm.package(this, {
         name:    "team",
         imports: "miruken,miruken.ng,miruken.ioc,miruken.mvc",
-        exports: "SetupInstaller,SetupRunner,TeamsRoute,TeamRoute,CreateTeamRoute,EditTeamRoute"
+        exports: "SetupInstaller,SetupRunner,TeamRoute,CreateTeamRoute,EditTeamRoute"
     });
 
     eval(this.imports);
@@ -66,12 +66,6 @@ new function() {
                 template:     Router.template,
                 controller:   Router
             })
-            .state("teams", {
-                url:          "/teams",
-                templateUrl:  "app/region.html",
-                controller:   "TeamsRoute",
-                controllerAs: "vm"
-            })
             .state("team", {
                 url:          "/team/{id}",
                 templateUrl:  "app/region.html",
@@ -97,12 +91,6 @@ new function() {
         $inject: ["$appContext"],
         constructor(appContext) {
             appContext.addHandlers(new TeamHandler());
-        }
-    });
-
-    const TeamsRoute = Controller.extend({
-        viewRegionCreated(region) {
-            return TeamFeature(region.context).showTeams();
         }
     });
 

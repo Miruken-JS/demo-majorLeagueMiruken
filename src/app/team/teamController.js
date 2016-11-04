@@ -16,13 +16,19 @@ new function() {
             team: undefined
         },
 
-        $inject: [Team],
-        constructor(team) {
-            this.team = team;
-        },
-
         edit() {
             TeamFeature(this.context).showEditTeam(this.team);
+        },
+        showTeam(params) {
+            return TeamFeature(this.context)
+                .team(params.id).then(team => {
+                    this.team = team;
+                    return ViewRegion(this.context).present({
+                        templateUrl:  "app/team/team.html",
+                        controller:   TeamController,
+                        controllerAs: "vm"
+                    });
+                });
         }
     });
 
