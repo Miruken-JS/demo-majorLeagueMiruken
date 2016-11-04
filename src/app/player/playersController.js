@@ -21,6 +21,13 @@ new function() {
                 .then(players => this.players = players);
         },
 
+        showPlayers() {
+            return ViewRegion(this.context).present({
+                templateUrl:  "app/player/players.html",
+                controller:   PlayersController,
+                controllerAs: "vm"
+            });
+        },
         goToPlayer(player) {
             PlayerFeature(this.context).showPlayer(player);
         },

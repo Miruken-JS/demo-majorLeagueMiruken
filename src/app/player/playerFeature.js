@@ -17,7 +17,6 @@ new function() {
         showCreatePlayer()     {},
         showEditPlayer(team)   {},
         showPlayer(team)       {},
-        showPlayers()          {},
         updatePlayer(player)   {}
     });
 

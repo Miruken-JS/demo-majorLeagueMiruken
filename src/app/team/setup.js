@@ -53,7 +53,7 @@ new function() {
         }
     }, {
         $inject:  ["$scope", "$stateParams"],
-        rule:     "/{controller}/{action}/{id}",
+        route:    "/{controller}/{action}/{id}",
         template: "<div region>{{ ::loaded() }}</div>"
     });
 
@@ -62,7 +62,7 @@ new function() {
         constructor($stateProvider) {
         $stateProvider
             .state("default", {
-                url:          Router.rule,
+                url:          Router.route,
                 template:     Router.template,
                 controller:   Router
             })

@@ -17,13 +17,6 @@ new function(){
     eval(this.imports);
 
     const PlayerHandler = CallbackHandler.extend(PlayerFeature, {
-        showPlayers() {
-            return ViewRegion($composer).present({
-                templateUrl:  "app/player/players.html",
-                controller:   PlayersController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("players"));
-        },
         showPlayer(player) {
             return ViewRegion($composer.$$provide([Player, player])).present({
                 templateUrl:  "app/player/player.html",

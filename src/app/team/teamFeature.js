@@ -13,7 +13,6 @@ new function() {
         editTeam(team)            {},
         teams()                   {},
         team(id)                  {},
-        showTeams()               {},
         showCreateTeam()          {},
         showEditTeam(team)        {},
         showTeam(team)            {},

@@ -21,7 +21,7 @@ new function() {
     const SetupInstaller = Installer.extend({
         $inject: ["$urlRouterProvider"],
         constructor($urlRouterProvider) {
-            $urlRouterProvider.otherwise("/teams");
+            $urlRouterProvider.otherwise("/Teams/showTeams/");
         }
     });
 

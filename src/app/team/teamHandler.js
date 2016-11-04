@@ -18,13 +18,6 @@ new function(){
         constructor($state){
 
         },
-		showTeams() {
-            return ViewRegion($composer).present({
-                templateUrl:  "app/team/teams.html",
-                controller:   TeamsController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("teams"));
-		},
 		showTeam(team) {
             return ViewRegion($composer.$$provide([Team, team])).present({
                 templateUrl:  "app/team/team.html",
