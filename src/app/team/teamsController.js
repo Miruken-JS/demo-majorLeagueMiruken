@@ -21,6 +21,13 @@ new function() {
                 .then(teams => this.teams = teams );
         },
 
+        showTeams(){
+            return ViewRegion(this.context).present({
+                templateUrl:  "app/team/teams.html",
+                controller:   TeamsController,
+                controllerAs: "vm"
+            });
+        },
         goToTeam(team) {
             TeamFeature(this.context).showTeam(team);
         },
