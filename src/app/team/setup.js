@@ -65,67 +65,15 @@ new function() {
                 url:          Router.route,
                 template:     Router.template,
                 controller:   Router
-            })
-            .state("team", {
-                url:          "/team/{id}",
-                templateUrl:  "app/region.html",
-                controller:   "TeamRoute",
-                controllerAs: "vm"
-            })
-            .state("createTeam", {
-                url:          "/create/team",
-                templateUrl:  "app/region.html",
-                controller:   "CreateTeamRoute",
-                controllerAs: "vm"
-            })
-            .state("editTeam", {
-                url:          "/edit/team/{id}",
-                templateUrl:  "app/region.html",
-                controller:   "EditTeamRoute",
-                controllerAs: "vm"
             });
         }
     });
 
     const SetupRunner = Runner.extend({
-        $inject: ["$appContext"],
         constructor(appContext) {
-            appContext.addHandlers(new TeamHandler());
+            $appContext.addHandlers(new TeamHandler());
         }
     });
-
-    const TeamRoute = Controller.extend({
-        inject: ["$stateParams"],
-        constructor(params){
-            this.extend({
-                viewRegionCreated(region) {
-                    TeamFeature(region.context).team(params.id).then(team => {
-                        return TeamFeature(region.context).showTeam(team);
-                    });
-                }
-            });
-        }
-    });
-
-    const CreateTeamRoute = Controller.extend({
-        viewRegionCreated(region) {
-            return TeamFeature(region.context).showCreateTeam();
-        }
-    });
-
-    const EditTeamRoute = Controller.extend({
-        inject: ["$stateParams"],
-        constructor(params){
-            this.extend({
-                viewRegionCreated(region) {
-                    TeamFeature(region.context).team(params.id).then(team => {
-                        return TeamFeature(region.context).showEditTeam(team);
-                    });
-                }
-            });
-        }
-    });
-
 
     eval(this.exports);
 

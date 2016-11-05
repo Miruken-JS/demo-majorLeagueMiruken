@@ -1,5 +1,6 @@
 import "../setup.js";
 import "./teamFeature.js";
+import "./createTeamController.js";
 
 new function() {
 
@@ -26,13 +27,19 @@ new function() {
                 templateUrl:  "app/team/teams.html",
                 controller:   TeamsController,
                 controllerAs: "vm"
-            });
+            }).then(() => this.adoptState("default", {
+                controller: "Teams",
+                action:     "showTeams",
+                id:         undefined
+            }));
         },
         goToTeam(team) {
-            TeamFeature(this.context).showTeam(team);
+            this.next(TeamController)
+                .then(ctrl => ctrl.showTeam({ id: team.id }));
         },
         create() {
-            TeamFeature(this.context).showCreateTeam();
+            this.next(CreateTeamController)
+                .then(ctrl => ctrl.showCreateTeam());
         }
 
     });

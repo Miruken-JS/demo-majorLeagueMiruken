@@ -13,9 +13,6 @@ new function() {
         editTeam(team)            {},
         teams()                   {},
         team(id)                  {},
-        showCreateTeam()          {},
-        showEditTeam(team)        {},
-        showTeam(team)            {},
         updateTeam(team)          {},
         addPlayers(players, team) {}
     });

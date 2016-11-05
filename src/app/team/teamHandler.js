@@ -15,30 +15,6 @@ new function(){
 	eval(this.imports);
 
 	const TeamHandler = CallbackHandler.extend(TeamFeature, {
-        constructor($state){
-
-        },
-		showTeam(team) {
-            return ViewRegion($composer.$$provide([Team, team])).present({
-                templateUrl:  "app/team/team.html",
-                controller:   TeamController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("team", { id: team.id }));
-		},
-		showCreateTeam() {
-            return ViewRegion($composer).present({
-                templateUrl:  "app/team/createTeam.html",
-                controller:   CreateTeamController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("createTeam"));
-		},
-		showEditTeam(team) {
-            return ViewRegion($composer.$$provide([Team, team])).present({
-                templateUrl:  "app/team/editTeam.html",
-                controller:   EditTeamController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("editTeam", { id: team.id }));
-		}
 	});
 
 	eval(this.exports);

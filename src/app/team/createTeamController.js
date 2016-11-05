@@ -1,5 +1,6 @@
 import "../setup.js";
 import "../domain/team.js";
+import "./teamController.js";
 
 new function() {
 
@@ -27,8 +28,11 @@ new function() {
         },
 
         save() {
-            return TeamFeature(this.controllerContext)
-                .createTeam(this.team).then(() => TeamFeature(this.context).showTeams());
+            return TeamFeature(this.controllerContext).createTeam(this.team)
+                .then(() => {
+                    return this.next(TeamController)
+                        .then(c => c.showTeam({id: this.team.id }));
+                });
         },
         selectColor(color) {
             this.team.color = color;
@@ -38,6 +42,17 @@ new function() {
         },
         get hasCoach(){
             return this.team.coach.fullName;
+        },
+        showCreateTeam() {
+            return ViewRegion(this.context).present({
+                templateUrl:  "app/team/createTeam.html",
+                controller:   CreateTeamController,
+                controllerAs: "vm"
+            }).then(() => this.adoptState("default", {
+                controller: "CreateTeam",
+                action:     "showCreateTeam",
+                id:         undefined
+            }));
         }
     });
 

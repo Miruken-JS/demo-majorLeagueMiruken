@@ -1,6 +1,7 @@
 import "../setup.js";
 import "../domain/team.js";
 import "../player/playerFeature.js";
+import * as foo from "./teamController.js";
 
 new function() {
 
@@ -25,24 +26,22 @@ new function() {
             color: Color
         },
 
-        $inject: [Team],
-        constructor(team){
-            this.team = new Team(team.toData());
-        },
-
         save() {
             var ctx = this.controllerContext;
-            return TeamFeature(ctx).updateTeam(this.team).then(() => {
-                return TeamFeature(ctx).showTeams();
-            });
+            return TeamFeature(ctx).updateTeam(this.team)
+                .then(() => {
+                    return this.next(mlm.team.TeamController)
+                        .then(c => c.showTeam({id: this.team.id}));
+                });
         },
         addPlayer() {
             var ctx = this.controllerContext;
-            return PlayerFeature(ctx).showChoosePlayer().then(players => {
-                if(players) {
-                    return TeamFeature(ctx).addPlayers(players, this.team);
-                };
-            });
+            return PlayerFeature(ctx).showChoosePlayer()
+                .then(players => {
+                    if(players) {
+                        return TeamFeature(ctx).addPlayers(players, this.team);
+                    };
+                });
         },
         getSelectedDetail(type) {
             return type === Team
@@ -51,6 +50,21 @@ new function() {
         },
         selectColor(color) {
             this.team.color = color;
+        },
+        showEditTeam(params){
+            return TeamFeature(this.context).team(params.id)
+                .then(team => {
+                    this.team = new Team(team.toData());
+                    return ViewRegion(this.context).present({
+                        templateUrl:  "app/team/editTeam.html",
+                        controller:   EditTeamController,
+                        controllerAs: "vm"
+                    }).then(() => this.adoptState("default", { 
+                        controller: "EditTeamController",
+                        action:     "showEditTeam",
+                        id: team.id 
+                    }));
+                });
         }
     });
 

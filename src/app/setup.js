@@ -49,6 +49,9 @@ new function() {
                 .$recover()         // handle common error scenarios
                 .$validAsync(this)
                 .$ngApplyAsync();  // ensure $digest loop runs after promise
+        },
+        next(controller){
+            return Promise.resolve(this.context.resolve(controller));
         }
     });
 
