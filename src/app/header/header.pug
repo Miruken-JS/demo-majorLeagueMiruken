@@ -1,7 +1,7 @@
 .nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="HeaderController as vm")
   .container-fluid
     .navbar-header
-      a.navbar-brand(ng-click="vm.goToTeams()") Major League Miruken
+      a.navbar-brand(ui-sref="default({controller: 'Teams', action: 'showTeams'})") Major League Miruken
 
     .collapse.navbar-collapse
       ul.nav.navbar-nav
