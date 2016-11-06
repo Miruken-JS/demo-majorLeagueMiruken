@@ -14,8 +14,6 @@ body
 
     script(src="../node_modules/babel-polyfill/dist/polyfill.js")
     script(src="jspm_packages/system.js")
-    script(src="app/infrastructure/systemTap.js")
-    script(src="app/infrastructure/systemYuml.js")
 
     script(src="../jspm_packages/npm/jquery@3.1.1/dist/jquery.js")
     script(src="../jspm_packages/github/angular/bower-angular@1.5.8/angular.js")
@@ -30,7 +28,6 @@ body
     script(src="../jspm_packages/github/mgcrea/angular-strap@2.3.10/angular-strap.js")
     script(src="../jspm_packages/github/mgcrea/angular-strap@2.3.10/angular-strap.tpl.js")
 
-    script(src="app/mlm.js")
-
     script.
-        System.import("app/setup.js");
+        System.import("app/mlm.js")
+            .then(() => System.import("app/setup.js"));

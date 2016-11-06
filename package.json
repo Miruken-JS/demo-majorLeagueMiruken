@@ -54,6 +54,7 @@
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.2",
     "gulp-batch": "^1.0.5",
+    "gulp-delete-lines": "0.0.7",
     "gulp-eslint": "^3.0.1",
     "gulp-filter": "^4.0.0",
     "gulp-inject": "^2.2.0",

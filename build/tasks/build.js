@@ -1,9 +1,10 @@
-const paths    = require("../paths");
-const gulp     = require("gulp");
-const sequence = require("gulp-sequence");
-const babel    = require("gulp-babel");
-const sass     = require("gulp-sass");
-const pug      = require("gulp-pug");
+const paths       = require("../paths");
+const gulp        = require("gulp");
+const sequence    = require("gulp-sequence");
+const babel       = require("gulp-babel");
+const sass        = require("gulp-sass");
+const pug         = require("gulp-pug");
+const deleteLines = require('gulp-delete-lines');
 
 gulp.task("build", sequence("clean", [
       "buildFavIcon", "buildJavascript",
@@ -22,6 +23,11 @@ gulp.task("bootstrapAdditions", function(){
 gulp.task("buildJavascript", () => {
     return gulp.src(paths.source, base)
         .pipe(babel())
+        .pipe(deleteLines({
+            filters: [
+                /"use strict";/g
+            ]
+        }))
         .pipe(gulp.dest(paths.built));
 });
 

@@ -1,3 +1,5 @@
+import "./infrastructure/systemTap.js";
+import "./infrastructure/systemYuml.js";
 import "./infrastructure/equalHeight.js";
 import "./header/headerController.js";
 import "./error/errorController.js";
