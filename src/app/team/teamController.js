@@ -18,7 +18,7 @@ new function() {
         },
 
         edit() {
-            return this.next(EditTeamController)
+            return this.next(mlm.team.EditTeamController)
                 .then(ctrl => ctrl.showEditTeam({id: this.team.id}));
         },
         showTeam(params) {

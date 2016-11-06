@@ -24,7 +24,7 @@ new function() {
         save() {
             return PlayerFeature(this.controllerContext).createPlayer(this.player)
                 .then(() => {
-                    return this.next(mlm.player.PlayerController)
+                    return this.next(PlayerController)
                         .then(c => c.showPlayer({id: this.player.id }));
                 }); 
         },

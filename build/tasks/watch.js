@@ -1,13 +1,13 @@
-const paths    = require("../paths");
-const gulp     = require("gulp");
-const watch    = require("gulp-watch");
-const plumber  = require("gulp-plumber");
-const filter   = require("gulp-filter");
-const batch    = require("gulp-batch");
-const babel    = require("gulp-babel");
-const sass     = require("gulp-sass");
-const pug      = require("gulp-pug");
-const through2 = require("through2");
+const paths       = require("../paths");
+const gulp        = require("gulp");
+const watch       = require("gulp-watch");
+const plumber     = require("gulp-plumber");
+const filter      = require("gulp-filter");
+const batch       = require("gulp-batch");
+const babel       = require("gulp-babel");
+const sass        = require("gulp-sass");
+const pug         = require("gulp-pug");
+const deleteLines = require('gulp-delete-lines');
 
 gulp.task("watch", () => {
     watchJavascript();
@@ -31,6 +31,11 @@ function watchJavascript(){
         .pipe(watch(paths.source, base))
         .pipe(plumber())
         .pipe(babel())
+        .pipe(deleteLines({
+            filters: [
+                /"use strict";/g
+            ]
+        }))
         .pipe(gulp.dest(paths.built));
 }
 

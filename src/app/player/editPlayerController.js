@@ -1,6 +1,6 @@
 import "../setup.js";
 import "../domain/player.js";
-import "./playerController.js";
+import playerController from "./playerController.js";
 
 new function() {
 
