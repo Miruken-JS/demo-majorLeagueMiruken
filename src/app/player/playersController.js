@@ -26,14 +26,21 @@ new function() {
                 templateUrl:  "app/player/players.html",
                 controller:   PlayersController,
                 controllerAs: "vm"
+            }).then(() => {
+                return this.adoptState("default", {
+                    controller: "Players",
+                    action:     "showPlayers",
+                    id:         undefined
+                });
             });
         },
         goToPlayer(player) {
-            PlayerFeature(this.context).showPlayer(player);
+            this.next(PlayerController)
+                .then(c => c.showPlayer({ id: player.id }));
         },
-
         create() {
-            PlayerFeature(this.context).showCreatePlayer();
+            this.next(CreatePlayerController)
+                .then(c => c.showCreatePlayer());
         }
     });
 

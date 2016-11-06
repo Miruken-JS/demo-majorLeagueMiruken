@@ -14,9 +14,6 @@ new function() {
         player(id)             {},
         players()              {},
         showChoosePlayer(team) {},
-        showCreatePlayer()     {},
-        showEditPlayer(team)   {},
-        showPlayer(team)       {},
         updatePlayer(player)   {}
     });
 

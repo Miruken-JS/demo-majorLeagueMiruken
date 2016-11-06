@@ -1,5 +1,6 @@
 import "../setup.js";
 import "../domain/player.js";
+import "./playerController.js";
 
 new function() {
 
@@ -23,16 +24,28 @@ new function() {
             }
         },
 
-        $inject: [Player],
-        constructor(player){
-            this.player = new Player(player.toData());
-        },
-
         save() {
-            var ctx = this.controllerContext;
-            return PlayerFeature(ctx).updatePlayer(this.player).then(player => {
-                return PlayerFeature(ctx).showPlayers();
-            });
+            return PlayerFeature(this.context).updatePlayer(this.player)
+                .then(player => {
+                    return this.next(mlm.player.PlayerController)
+                        .then(c => c.showPlayer({ id: this.player.id }));
+                });
+        },
+        showEditPlayer(params) {
+            PlayerFeature(this.context).player(params.id)
+                .then(player => {
+                    this.player = new Player(player.toData());
+                    return ViewRegion(this.context).present({
+                        templateUrl:  "app/player/createEditPlayer.html",
+                        controller:   EditPlayerController,
+                        controllerAs: "vm"
+                    }).then(() => this.adoptState("default", { 
+                        controller: "EditPlayerController",
+                        action:     "showEditPlayer",
+                        id:         player.id
+                    }));
+
+                });
         }
     });
 

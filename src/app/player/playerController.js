@@ -1,5 +1,6 @@
 import "../setup.js";
 import "../domain/player.js";
+import "./editPlayerController.js";
 
 new function() {
 
@@ -16,13 +17,24 @@ new function() {
             player: undefined
         },
 
-        $inject: [Player],
-        constructor(player) {
-            this.player = player;
-        },
-
         edit() {
-            PlayerFeature(this.context).showEditPlayer(this.player);
+            this.next(mlm.player.EditPlayerController)
+                .then(c => c.showEditPlayer({id: this.player.id}));
+        },
+        showPlayer(params) {
+            PlayerFeature(this.context).player(params.id)
+                .then(player => {
+                    this.player = player;
+                    return ViewRegion(this.context).present({
+                        templateUrl:  "app/player/player.html",
+                        controller:   PlayerController,
+                        controllerAs: "vm"
+                    }).then(() => this.adoptState("default", {
+                        controller: "PlayerController",
+                        action:     "showPlayer",
+                        id:         player.id
+                    }));
+                });
         }
     });
 

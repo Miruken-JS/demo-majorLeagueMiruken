@@ -17,27 +17,6 @@ new function(){
     eval(this.imports);
 
     const PlayerHandler = CallbackHandler.extend(PlayerFeature, {
-        showPlayer(player) {
-            return ViewRegion($composer.$$provide([Player, player])).present({
-                templateUrl:  "app/player/player.html",
-                controller:   PlayerController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("player", { id: player.id }));
-        },
-        showCreatePlayer() {
-            return ViewRegion($composer).present({
-                templateUrl:  "app/player/createEditPlayer.html",
-                controller:   CreatePlayerController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("createPlayer"));
-        },
-        showEditPlayer(player) {
-            return ViewRegion($composer.$$provide([Player, player])).present({
-                templateUrl:  "app/player/createEditPlayer.html",
-                controller:   EditPlayerController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("editPlayer", { id: player.id }));
-        },
         showChoosePlayer() {
             return ViewRegion($composer.modal({
                 title: "Select Your Players",

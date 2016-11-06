@@ -1,6 +1,6 @@
 import "../setup.js";
 import "../domain/player.js";
-
+import "./playerController.js";
 new function() {
 
     base2.mlm.package(this, {
@@ -22,8 +22,22 @@ new function() {
         },
 
         save() {
-            return PlayerFeature(this.controllerContext)
-                .createPlayer(this.player).then(() => PlayerFeature(this.context).showPlayers());
+            return PlayerFeature(this.controllerContext).createPlayer(this.player)
+                .then(() => {
+                    return this.next(mlm.player.PlayerController)
+                        .then(c => c.showPlayer({id: this.player.id }));
+                }); 
+        },
+        showCreatePlayer() {
+            return ViewRegion(this.context).present({
+                templateUrl:  "app/player/createEditPlayer.html",
+                controller:   CreatePlayerController,
+                controllerAs: "vm"
+            }).then(() => this.adoptState("default", {
+                controller: "CreatePlayerController",
+                action:     "showCreatePlayer",
+                id:         undefined
+            }));
         }
 
     });
