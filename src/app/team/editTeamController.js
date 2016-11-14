@@ -8,7 +8,7 @@ new function() {
 
     eval(this.imports);
 
-    const EditTeamController = Controller.extend(MasterDetail, {
+    const EditTeamController = Controller.extend(MasterDetail, ColorStyleMixin, {
         $properties:{
             title:      "Edit Team",
             buttonText: "Save",
