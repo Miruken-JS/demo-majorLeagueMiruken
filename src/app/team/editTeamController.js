@@ -27,21 +27,16 @@ new function() {
         },
 
         save() {
-            var ctx = this.controllerContext;
-            return TeamFeature(ctx).updateTeam(this.team)
-                .then(() => {
-                    return this.next(mlm.team.TeamController)
-                        .then(c => c.showTeam({id: this.team.id}));
-                });
+            return TeamFeature(this.io)
+                .updateTeam(this.team).then(
+                    team => this.next(mlm.team.TeamController,
+                    ctrl => ctrl.showTeam({id: team.id})));
         },
         addPlayer() {
-            var ctx = this.controllerContext;
-            return PlayerFeature(ctx).showChoosePlayer()
-                .then(players => {
-                    if(players) {
-                        return TeamFeature(ctx).addPlayers(players, this.team);
-                    };
-                });
+            const io = this.io;
+            return PlayerFeature(io).showChoosePlayer()
+                .then(players => players &&
+                      TeamFeature(io).addPlayers(players, this.team));
         },
         getSelectedDetail(type) {
             return type === Team
@@ -52,18 +47,16 @@ new function() {
             this.team.color = color;
         },
         showEditTeam(params){
-            return TeamFeature(this.context).team(params.id)
+            const io = this.io;
+            return TeamFeature(io).team(params.id)
                 .then(team => {
                     this.team = new Team(team.toData());
-                    return ViewRegion(this.context).present({
-                        templateUrl:  "app/team/editTeam.html",
-                        controller:   EditTeamController,
-                        controllerAs: "vm"
-                    }).then(() => this.adoptState("default", { 
-                        controller: "EditTeamController",
-                        action:     "showEditTeam",
-                        id: team.id 
-                    }));
+                    return ViewRegion(io).show("app/team/editTeam.html")
+                        .then(() => this.adoptState("default", { 
+                            controller: "EditTeamController",
+                            action:     "showEditTeam",
+                            id: team.id 
+                        }));
                 });
         }
     });

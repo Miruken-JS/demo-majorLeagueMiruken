@@ -18,7 +18,7 @@ System.config({
     "angular-chosen-localytics": "npm:angular-chosen-localytics@1.5.0",
     "angular-messages": "github:angular/bower-angular-messages@1.5.8",
     "angular-strap": "github:mgcrea/angular-strap@2.3.10",
-    "angular-ui-router": "github:angular-ui/angular-ui-router-bower@0.3.1",
+    "angular-ui-router": "github:angular-ui/angular-ui-router-bower@0.3.2",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap-additions": "npm:bootstrap-additions@0.3.1",
@@ -27,9 +27,9 @@ System.config({
     "core-js": "npm:core-js@1.2.7",
     "jquery": "npm:jquery@3.1.1",
     "liabru/jquery-match-height": "github:liabru/jquery-match-height@0.7.0",
-    "miruken-es5/bower-miruken-es5-angular": "github:miruken-es5/bower-miruken-es5-angular@1.0.2",
-    "moment": "npm:moment@2.15.2",
-    "github:angular-ui/angular-ui-router-bower@0.3.1": {
+    "miruken-es5/bower-miruken-es5-angular": "github:miruken-es5/bower-miruken-es5-angular@1.0.3",
+    "moment": "npm:moment@2.16.0",
+    "github:angular-ui/angular-ui-router-bower@0.3.2": {
       "angular": "github:angular/bower-angular@1.5.8"
     },
     "github:angular/bower-angular-messages@1.5.8": {

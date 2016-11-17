@@ -17,30 +17,25 @@ new function() {
         },
         initialize() {
             this.base();
-            return PlayerFeature(this.context).players()
+            return PlayerFeature(this.io).players()
                 .then(players => this.players = players);
         },
 
         showPlayers() {
-            return ViewRegion(this.context).present({
-                templateUrl:  "app/player/players.html",
-                controller:   PlayersController,
-                controllerAs: "vm"
-            }).then(() => {
-                return this.adoptState("default", {
-                    controller: "Players",
-                    action:     "showPlayers",
-                    id:         undefined
+            return ViewRegion(this.io).show("app/player/players.html")
+                .then(() => {
+                    return this.adoptState("default", {
+                        controller: "Players",
+                        action:     "showPlayers",
+                        id:         undefined
+                    });
                 });
-            });
         },
         goToPlayer(player) {
-            this.next(PlayerController)
-                .then(c => c.showPlayer({ id: player.id }));
+            this.next(PlayerController, ctrl => ctrl.showPlayer({ id: player.id }));
         },
         create() {
-            this.next(CreatePlayerController)
-                .then(c => c.showCreatePlayer());
+            this.next(CreatePlayerController, ctrl => ctrl.showCreatePlayer());
         }
     });
 

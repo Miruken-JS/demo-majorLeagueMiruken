@@ -22,22 +22,18 @@ new function() {
         },
 
         save() {
-            return PlayerFeature(this.controllerContext).createPlayer(this.player)
-                .then(() => {
-                    return this.next(PlayerController)
-                        .then(c => c.showPlayer({id: this.player.id }));
-                }); 
+            return PlayerFeature(this.io)
+                .createPlayer(this.player).then(
+                    player => this.next(PlayerController,
+                    ctrl => ctrl.showPlayer({id: player.id })));
         },
         showCreatePlayer() {
-            return ViewRegion(this.context).present({
-                templateUrl:  "app/player/createEditPlayer.html",
-                controller:   CreatePlayerController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("default", {
-                controller: "CreatePlayerController",
-                action:     "showCreatePlayer",
-                id:         undefined
-            }));
+            return ViewRegion(this.io).show("app/player/createEditPlayer.html")
+                .then(() => this.adoptState("default", {
+                    controller: "CreatePlayerController",
+                    action:     "showCreatePlayer",
+                    id:         undefined
+                }));
         }
 
     });

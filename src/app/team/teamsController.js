@@ -1,4 +1,3 @@
-import "../setup.js";
 import "./teamFeature.js";
 import "./createTeamController.js";
 
@@ -12,34 +11,24 @@ new function() {
 
     eval(this.imports);
 
-    const TeamsController= Controller.extend({
+    const TeamsController = Controller.extend({
         $properties:{
             teams: []
         },
         initialize() {
             this.base();
-            return TeamFeature(this.context).teams()
-                .then(teams => this.teams = teams );
+            return TeamFeature(this.io).teams()
+                .then(teams => this.teams = teams);
         },
 
         showTeams(){
-            return ViewRegion(this.context).present({
-                templateUrl:  "app/team/teams.html",
-                controller:   TeamsController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("default", {
-                controller: "Teams",
-                action:     "showTeams",
-                id:         undefined
-            }));
+            return ViewRegion(this.io).show("app/team/teams.html");
         },
         goToTeam(team) {
-            this.next(TeamController)
-                .then(ctrl => ctrl.showTeam({ id: team.id }));
+            this.next(TeamController, ctrl => ctrl.showTeam({ id: team.id }));
         },
         create() {
-            this.next(CreateTeamController)
-                .then(ctrl => ctrl.showCreateTeam());
+            this.next(CreateTeamController, ctrl => ctrl.showCreateTeam());
         }
 
     });

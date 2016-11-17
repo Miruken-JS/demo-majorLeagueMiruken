@@ -2,9 +2,9 @@ module.exports = function(config) {
     config.set({
         frameworks: ['mocha','chai','jspm'],
         files: [
-            'jspm_packages/npm/moment@2.15.2/moment.js',
+            'jspm_packages/npm/moment@2.16.0/moment.js',
             'jspm_packages/github/angular/bower-angular@1.5.8/angular.js',
-            'jspm_packages/github/miruken-es5/bower-miruken-es5-angular@1.0.2/miruken-ng-bundle.js'
+            'jspm_packages/github/miruken-es5/bower-miruken-es5-angular@1.0.3/miruken-ng-bundle.js'
         ],
         jspm: {
             loadFiles:  ["test/**/*.js"],

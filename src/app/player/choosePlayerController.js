@@ -20,10 +20,10 @@ new function() {
 
         initialize() {
             this.base();
-            const ctx = this.controllerContext;
-            return MasterDetail(ctx).getSelectedDetail(Team).then(team => {
+            const io = this.io;
+            return MasterDetail(io).getSelectedDetail(Team).then(team => {
                 this.team = team;
-                return PlayerFeature(ctx).players();
+                return PlayerFeature(io).players();
             }).then(players => {
                 this.players = players.filter(player => player.teamId != this.team.id);
             });

@@ -25,25 +25,22 @@ new function() {
         },
 
         save() {
-            return PlayerFeature(this.context).updatePlayer(this.player)
-                .then(player => {
-                    return this.next(mlm.player.PlayerController)
-                        .then(c => c.showPlayer({ id: this.player.id }));
-                });
+            return PlayerFeature(this.io)
+                .updatePlayer(this.player).then(
+                    player => this.next(mlm.player.PlayerController,
+                    ctrl => ctrl.showPlayer({ id: this.player.id })));
         },
         showEditPlayer(params) {
-            PlayerFeature(this.context).player(params.id)
+            const io = this.io;
+            PlayerFeature(io).player(params.id)
                 .then(player => {
                     this.player = new Player(player.toData());
-                    return ViewRegion(this.context).present({
-                        templateUrl:  "app/player/createEditPlayer.html",
-                        controller:   EditPlayerController,
-                        controllerAs: "vm"
-                    }).then(() => this.adoptState("default", { 
-                        controller: "EditPlayerController",
-                        action:     "showEditPlayer",
-                        id:         player.id
-                    }));
+                    return ViewRegion(io).show("app/player/createEditPlayer.html")
+                        .then(() => this.adoptState("default", { 
+                            controller: "EditPlayerController",
+                            action:     "showEditPlayer",
+                            id:         player.id
+                        }));
 
                 });
         }

@@ -28,11 +28,10 @@ new function() {
         },
 
         save() {
-            return TeamFeature(this.controllerContext).createTeam(this.team)
-                .then(() => {
-                    return this.next(TeamController)
-                        .then(c => c.showTeam({id: this.team.id }));
-                });
+            return TeamFeature(this.io)
+                .createTeam(this.team).then(
+                    team => this.next(TeamController,
+                    ctrl => ctrl.showTeam({id: this.team.id })));
         },
         selectColor(color) {
             this.team.color = color;
@@ -44,15 +43,12 @@ new function() {
             return this.team.coach.fullName;
         },
         showCreateTeam() {
-            return ViewRegion(this.context).present({
-                templateUrl:  "app/team/createTeam.html",
-                controller:   CreateTeamController,
-                controllerAs: "vm"
-            }).then(() => this.adoptState("default", {
-                controller: "CreateTeam",
-                action:     "showCreateTeam",
-                id:         undefined
-            }));
+            return ViewRegion(this.io).show("app/team/createTeam.html")
+                .then(() => this.adoptState("default", {
+                    controller: "CreateTeam",
+                    action:     "showCreateTeam",
+                    id:         undefined
+                }));
         }
     });
 

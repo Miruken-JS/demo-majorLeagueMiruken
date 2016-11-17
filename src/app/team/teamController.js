@@ -18,24 +18,21 @@ new function() {
         },
 
         edit() {
-            return this.next(mlm.team.EditTeamController)
-                .then(ctrl => ctrl.showEditTeam({id: this.team.id}));
+            return this.next(mlm.team.EditTeamController,
+                ctrl => ctrl.showEditTeam({id: this.team.id}));
         },
         showTeam(params) {
-            return TeamFeature(this.context).team(params.id)
+            return TeamFeature(this.io).team(params.id)
                 .then(team => {
                     this.team = team;
-                    return ViewRegion(this.context).present({
-                        templateUrl:  "app/team/team.html",
-                        controller:   TeamController,
-                        controllerAs: "vm"
-                    }).then(() => {
-                        this.adoptState("default", {
-                            controller: "TeamController",
-                            action:     "showTeam",
-                            id:         params.id
+                    return ViewRegion(this.io)
+                        .show("app/team/team.html").then(() => {
+                            this.adoptState("default", {
+                                controller: "TeamController",
+                                action:     "showTeam",
+                                id:         params.id
+                            });
                         });
-                    });
                 });
         }
     });
