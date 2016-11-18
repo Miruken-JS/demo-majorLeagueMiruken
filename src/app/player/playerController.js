@@ -21,17 +21,12 @@ new function() {
             this.next(mlm.player.EditPlayerController,
                       ctrl => ctrl.showEditPlayer({id: this.player.id}));
         },
-        showPlayer(params) {
+        showPlayer({id} = params) {
             const io = this.io; 
-            PlayerFeature(io).player(params.id)
-                .then(player => {
+            PlayerFeature(io)
+                .player(id).then(player => {
                     this.player = player;
-                    return ViewRegion(io).show("app/player/player.html")
-                        .then(() => this.adoptState("default", {
-                            controller: "PlayerController",
-                            action:     "showPlayer",
-                            id:         player.id
-                        }));
+                    return ViewRegion(io).show("app/player/player.html");
                 });
         }
     });

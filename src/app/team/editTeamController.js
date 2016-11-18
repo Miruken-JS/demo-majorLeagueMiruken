@@ -26,16 +26,18 @@ new function() {
             color: Color
         },
 
-        save() {
-            return TeamFeature(this.io)
-                .updateTeam(this.team).then(
-                    team => this.next(mlm.team.TeamController,
-                    ctrl => ctrl.showTeam({id: team.id})));
-        },
+        editTeam({id} = params) {
+            const io = this.io;
+            return TeamFeature(io)
+                .team(id).then(team => {
+                    this.team = new Team(team.toData());
+                    return ViewRegion(io).show("app/team/editTeam.html");
+                });
+        },        
         addPlayer() {
             const io = this.io;
-            return PlayerFeature(io).showChoosePlayer()
-                .then(players => players &&
+            return PlayerFeature(io)
+                .showChoosePlayer().then(players => players &&
                       TeamFeature(io).addPlayers(players, this.team));
         },
         getSelectedDetail(type) {
@@ -46,19 +48,12 @@ new function() {
         selectColor(color) {
             this.team.color = color;
         },
-        showEditTeam(params){
-            const io = this.io;
-            return TeamFeature(io).team(params.id)
-                .then(team => {
-                    this.team = new Team(team.toData());
-                    return ViewRegion(io).show("app/team/editTeam.html")
-                        .then(() => this.adoptState("default", { 
-                            controller: "EditTeamController",
-                            action:     "showEditTeam",
-                            id: team.id 
-                        }));
-                });
-        }
+        saveTeam() {
+            return TeamFeature(this.ifValid)
+                .updateTeam(this.team).then(
+                    team => this.next(mlm.team.TeamController,
+                    ctrl => ctrl.showTeam({id: team.id})));
+        }        
     });
 
     eval(this.exports);

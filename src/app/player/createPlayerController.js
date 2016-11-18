@@ -21,21 +21,16 @@ new function() {
             this.player = new Player();
         },
 
-        save() {
-            return PlayerFeature(this.io)
+        createPlayer() {
+            return ViewRegion(this.io)
+                .show("app/player/createEditPlayer.html");
+        },
+        savePlayer() {
+            return PlayerFeature(this.ifValid)
                 .createPlayer(this.player).then(
                     player => this.next(PlayerController,
                     ctrl => ctrl.showPlayer({id: player.id })));
-        },
-        showCreatePlayer() {
-            return ViewRegion(this.io).show("app/player/createEditPlayer.html")
-                .then(() => this.adoptState("default", {
-                    controller: "CreatePlayerController",
-                    action:     "showCreatePlayer",
-                    id:         undefined
-                }));
         }
-
     });
 
     eval(this.exports);

@@ -24,26 +24,21 @@ new function() {
             }
         },
 
-        save() {
-            return PlayerFeature(this.io)
+        showEditPlayer({id} = params) {
+            const io = this.io;
+            PlayerFeature(io)
+                .player(id).then(player => {
+                    this.player = new Player(player.toData());
+                    return ViewRegion(io).show("app/player/createEditPlayer.html");
+
+                });
+        },
+        savePlayers() {
+            return PlayerFeature(this.ifValid)
                 .updatePlayer(this.player).then(
                     player => this.next(mlm.player.PlayerController,
                     ctrl => ctrl.showPlayer({ id: this.player.id })));
-        },
-        showEditPlayer(params) {
-            const io = this.io;
-            PlayerFeature(io).player(params.id)
-                .then(player => {
-                    this.player = new Player(player.toData());
-                    return ViewRegion(io).show("app/player/createEditPlayer.html")
-                        .then(() => this.adoptState("default", { 
-                            controller: "EditPlayerController",
-                            action:     "showEditPlayer",
-                            id:         player.id
-                        }));
-
-                });
-        }
+        }        
     });
 
     eval(this.exports);

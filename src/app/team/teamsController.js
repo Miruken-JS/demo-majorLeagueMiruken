@@ -27,10 +27,9 @@ new function() {
         goToTeam(team) {
             this.next(TeamController, ctrl => ctrl.showTeam({ id: team.id }));
         },
-        create() {
-            this.next(CreateTeamController, ctrl => ctrl.showCreateTeam());
+        createTeam() {
+            this.next(CreateTeamController, ctrl => ctrl.createTeam());
         }
-
     });
 
     eval(this.exports);

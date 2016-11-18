@@ -22,20 +22,13 @@ new function() {
         },
 
         showPlayers() {
-            return ViewRegion(this.io).show("app/player/players.html")
-                .then(() => {
-                    return this.adoptState("default", {
-                        controller: "Players",
-                        action:     "showPlayers",
-                        id:         undefined
-                    });
-                });
+            return ViewRegion(this.io).show("app/player/players.html");
         },
         goToPlayer(player) {
             this.next(PlayerController, ctrl => ctrl.showPlayer({ id: player.id }));
         },
         create() {
-            this.next(CreatePlayerController, ctrl => ctrl.showCreatePlayer());
+            this.next(CreatePlayerController, ctrl => ctrl.createPlayer());
         }
     });
 

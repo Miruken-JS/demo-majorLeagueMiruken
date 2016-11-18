@@ -27,29 +27,24 @@ new function() {
             });
         },
 
-        save() {
-            return TeamFeature(this.io)
-                .createTeam(this.team).then(
-                    team => this.next(TeamController,
-                    ctrl => ctrl.showTeam({id: this.team.id })));
-        },
-        selectColor(color) {
-            this.team.color = color;
-        },
+        createTeam() {
+            return ViewRegion(this.io).show("app/team/createTeam.html");
+        },        
         get hasManager(){
             return this.team.manager.fullName;
         },
         get hasCoach(){
             return this.team.coach.fullName;
         },
-        showCreateTeam() {
-            return ViewRegion(this.io).show("app/team/createTeam.html")
-                .then(() => this.adoptState("default", {
-                    controller: "CreateTeam",
-                    action:     "showCreateTeam",
-                    id:         undefined
-                }));
-        }
+        selectColor(color) {
+            this.team.color = color;
+        },       
+        saveTeam() {
+            return TeamFeature(this.ifValid)
+                .createTeam(this.team).then(
+                    team => this.next(TeamController,
+                    ctrl => ctrl.showTeam({id: this.team.id })));
+        }        
     });
 
     eval(this.exports);

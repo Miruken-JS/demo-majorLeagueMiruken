@@ -17,24 +17,17 @@ new function() {
             team: undefined
         },
 
-        edit() {
-            return this.next(mlm.team.EditTeamController,
-                ctrl => ctrl.showEditTeam({id: this.team.id}));
-        },
-        showTeam(params) {
-            return TeamFeature(this.io).team(params.id)
-                .then(team => {
+        showTeam({id} = params) {
+            return TeamFeature(this.io)
+                .team(id).then(team => {
                     this.team = team;
-                    return ViewRegion(this.io)
-                        .show("app/team/team.html").then(() => {
-                            this.adoptState("default", {
-                                controller: "TeamController",
-                                action:     "showTeam",
-                                id:         params.id
-                            });
-                        });
+                    return ViewRegion(this.io).show("app/team/team.html");
                 });
-        }
+        },
+        editTeam() {
+            return this.next(mlm.team.EditTeamController,
+                ctrl => ctrl.editTeam({id: this.team.id}));
+        }        
     });
 
     eval(this.exports);
