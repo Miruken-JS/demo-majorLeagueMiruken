@@ -25,10 +25,6 @@ new function() {
         constructor($urlRouterProvider, $stateProvider) {
             $stateProvider
                 .state(UiRouter.install("mvc"))
-                .state("mvc.foo", UiRouter.route("/foo", {
-                    controller: player.PlayersController,
-                    action:     "showPlayers"
-                }))  
                 .state("mvc.default-id",
                        UiRouter.route("/{controller}/{action}/{id}"))
                 .state("mvc.default",
