@@ -4,7 +4,7 @@ import playerController from "./playerController.js";
 
 new function() {
 
-    base2.mlm.package(this, {
+    mlm.package(this, {
         name:    "player",
         imports: "mlm,miruken.mvc",
         exports: "EditPlayerController"
@@ -33,10 +33,10 @@ new function() {
 
                 });
         },
-        savePlayers() {
+        savePlayer() {
             return PlayerFeature(this.ifValid)
-                .updatePlayer(this.player).then(
-                    player => this.next(mlm.player.PlayerController,
+                .updatePlayer(this.player)
+                .then(mlm.player.PlayerController(this).next(
                     ctrl => ctrl.showPlayer({ id: this.player.id })));
         }        
     });

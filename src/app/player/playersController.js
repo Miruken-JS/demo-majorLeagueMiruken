@@ -3,7 +3,7 @@ import "./playerFeature.js";
 
 new function() {
 
-    base2.mlm.package(this, {
+    mlm.package(this, {
         name:    "player",
         imports: "miruken.mvc,mlm",
         exports: "PlayersController"
@@ -25,10 +25,10 @@ new function() {
             return ViewRegion(this.io).show("app/player/players.html");
         },
         goToPlayer(player) {
-            this.next(PlayerController, ctrl => ctrl.showPlayer({ id: player.id }));
+            PlayerController(this).next(ctrl => ctrl.showPlayer({ id: player.id }));
         },
         create() {
-            this.next(CreatePlayerController, ctrl => ctrl.createPlayer());
+            CreatePlayerController(this).next(ctrl => ctrl.createPlayer());
         }
     });
 

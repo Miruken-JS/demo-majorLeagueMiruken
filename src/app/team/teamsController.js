@@ -3,7 +3,7 @@ import "./createTeamController.js";
 
 new function() {
 
-    base2.mlm.package(this, {
+    mlm.package(this, {
         name:    "team",
         imports: "mlm,miruken.mvc",
         exports: "TeamsController"
@@ -25,10 +25,10 @@ new function() {
             return ViewRegion(this.io).show("app/team/teams.html");
         },
         goToTeam(team) {
-            this.next(TeamController, ctrl => ctrl.showTeam({ id: team.id }));
+            TeamController(this).next(ctrl => ctrl.showTeam({ id: team.id }));
         },
         createTeam() {
-            this.next(CreateTeamController, ctrl => ctrl.createTeam());
+            CreateTeamController(this).next(ctrl => ctrl.createTeam());
         }
     });
 

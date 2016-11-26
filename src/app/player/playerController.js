@@ -4,7 +4,7 @@ import "./editPlayerController.js";
 
 new function() {
 
-    base2.mlm.package(this, {
+    mlm.package(this, {
         name:    "player",
         imports: "miruken.mvc,mlm",
         exports: "PlayerController"
@@ -18,16 +18,15 @@ new function() {
         },
 
         edit() {
-            this.next(mlm.player.EditPlayerController,
-                      ctrl => ctrl.showEditPlayer({id: this.player.id}));
+            mlm.player.EditPlayerController(this).next(
+                ctrl => ctrl.showEditPlayer({id: this.player.id}));
         },
         showPlayer({id} = params) {
             const io = this.io; 
-            PlayerFeature(io)
-                .player(id).then(player => {
-                    this.player = player;
-                    return ViewRegion(io).show("app/player/player.html");
-                });
+            PlayerFeature(io).player(id).then(player => {
+                this.player = player;
+                return ViewRegion(io).show("app/player/player.html");
+            });
         }
     });
 

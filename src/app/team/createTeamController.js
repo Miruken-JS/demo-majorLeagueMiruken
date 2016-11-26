@@ -4,7 +4,7 @@ import "./teamController.js";
 
 new function() {
 
-    base2.mlm.package(this, {
+    mlm.package(this, {
         name:    "team",
         imports: "mlm,miruken.mvc,miruken.validate",
         exports: "CreateTeamController"
@@ -41,8 +41,8 @@ new function() {
         },       
         saveTeam() {
             return TeamFeature(this.ifValid)
-                .createTeam(this.team).then(
-                    team => this.next(TeamController,
+                .createTeam(this.team)
+                .then(team => TeamController(this).next(
                     ctrl => ctrl.showTeam({id: this.team.id })));
         }        
     });

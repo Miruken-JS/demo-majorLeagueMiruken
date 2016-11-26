@@ -4,7 +4,7 @@ import "./editTeamController.js";
 
 new function() {
 
-    base2.mlm.package(this, {
+    mlm.package(this, {
         name:    "team",
         imports: "miruken.mvc,mlm",
         exports: "TeamController"
@@ -25,9 +25,9 @@ new function() {
                 });
         },
         editTeam() {
-            return this.next(mlm.team.EditTeamController,
+            return mlm.team.EditTeamController(this).next(
                 ctrl => ctrl.editTeam({id: this.team.id}));
-        }        
+        }
     });
 
     eval(this.exports);

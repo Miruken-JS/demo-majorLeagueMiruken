@@ -3,7 +3,7 @@ import "../domain/team.js";
 
 new function() {
 
-    base2.mlm.package(this, {
+    mlm.package(this, {
         name:    "player",
         imports: "miruken.mvc,mlm",
         exports: "ChoosePlayerController"

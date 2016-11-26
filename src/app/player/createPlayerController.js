@@ -1,9 +1,10 @@
 import "../setup.js";
 import "../domain/player.js";
 import "./playerController.js";
+
 new function() {
 
-    base2.mlm.package(this, {
+    mlm.package(this, {
         name:    "player",
         imports: "mlm,miruken.mvc,miruken.validate",
         exports: "CreatePlayerController"
@@ -27,8 +28,8 @@ new function() {
         },
         savePlayer() {
             return PlayerFeature(this.ifValid)
-                .createPlayer(this.player).then(
-                    player => this.next(PlayerController,
+                .createPlayer(this.player)
+                .then(player => PlayerController(this).next(
                     ctrl => ctrl.showPlayer({id: player.id })));
         }
     });

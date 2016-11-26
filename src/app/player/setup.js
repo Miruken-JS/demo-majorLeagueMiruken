@@ -8,7 +8,7 @@ import "./playersController.js";
 
 new function() {
 
-    base2.mlm.package(this, {
+    mlm.package(this, {
         name:    "player",
         imports: "miruken.ng,miruken.ioc,miruken.mvc",
         exports: "SetupRunner"
