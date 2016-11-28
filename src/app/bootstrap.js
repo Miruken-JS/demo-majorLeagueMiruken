@@ -23,7 +23,8 @@ new function() {
                 .state("mvc.default-id",
                        UiRouter.route("/{controller}/{action}/{id}"))
                 .state("mvc.default",
-                       UiRouter.route("/{controller}/{action}"));            
+                       UiRouter.route("/{controller}/{action}"));
+            
             $urlRouterProvider.otherwise("/teams/showteams");
 
             Controller.prepare.push(function (handler) {

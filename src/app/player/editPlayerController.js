@@ -28,8 +28,7 @@ new function() {
             PlayerFeature(io)
                 .player(id).then(player => {
                     this.player = new Player(player.toData());
-                    return ViewRegion(io).show("app/player/createEditPlayer.html");
-
+                    return ViewRegion(io).show("app/player/createEditPlayer");
                 });
         },
         savePlayer() {

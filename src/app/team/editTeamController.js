@@ -1,6 +1,6 @@
 import "./teamFeature.js";
 import "./teamController.js";
-import "../player/playerFeature.js";
+import "../player/choosePlayerController.js";
 
 new function() {
 
@@ -30,14 +30,15 @@ new function() {
             return TeamFeature(io)
                 .team(id).then(team => {
                     this.team = new Team(team.toData());
-                    return ViewRegion(io).show("app/team/editTeam.html");
+                    return ViewRegion(io).show("app/team/editTeam");
                 });
         },        
         addPlayer() {
             const io = this.io;
-            return PlayerFeature(io)
-                .showChoosePlayer().then(players => players &&
-                      TeamFeature(io).addPlayers(players, this.team));
+            ChoosePlayerController(io).push(ctrl => ctrl.choosePlayer());
+            //return PlayerFeature(io)
+            //    .showChoosePlayer().then(players => players &&
+            //          TeamFeature(io).addPlayers(players, this.team));
         },
         getSelectedDetail(type) {
             return type === Team

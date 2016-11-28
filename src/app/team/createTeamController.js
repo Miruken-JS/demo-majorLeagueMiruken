@@ -27,7 +27,7 @@ new function() {
         },
 
         createTeam() {
-            return ViewRegion(this.io).show("app/team/createTeam.html");
+            return ViewRegion(this.io).show("app/team/createTeam");
         },        
         get hasManager(){
             return this.team.manager.fullName;

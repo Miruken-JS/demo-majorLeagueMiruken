@@ -22,7 +22,7 @@ new function() {
         },
 
         showPlayers() {
-            return ViewRegion(this.io).show("app/player/players.html");
+            return ViewRegion(this.io).show("app/player/players");
         },
         goToPlayer(player) {
             PlayerController(this.io).next(ctrl => ctrl.showPlayer({ id: player.id }));

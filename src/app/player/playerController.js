@@ -24,7 +24,7 @@ new function() {
             const io = this.io; 
             PlayerFeature(io).player(id).then(player => {
                 this.player = player;
-                return ViewRegion(io).show("app/player/player.html");
+                return ViewRegion(io).show("app/player/player");
             });
         }
     });

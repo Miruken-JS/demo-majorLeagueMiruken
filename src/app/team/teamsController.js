@@ -22,7 +22,7 @@ new function() {
         },
 
         showTeams() {
-            return ViewRegion(this.io).show("app/team/teams.html");
+            return ViewRegion(this.io).show("app/team/teams");
         },
         goToTeam(team) {
             TeamController(this.io).next(ctrl => ctrl.showTeam({ id: team.id }));

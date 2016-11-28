@@ -20,7 +20,7 @@ new function() {
             return TeamFeature(this.io)
                 .team(id).then(team => {
                     this.team = team;
-                    return ViewRegion(this.io).show("app/team/team.html");
+                    return ViewRegion(this.io).show("app/team/team");
                 });
         },
         editTeam() {

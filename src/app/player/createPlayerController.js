@@ -23,7 +23,7 @@ new function() {
 
         createPlayer() {
             return ViewRegion(this.io)
-                .show("app/player/createEditPlayer.html");
+                .show("app/player/createEditPlayer");
         },
         savePlayer() {
             return PlayerFeature(this.ifValid)

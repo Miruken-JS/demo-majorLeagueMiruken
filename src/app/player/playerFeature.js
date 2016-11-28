@@ -16,7 +16,6 @@ new function() {
         editPlayer(player)     {},
         player(id)             {},
         players()              {},
-        showChoosePlayer(team) {},
         updatePlayer(player)   {}
     });
 
