@@ -1,5 +1,4 @@
-import "../setup.js";
-import "../domain/team.js";
+import "./teamFeature.js";
 import "./editTeamController.js";
 
 new function() {

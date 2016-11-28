@@ -1,4 +1,5 @@
 new function() {
+    
     base2.package(this, {
         name:    "mlm",
         ngModule: [
@@ -11,6 +12,7 @@ new function() {
             "mgcrea.ngStrap.helpers.dateParser"
         ]
     });
+
     eval(this.imports);
-    eval(this.exports);
+    
 };

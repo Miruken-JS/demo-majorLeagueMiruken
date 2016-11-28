@@ -1,5 +1,4 @@
-import "../setup.js";
-import "../domain/team.js";
+import "./playerFeature.js";
 
 new function() {
 

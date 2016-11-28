@@ -4,11 +4,10 @@ import "./createPlayerController.js";
 import "./editPlayerController.js";
 import "./playerController.js";
 import "./playersController.js";
-import "../domain/player.js";
 
 new function(){
 
-    mlm.package(this,{
+    base2.mlm.package(this,{
         name:    "player",
         imports: "miruken.callback,miruken.mvc,mlm,mlm.player",
         exports: "PlayerHandler"

@@ -1,10 +1,9 @@
-import "../setup.js";
-import "../domain/player.js";
-import playerController from "./playerController.js";
+import "./playerFeature.js";
+import "./playerController.js";
 
 new function() {
 
-    mlm.package(this, {
+    base2.mlm.package(this, {
         name:    "player",
         imports: "mlm,miruken.mvc",
         exports: "EditPlayerController"

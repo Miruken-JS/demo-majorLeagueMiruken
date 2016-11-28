@@ -1,26 +1,21 @@
-import "./infrastructure/systemTap.js";
-import "./infrastructure/systemYuml.js";
-import "./infrastructure/equalHeight.js";
-import "./header/headerController.js";
-import "./error/errorController.js";
-import "./team/setup.js";
-import "./player/setup.js";
-import "./env/mock/setup.js";
+import "./header/index.js";
+import "./error/index.js";
+import "./team/index.js";
+import "./player/index.js";
+import "./infrastructure/index.js";
+import "./env/mock/index.js";
 
 new function() {
-
+    
     base2.package(this, {
         name:    "mlm",
-        imports: "miruken,miruken.ng,miruken.mvc,miruken.ioc,miruken.callback,miruken.error",
-        exports: "SetupInstaller"
+        imports: "miruken,miruken.mvc,miruken.ioc,miruken.ng",
+        exports: "Bootstrap"
     });
-
+    
     eval(this.imports);
 
-    moment.fn.toJSON   = function() { return this.format("L"); };
-    moment.fn.toString = function() { return this.format("L"); };
-
-    const SetupInstaller = Installer.extend({
+    const Bootstrap = Installer.extend({
         $inject: ["$urlRouterProvider", "$stateProvider"],
         constructor($urlRouterProvider, $stateProvider) {
             $stateProvider
@@ -41,9 +36,11 @@ new function() {
         }
     });
 
-    
-    angular.element(() => angular.bootstrap(document, ["mlm"]));
+    moment.fn.toJSON   = function() { return this.format("L"); };
+    moment.fn.toString = function() { return this.format("L"); };
 
+    angular.element(() => angular.bootstrap(document, ["mlm"]));
+    
     eval(this.exports);
     
 };

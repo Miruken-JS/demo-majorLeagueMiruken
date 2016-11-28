@@ -1,7 +1,6 @@
-import "../setup.js";
-import "../domain/team.js";
+import "./teamFeature.js";
+import "./teamController.js";
 import "../player/playerFeature.js";
-import * as foo from "./teamController.js";
 
 new function() {
 

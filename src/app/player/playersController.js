@@ -1,5 +1,5 @@
-import "../setup.js";
 import "./playerFeature.js";
+import "./createPlayerController.js";
 
 new function() {
 

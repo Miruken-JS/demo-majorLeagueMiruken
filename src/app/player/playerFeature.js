@@ -1,6 +1,8 @@
+import "../domain/player.js";
+
 new function() {
     
-    mlm.package(this, {
+    base2.mlm.package(this, {
         name:    "player",
         imports: "miruken",
         exports: "PlayerFeature",
@@ -8,7 +10,7 @@ new function() {
 
     eval(this.imports);
 
-    const PlayerFeature = StrictProtocol.extend({
+    const PlayerFeature = StrictProtocol.extend(Resolving, {
         createPlayer(player)   {},
         deletePlayer(player)   {},
         editPlayer(player)     {},
@@ -19,4 +21,5 @@ new function() {
     });
 
     eval(this.exports);
+    
 };

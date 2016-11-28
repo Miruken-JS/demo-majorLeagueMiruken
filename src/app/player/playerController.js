@@ -1,5 +1,4 @@
-import "../setup.js";
-import "../domain/player.js";
+import "./playerFeature.js";
 import "./editPlayerController.js";
 
 new function() {
