@@ -18,7 +18,7 @@ new function() {
         },
 
         edit() {
-            mlm.player.EditPlayerController(this).next(
+            mlm.player.EditPlayerController(this.io).next(
                 ctrl => ctrl.showEditPlayer({id: this.player.id}));
         },
         showPlayer({id} = params) {

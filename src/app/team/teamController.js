@@ -25,7 +25,7 @@ new function() {
                 });
         },
         editTeam() {
-            return mlm.team.EditTeamController(this).next(
+            return mlm.team.EditTeamController(this.io).next(
                 ctrl => ctrl.editTeam({id: this.team.id}));
         }
     });

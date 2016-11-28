@@ -29,7 +29,7 @@ new function() {
         savePlayer() {
             return PlayerFeature(this.ifValid)
                 .createPlayer(this.player)
-                .then(player => PlayerController(this).next(
+                .then(player => PlayerController(this.io).next(
                     ctrl => ctrl.showPlayer({id: player.id })));
         }
     });

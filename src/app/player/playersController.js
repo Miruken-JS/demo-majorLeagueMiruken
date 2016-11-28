@@ -25,10 +25,10 @@ new function() {
             return ViewRegion(this.io).show("app/player/players.html");
         },
         goToPlayer(player) {
-            PlayerController(this).next(ctrl => ctrl.showPlayer({ id: player.id }));
+            PlayerController(this.io).next(ctrl => ctrl.showPlayer({ id: player.id }));
         },
         create() {
-            CreatePlayerController(this).next(ctrl => ctrl.createPlayer());
+            CreatePlayerController(this.io).next(ctrl => ctrl.createPlayer());
         }
     });
 

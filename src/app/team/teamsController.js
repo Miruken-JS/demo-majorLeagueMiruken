@@ -21,14 +21,14 @@ new function() {
                 .then(teams => this.teams = teams);
         },
 
-        showTeams(){
+        showTeams() {
             return ViewRegion(this.io).show("app/team/teams.html");
         },
         goToTeam(team) {
-            TeamController(this).next(ctrl => ctrl.showTeam({ id: team.id }));
+            TeamController(this.io).next(ctrl => ctrl.showTeam({ id: team.id }));
         },
         createTeam() {
-            CreateTeamController(this).next(ctrl => ctrl.createTeam());
+            CreateTeamController(this.io).next(ctrl => ctrl.createTeam());
         }
     });
 

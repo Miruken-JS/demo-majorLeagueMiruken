@@ -36,7 +36,7 @@ new function() {
         savePlayer() {
             return PlayerFeature(this.ifValid)
                 .updatePlayer(this.player)
-                .then(mlm.player.PlayerController(this).next(
+                .then(mlm.player.PlayerController(this.io).next(
                     ctrl => ctrl.showPlayer({ id: this.player.id })));
         }        
     });

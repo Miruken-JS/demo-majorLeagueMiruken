@@ -42,7 +42,7 @@ new function() {
         saveTeam() {
             return TeamFeature(this.ifValid)
                 .createTeam(this.team)
-                .then(team => TeamController(this).next(
+                .then(team => TeamController(this.io).next(
                     ctrl => ctrl.showTeam({id: this.team.id })));
         }        
     });
