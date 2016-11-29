@@ -8,7 +8,7 @@ new function() {
 
     eval(this.imports);
 
-    const CreateTeamController = Controller.extend({
+    const CreateTeamController = Controller.extend(ColorStyleMixin, {
         $properties:{
             title:      "Create-A-Team",
             buttonText: "Create Team",

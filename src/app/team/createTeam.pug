@@ -55,7 +55,7 @@ include teamDisplay.pug
                     a.btn.btn-default.btn-lg(
                       ng-repeat="color in vm.color.items"
                       ng-click="vm.selectColor(color)"
-                      ng-class="color.value")
+                      ng-class="vm.getColorButtonStyle(color)")
     .col-sm-6
       .wrapSmall.js-equal-height
         .row
