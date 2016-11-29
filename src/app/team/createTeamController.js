@@ -1,5 +1,6 @@
 import "./teamFeature.js";
 import "./teamController.js";
+import "./colorStyleMixin.js";
 
 new function() {
 
@@ -11,7 +12,7 @@ new function() {
 
     eval(this.imports);
 
-    const CreateTeamController = Controller.extend({
+    const CreateTeamController = Controller.extend(ColorStyleMixin, {
         $properties:{
             title:      "Create-A-Team",
             buttonText: "Create Team",
@@ -28,7 +29,7 @@ new function() {
 
         createTeam() {
             return ViewRegion(this.io).show("app/team/createTeam");
-        },        
+        },
         get hasManager(){
             return this.team.manager.fullName;
         },
@@ -37,13 +38,13 @@ new function() {
         },
         selectColor(color) {
             this.team.color = color;
-        },       
+        },
         saveTeam() {
             return TeamFeature(this.ifValid)
                 .createTeam(this.team)
                 .then(team => TeamController(this.io).next(
                     ctrl => ctrl.showTeam({id: this.team.id })));
-        }        
+        }
     });
 
     eval(this.exports);

@@ -1,6 +1,7 @@
 import "./teamFeature.js";
 import "./teamController.js";
 import "../player/choosePlayerController.js";
+import "./colorStyleMixin.js";
 
 new function() {
 
@@ -12,7 +13,7 @@ new function() {
 
     eval(this.imports);
 
-    const EditTeamController = Controller.extend(MasterDetail, {
+    const EditTeamController = Controller.extend(MasterDetail, ColorStyleMixin, {
         $properties:{
             title:      "Edit Team",
             buttonText: "Save",

@@ -7,6 +7,7 @@ $orange:    orange;
 $red:       $brand-danger;
 $white:     #fff;
 $yellow:    $brand-warning;
+$grey:      #939598;
 
 //error
 .error-banner {
@@ -101,7 +102,12 @@ $yellow:    $brand-warning;
   .yellow{
     background-color: $yellow;
   }
+  .active{
+    box-shadow: 2px 2px $grey;
+  }
 }
+
+
 
 .inputWrap{
   margin-bottom: 20px;
