@@ -30,17 +30,17 @@ new function() {
 
         choosePlayer() {
             return ViewRegion(this.io.modal({
-                title: "Select Your Players",
+                title:   "Select Your Players",
                 buttons: [
-                    { text: "Ok", css: "btn-sm btn-primary" },
-                    "Cancel" ]
+                    { text: "Ok",     css: "btn-sm btn-primary" },
+                    { text: "Cancel", tag: -1 }
+                ]
             })).show("app/player/choosePlayer")
-                .then(layer => layer.modalResult.then(result => {
-                    this.endContext();                                            
-                    if (result && result.button != "Cancel") {
-                        return this.selectedPlayers;
-                    }
-                }));
+               .then(layer => layer.modalResult.then(result => {                    
+                   if (result && result.button.tag != -1) {
+                       return this.selectedPlayers;
+                   }
+               })).finally(() => this.endContext());
         }
     });
 

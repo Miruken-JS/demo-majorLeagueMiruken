@@ -56,8 +56,8 @@ new function() {
         saveTeam() {
             return TeamFeature(this.ifValid)
                 .updateTeam(this.team)
-                .then(team => mlm.team.TeamController(this.io).next(
-                    ctrl => ctrl.showTeam({id: team.id})));
+                .then(team => mlm.team.TeamController(this.io)
+                .next(ctrl => ctrl.showTeam({id: team.id})));
         }        
     });
 
