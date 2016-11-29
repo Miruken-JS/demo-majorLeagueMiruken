@@ -35,12 +35,18 @@ new function() {
                     { text: "Ok", css: "btn-sm btn-primary" },
                     "Cancel" ]
             })).show("app/player/choosePlayer")
-                .then(layer => layer.modalResult.then(result => {
-                    this.endContext();                                            
+                .then(layer => {
+                    var result = layer.modalResult;
                     if (result && result.button != "Cancel") {
                         return this.selectedPlayers;
                     }
-                }));
+                    
+                });
+        },
+        
+        addPlayer(player) {
+            this.player = player;
+            this.endContext();
         }
     });
 

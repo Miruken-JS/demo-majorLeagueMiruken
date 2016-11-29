@@ -26,6 +26,12 @@ new function() {
             color: Color
         },
 
+        getSelectedDetail(type) {
+            return type === Team
+                 ? Promise.resolve(this.team)
+                 : $NOT_HANDLED;
+        },
+        
         editTeam({id} = params) {
             const io = this.io;
             return TeamFeature(io)
@@ -36,15 +42,13 @@ new function() {
         },        
         addPlayer() {
             const io = this.io;
-            ChoosePlayerController(io).push(ctrl => ctrl.choosePlayer());
-            //return PlayerFeature(io)
-            //    .showChoosePlayer().then(players => players &&
-            //          TeamFeature(io).addPlayers(players, this.team));
-        },
-        getSelectedDetail(type) {
-            return type === Team
-                ? Promise.resolve(this.team)
-                : $NOT_HANDLED;
+            ChoosePlayerController(io)
+                .push(ctrl => ctrl.choosePlayer())
+                .then(players => {
+                    if (players) {
+                        TeamFeature(io).addPlayers(players, this.team);
+                    }
+                });
         },
         selectColor(color) {
             this.team.color = color;
