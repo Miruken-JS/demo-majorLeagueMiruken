@@ -56,7 +56,7 @@ include ../../jersey.pug
                 .col-sm-12
                   .teamColor
                     a.btn.btn-default.btn-lg(
-                      ng-repeat="color in ctrl.color.items"
+                      ng-repeat="color in mlm.Color.items"
                       ng-click="ctrl.selectColor(color)"
                       ng-class="ctrl.getColorButtonStyle(color)")
     .col-sm-6

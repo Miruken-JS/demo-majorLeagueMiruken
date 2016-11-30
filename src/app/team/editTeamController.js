@@ -22,8 +22,7 @@ new function() {
                     presence: true,
                     nested:   true
                 }
-            },
-            color: Color
+            }
         },
 
         getSelectedDetail(type) {
