@@ -1,3 +1,6 @@
+import "./playerFeature.js";
+import "./createPlayerController.js";
+
 new function() {
 
     mlm.package(this, {
@@ -14,16 +17,18 @@ new function() {
         },
         initialize() {
             this.base();
-            return PlayerFeature(this.context).players()
+            return PlayerFeature(this.io).players()
                 .then(players => this.players = players);
         },
 
-        goToPlayer(player) {
-            PlayerFeature(this.context).showPlayer(player);
+        showPlayers() {
+            return ViewRegion(this.io).show("app/player/players");
         },
-
+        goToPlayer(player) {
+            PlayerController(this.io).next(ctrl => ctrl.showPlayer({ id: player.id }));
+        },
         create() {
-            PlayerFeature(this.context).showCreatePlayer();
+            CreatePlayerController(this.io).next(ctrl => ctrl.createPlayer());
         }
     });
 

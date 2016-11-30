@@ -1,4 +1,7 @@
+import "../domain/team.js";
+
 new function() {
+    
     mlm.package(this, {
         name:    "team",
         imports: "miruken",
@@ -7,16 +10,12 @@ new function() {
 
     eval(this.imports);
 
-    const TeamFeature = StrictProtocol.extend({
+    const TeamFeature = StrictProtocol.extend(Resolving, {
         createTeam(team)          {},
         deleteTeam(team)          {},
         editTeam(team)            {},
         teams()                   {},
         team(id)                  {},
-        showTeams()               {},
-        showCreateTeam()          {},
-        showEditTeam(team)        {},
-        showTeam(team)            {},
         updateTeam(team)          {},
         addPlayers(players, team) {}
     });

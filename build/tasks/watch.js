@@ -1,17 +1,15 @@
-const paths    = require("../paths");
-const gulp     = require("gulp");
-const watch    = require("gulp-watch");
-const plumber  = require("gulp-plumber");
-const filter   = require("gulp-filter");
-const batch    = require("gulp-batch");
-const babel    = require("gulp-babel");
-const sass     = require("gulp-sass");
-const pug      = require("gulp-pug");
-const through2 = require("through2");
+const paths       = require("../paths");
+const gulp        = require("gulp");
+const watch       = require("gulp-watch");
+const plumber     = require("gulp-plumber");
+const filter      = require("gulp-filter");
+const batch       = require("gulp-batch");
+const babel       = require("gulp-babel");
+const sass        = require("gulp-sass");
+const pug         = require("gulp-pug");
+const deleteLines = require('gulp-delete-lines');
 
 gulp.task("watch", () => {
-    watchForAddedAndRemovedJavascript();
-    watchIndex();
     watchJavascript();
     watchHtml();
     watchStyles();
@@ -20,31 +18,6 @@ gulp.task("watch", () => {
 });
 
 const base = { base: "./src" };
-
-function watchForAddedAndRemovedJavascript(){
-    const sources = [...paths.source, paths.html]; 
-    gulp.src(sources)
-        .pipe(watch(sources))
-        .pipe(plumber())
-        .pipe(filter((file) => {
-            return file.event === "add" || file.event === "unlink";
-        }))
-        .pipe(through2.obj((file, encoding, done) => {
-            console.log("injecting files");
-            gulp.start("inject", done);
-            if(this.push){
-                this.push(file);
-            }
-        }));
-}
-
-function watchIndex(){
-    gulp.start('inject');
-    const sources = [paths.index, "build/paths.js"];
-    return watch(sources, batch((events, done) => {
-        gulp.start('inject', done);
-    }));
-}
 
 function watchLint(){
     return watch([...paths.source, "test/**/*.js", "build/**/*.js"], batch((events, done) => {
@@ -58,11 +31,16 @@ function watchJavascript(){
         .pipe(watch(paths.source, base))
         .pipe(plumber())
         .pipe(babel())
+        .pipe(deleteLines({
+            filters: [
+                /"use strict";/g
+            ]
+        }))
         .pipe(gulp.dest(paths.built));
 }
 
 function watchHtml(){
-    const sources = ["!" + paths.index, paths.html];
+    const sources = paths.html;
     return gulp.src(sources)
         .pipe(watch(sources))
         .pipe(plumber())

@@ -1,3 +1,6 @@
+import "../../team/teamFeature.js";
+import "../../player/playerFeature.js";
+
 new function(){
 
     mlm.package(this, {
@@ -86,7 +89,7 @@ new function(){
         createTeam(team) {
             team.id = nextId();
             teams.push(team);
-            return Promise.resolve();
+            return Promise.resolve(team);
         },
         deleteTeam(team) {},
         updateTeam(team) {
@@ -112,10 +115,9 @@ new function(){
         createPlayer(player) {
             player.id = nextId();
             players.push(player);
-            return Promise.resolve();
+            return Promise.resolve(player);
         },
         deletePlayer(player) {
-
         },
         updatePlayer(player) {
             let existing = players.find(item => item.id === player.id);

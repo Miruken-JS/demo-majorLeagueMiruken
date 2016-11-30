@@ -1,3 +1,6 @@
+import "./teamFeature.js";
+import "./createTeamController.js";
+
 new function() {
 
     mlm.package(this, {
@@ -8,23 +11,25 @@ new function() {
 
     eval(this.imports);
 
-    const TeamsController= Controller.extend({
+    const TeamsController = Controller.extend({
         $properties:{
             teams: []
         },
         initialize() {
             this.base();
-            return TeamFeature(this.context).teams()
-                .then(teams => this.teams = teams );
+            return TeamFeature(this.io).teams()
+                .then(teams => this.teams = teams);
         },
 
+        showTeams() {
+            return ViewRegion(this.io).show("app/team/teams");
+        },
         goToTeam(team) {
-            TeamFeature(this.context).showTeam(team);
+            TeamController(this.io).next(ctrl => ctrl.showTeam({ id: team.id }));
         },
-        create() {
-            TeamFeature(this.context).showCreateTeam();
+        createTeam() {
+            CreateTeamController(this.io).next(ctrl => ctrl.createTeam());
         }
-
     });
 
     eval(this.exports);

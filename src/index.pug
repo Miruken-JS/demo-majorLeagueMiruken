@@ -1,7 +1,7 @@
-html(ng-app="mlm")
+html
 head
     title Major League Miruken
-    
+
     link(rel="stylesheet", type="text/css", href="styles/style.css")
     link(rel="stylesheet", type="text/css", href="styles/bootstrap-additions/bootstrap-additions.css")
     link(rel="stylesheet", type="text/css", href="styles/bootstrap-additions/modules/tooltip.css")
@@ -11,11 +11,23 @@ body
     div(ng-include="'app/header/header.html'")
     .error-banner(ng-include="'app/error/error.html'")
     div.container-fluid.col-sm-10.col-sm-offset-1(ui-view="")
-
+      
     script(src="../node_modules/babel-polyfill/dist/polyfill.js")
+    script(src="jspm_packages/system.js")
 
-    <!-- bower:js -->
-    <!-- endbower -->
+    script(src="../jspm_packages/npm/jquery@3.1.1/dist/jquery.js")
+    script(src="../jspm_packages/github/angular/bower-angular@1.5.8/angular.js")
+    script(src="../jspm_packages/github/angular-ui/angular-ui-router-bower@0.3.2/release/angular-ui-router.js")
+    script(src="../jspm_packages/github/twbs/bootstrap-sass@3.3.7/assets/javascripts/bootstrap.js")
+    script(src="../jspm_packages/github/miruken-es5/bower-miruken-es5-angular@2.0.0/miruken-ng-bundle.js")
+    script(src="../jspm_packages/npm/moment@2.16.0/moment.js")
+    script(src="../jspm_packages/github/angular/bower-angular-messages@1.5.8/angular-messages.js")
+    script(src="../jspm_packages/npm/chosen-js@1.6.2/chosen.jquery.js")
+    script(src="../jspm_packages/npm/angular-chosen-localytics@1.5.0/dist/angular-chosen.js")
+    script(src="../jspm_packages/github/liabru/jquery-match-height@0.7.0/dist/jquery.matchHeight.js")
+    script(src="../jspm_packages/github/mgcrea/angular-strap@2.3.10/angular-strap.js")
+    script(src="../jspm_packages/github/mgcrea/angular-strap@2.3.10/angular-strap.tpl.js")
 
-    <!-- inject:js -->
-    <!-- endinject -->
+    script.
+        System.import("app/mlm.js")
+            .then(() => System.import("app/bootstrap.js"));

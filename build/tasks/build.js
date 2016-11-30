@@ -1,12 +1,13 @@
-const paths    = require("../paths");
-const gulp     = require("gulp");
-const sequence = require("gulp-sequence");
-const babel    = require("gulp-babel");
-const sass     = require("gulp-sass");
-const pug      = require("gulp-pug");
+const paths       = require("../paths");
+const gulp        = require("gulp");
+const sequence    = require("gulp-sequence");
+const babel       = require("gulp-babel");
+const sass        = require("gulp-sass");
+const pug         = require("gulp-pug");
+const deleteLines = require('gulp-delete-lines');
 
 gulp.task("build", sequence("clean", [
-      "inject", "buildFavIcon", "buildJavascript",
+      "buildFavIcon", "buildJavascript",
       "buildHtml", "bootstrapAdditions", "buildStyles",
       "buildImages", "buildFonts",
       "buildCssDependencies"
@@ -22,11 +23,16 @@ gulp.task("bootstrapAdditions", function(){
 gulp.task("buildJavascript", () => {
     return gulp.src(paths.source, base)
         .pipe(babel())
+        .pipe(deleteLines({
+            filters: [
+                /"use strict";/g
+            ]
+        }))
         .pipe(gulp.dest(paths.built));
 });
 
 gulp.task("buildHtml", () => {
-    return gulp.src(["!" + paths.index, paths.html])
+    return gulp.src(paths.html)
     	.pipe(pug({
     		pretty: true
     	}))
@@ -40,7 +46,7 @@ gulp.task("buildStyles", () => {
 });
 
 gulp.task("buildCssDependencies", () => {
-  return gulp.src("bower_components/bootstrap-chosen/*.png")
+  return gulp.src("jspm_packages/npm/bootstrap-chosen@1.4.2/*.png")
     .pipe(gulp.dest(paths.built + "styles"));
 });
 
@@ -50,8 +56,8 @@ gulp.task("buildImages", () => {
 });
 
 gulp.task("buildFonts", () => {
-    return gulp.src("bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*", {
-            base: "./bower_components/bootstrap-sass/assets"
+    return gulp.src("jspm_packages/github/twbs/bootstrap-sass@3.3.7/assets/fonts/bootstrap/**/*", {
+            base: "jspm_packages/github/twbs/bootstrap-sass@3.3.7/assets"
         })
         .pipe(gulp.dest(paths.built));
 });

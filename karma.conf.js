@@ -1,37 +1,30 @@
-const paths = require("./build/paths");
-
-var bowerFiles = [
-        'bower_components/moment/moment.js',
-        'bower_components/angular/angular.js',
-        'bower_components/miruken-angular/miruken-ng-bundle.js',
-    ]
-var files = bowerFiles.concat(paths.source);
-files.push('test/**/*.js');
-
 module.exports = function(config) {
-  config.set({
-
-    frameworks: ['mocha','chai'],
-
-    files: files,
-
-    preprocessors: {
-        'src/**/*.js' : ['babel'],
-        'test/**/*.js': ['babel']
-    },
-
-    reporters: ['mocha'],
-
-    port: 9876,
-
-    colors: true,
-
-    autoWatch: true,
-
-    browsers: ['Chrome'],
-
-    singleRun: false,
-
-    concurrency: Infinity
-  })
-}
+    config.set({
+        frameworks: ['mocha','chai','jspm'],
+        files: [
+            'jspm_packages/npm/moment@2.16.0/moment.js',
+            'jspm_packages/github/angular/bower-angular@1.5.8/angular.js',
+            'jspm_packages/github/miruken-es5/bower-miruken-es5-angular@1.0.3/miruken-ng-bundle.js'
+        ],
+        jspm: {
+            loadFiles:  ["test/**/*.js"],
+            serveFiles: ["jspm_packages/**/*.js", "src/app/**/*.js"]
+        },
+        proxies: {
+            "/jspm_packages" : "/base/jspm_packages",
+            "/src":            "/base/src",
+            "/test":           "/base/test"
+        },
+        preprocessors: {
+            'src/**/*.js' : ['babel'],
+            'test/**/*.js': ['babel']
+        },
+        reporters:   ['mocha'],
+        port:        9876,
+        colors:      true,
+        autoWatch:   true,
+        browsers:    ['Chrome'],
+        singleRun:   false,
+        concurrency: Infinity
+    })
+};

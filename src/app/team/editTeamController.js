@@ -1,3 +1,8 @@
+import "./teamFeature.js";
+import "./teamController.js";
+import "../player/choosePlayerController.js";
+import "./colorStyleMixin.js";
+
 new function() {
 
     mlm.package(this, {
@@ -8,7 +13,7 @@ new function() {
 
     eval(this.imports);
 
-    const EditTeamController = Controller.extend(MasterDetail, {
+    const EditTeamController = Controller.extend(MasterDetail, ColorStyleMixin, {
         $properties:{
             title:      "Edit Team",
             buttonText: "Save",
@@ -17,37 +22,42 @@ new function() {
                     presence: true,
                     nested:   true
                 }
-            },
-            color: Color
+            }
         },
 
-        $inject: [Team],
-        constructor(team){
-            this.team = new Team(team.toData());
-        },
-
-        save() {
-            var ctx = this.controllerContext;
-            return TeamFeature(ctx).updateTeam(this.team).then(() => {
-                return TeamFeature(ctx).showTeams();
-            });
-        },
-        addPlayer() {
-            var ctx = this.controllerContext;
-            return PlayerFeature(ctx).showChoosePlayer().then(players => {
-                if(players) {
-                    return TeamFeature(ctx).addPlayers(players, this.team);
-                };
-            });
-        },
         getSelectedDetail(type) {
             return type === Team
-                ? Promise.resolve(this.team)
-                : $NOT_HANDLED;
+                 ? Promise.resolve(this.team)
+                 : $NOT_HANDLED;
+        },
+        
+        editTeam({id} = params) {
+            const io = this.io;
+            return TeamFeature(io)
+                .team(id).then(team => {
+                    this.team = new Team(team.toData());
+                    return ViewRegion(io).show("app/team/editTeam");
+                });
+        },        
+        addPlayer() {
+            const io = this.io;
+            ChoosePlayerController(io)
+                .push(ctrl => ctrl.choosePlayer())
+                .then(players => {
+                    if (players) {
+                        TeamFeature(io).addPlayers(players, this.team);
+                    }
+                });
         },
         selectColor(color) {
             this.team.color = color;
-        }
+        },
+        saveTeam() {
+            return TeamFeature(this.ifValid)
+                .updateTeam(this.team)
+                .then(team => mlm.team.TeamController(this.io)
+                .next(ctrl => ctrl.showTeam({id: team.id})));
+        }        
     });
 
     eval(this.exports);

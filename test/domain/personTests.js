@@ -1,3 +1,5 @@
+import "../../src/app/domain/person.js";
+
 describe("person", () => {
 	
 	eval(miruken.context.namespace);
@@ -41,10 +43,6 @@ describe("person", () => {
 	    it("requires lastName", () => {
 	    	person.lastName = null;
 	    	Validator(context).validate(person).valid.should.be.false;
-	    });
-
-	    it("birthdate is a moment object", () => {
-	    	moment.isMoment(person.birthdate).should.be.true;
 	    });
 
 	});

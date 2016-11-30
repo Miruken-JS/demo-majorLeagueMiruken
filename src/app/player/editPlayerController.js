@@ -1,6 +1,9 @@
+import "./playerFeature.js";
+import "./playerController.js";
+
 new function() {
 
-    mlm.package(this, {
+    base2.mlm.package(this, {
         name:    "player",
         imports: "mlm,miruken.mvc",
         exports: "EditPlayerController"
@@ -20,17 +23,20 @@ new function() {
             }
         },
 
-        $inject: [Player],
-        constructor(player){
-            this.player = new Player(player.toData());
+        showEditPlayer({id} = params) {
+            const io = this.io;
+            PlayerFeature(io)
+                .player(id).then(player => {
+                    this.player = new Player(player.toData());
+                    return ViewRegion(io).show("app/player/createEditPlayer");
+                });
         },
-
-        save() {
-            var ctx = this.controllerContext;
-            return PlayerFeature(ctx).updatePlayer(this.player).then(player => {
-                return PlayerFeature(ctx).showPlayers();
-            });
-        }
+        savePlayer() {
+            return PlayerFeature(this.ifValid)
+                .updatePlayer(this.player)
+                .then(mlm.player.PlayerController(this.io).next(
+                    ctrl => ctrl.showPlayer({ id: this.player.id })));
+        }        
     });
 
     eval(this.exports);

@@ -1,3 +1,7 @@
+import "./color.js";
+import "./person.js";
+import "./player.js";
+
 new function(){
 
     base2.package(this, {

@@ -1,3 +1,6 @@
+import "../../src/app/team/teamFeature.js";
+import "../../src/app/team/editTeamController.js";
+
 describe("editTeamController", () => {
 	
 	eval(miruken.context.namespace);

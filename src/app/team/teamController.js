@@ -1,3 +1,6 @@
+import "./teamFeature.js";
+import "./editTeamController.js";
+
 new function() {
 
     mlm.package(this, {
@@ -13,13 +16,16 @@ new function() {
             team: undefined
         },
 
-        $inject: [Team],
-        constructor(team) {
-            this.team = team;
+        showTeam({id} = params) {
+            return TeamFeature(this.io)
+                .team(id).then(team => {
+                    this.team = team;
+                    return ViewRegion(this.io).show("app/team/team");
+                });
         },
-
-        edit() {
-            TeamFeature(this.context).showEditTeam(this.team);
+        editTeam() {
+            return mlm.team.EditTeamController(this.io).next(
+                ctrl => ctrl.editTeam({id: this.team.id}));
         }
     });
 
