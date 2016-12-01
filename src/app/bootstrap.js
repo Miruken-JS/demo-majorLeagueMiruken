@@ -6,13 +6,13 @@ import "./infrastructure/index.js";
 import "./env/mock/index.js";
 
 new function() {
-    
+
     base2.package(this, {
         name:    "mlm",
         imports: "miruken,miruken.mvc,miruken.ioc,miruken.ng",
         exports: "Bootstrap"
     });
-    
+
     eval(this.imports);
 
     const Bootstrap = Installer.extend({
@@ -24,13 +24,13 @@ new function() {
                        UiRouter.route("/{controller}/{action}/{id}"))
                 .state("mvc.default",
                        UiRouter.route("/{controller}/{action}"));
-            
+
             $urlRouterProvider.otherwise("/teams/showteams");
 
             Controller.prepare.push(function (handler) {
                 return handler.$recover();  // handle common error scenarios
             });
-            
+
             Controller.execute.push(function (handler) {
                 return handler.$ngApplyAsync();  // ensure $digest loop runs
             });
@@ -41,7 +41,7 @@ new function() {
     moment.fn.toString = function() { return this.format("L"); };
 
     angular.element(() => angular.bootstrap(document, ["mlm"]));
-    
+
     eval(this.exports);
-    
+
 };
