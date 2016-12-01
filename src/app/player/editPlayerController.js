@@ -15,7 +15,7 @@ new function() {
         $properties:{
             title:      "Edit Player",
             buttonText: "Save",
-            player:     { 
+            player:     {
                 validate: {
                     presence: true,
                     nested:   true
@@ -27,16 +27,16 @@ new function() {
             const io = this.io;
             PlayerFeature(io)
                 .player(id).then(player => {
-                    this.player = new Player(player.toData());
+                    this.player = player;
                     return ViewRegion(io).show("app/player/createEditPlayer");
                 });
         },
         savePlayer() {
             return PlayerFeature(this.ifValid)
                 .updatePlayer(this.player)
-                .then(mlm.player.PlayerController(this.io).next(
-                    ctrl => ctrl.showPlayer({ id: this.player.id })));
-        }        
+                .then(() => mlm.player.PlayerController(this.io)
+                    .next(ctrl => ctrl.showPlayer({ id: this.player.id })));
+        }
     });
 
     eval(this.exports);

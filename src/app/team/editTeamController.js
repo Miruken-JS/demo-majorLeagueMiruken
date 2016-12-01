@@ -35,7 +35,7 @@ new function() {
             const io = this.io;
             return TeamFeature(io)
                 .team(id).then(team => {
-                    this.team = new Team(team.toData());
+                    this.team = team;
                     return ViewRegion(io).show("app/team/editTeam");
                 });
         },        
@@ -56,8 +56,8 @@ new function() {
             return TeamFeature(this.ifValid)
                 .updateTeam(this.team)
                 .then(team => mlm.team.TeamController(this.io)
-                .next(ctrl => ctrl.showTeam({id: team.id})));
-        }        
+                    .next(ctrl => ctrl.showTeam({id: team.id})));
+        }
     });
 
     eval(this.exports);
