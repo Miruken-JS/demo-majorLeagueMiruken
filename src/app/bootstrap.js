@@ -1,4 +1,3 @@
-import "./header/index.js";
 import "./error/index.js";
 import "./team/index.js";
 import "./player/index.js";
@@ -10,7 +9,7 @@ new function() {
     base2.package(this, {
         name:    "mlm",
         imports: "miruken,miruken.mvc,miruken.ioc,miruken.ng",
-        exports: "Bootstrap"
+        exports: "Bootstrap,Temp",
     });
 
     eval(this.imports);
@@ -34,6 +33,14 @@ new function() {
             Controller.execute.push(function (handler) {
                 return handler.$ngApplyAsync();  // ensure $digest loop runs
             });
+        }
+    });
+
+    const Temp = Runner.extend({
+        $inject: ["$state", "$rootScope"],
+        constructor($state, $rootScope) {
+            $rootScope.$state = $state;
+            window.$rootScope = $rootScope;
         }
     });
 

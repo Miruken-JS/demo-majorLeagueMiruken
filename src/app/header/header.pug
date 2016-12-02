@@ -1,12 +1,12 @@
-.nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="HeaderController as vm")
+.nav.navbar.navbar-inverse.navbar-fixed-top
   .container-fluid
     .navbar-header
       a.navbar-brand(ui-sref="mvc.default({controller: 'teams', action: 'showteams'})") Major League Miruken
 
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        li(ng-class="{ active: $state.includes('teams') }")
+        li(ng-class="{ active: $state.params.controller == 'teams' }")
           a(ui-sref="mvc.default({controller: 'teams', action: 'showteams'})")     Teams
-        li(ng-class="{ active: $state.includes('players') }")
+        li(ng-class="{ active: $state.params.controller == 'players' }")
           a(ui-sref="mvc.default({controller: 'players', action: 'showplayers'})") Players
 
