@@ -23,11 +23,14 @@ new function() {
             heading: "",
             subtext: ""
         },
-        $inject: ["$rootScope", Context],
-        constructor($rootScope, context) {
+        $inject: ["$rootScope"],
+        constructor($rootScope) {
             $rootScope.$on("$stateChangeSuccess", () => this.clearError());
 
             this.extend({
+                initialize() {
+                    $rootScope.context.addHandlers(this);
+                },
                 reportError(error) {
                     if (error instanceof RejectedError ||
                         error instanceof TimeoutError) {
@@ -63,9 +66,6 @@ new function() {
                     this.error = true;
                 }
             });
-        },
-        initialize() {
-            //this.context = this.context.parent.parent;
         },
 
         clearError() {
