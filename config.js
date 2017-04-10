@@ -14,7 +14,7 @@ System.config({
   },
 
   map: {
-    "angular": "github:angular/bower-angular@1.5.8",
+    "angular": "github:angular/bower-angular@1.6.4",
     "angular-chosen-localytics": "npm:angular-chosen-localytics@1.5.0",
     "angular-messages": "github:angular/bower-angular-messages@1.5.8",
     "angular-strap": "github:mgcrea/angular-strap@2.3.10",
@@ -30,10 +30,10 @@ System.config({
     "miruken-es5/bower-miruken-es5-angular": "github:miruken-es5/bower-miruken-es5-angular@2.0.0",
     "moment": "npm:moment@2.16.0",
     "github:angular-ui/angular-ui-router-bower@0.3.2": {
-      "angular": "github:angular/bower-angular@1.5.8"
+      "angular": "github:angular/bower-angular@1.6.4"
     },
     "github:angular/bower-angular-messages@1.5.8": {
-      "angular": "github:angular/bower-angular@1.5.8"
+      "angular": "github:angular/bower-angular@1.6.4"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
@@ -54,7 +54,7 @@ System.config({
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
     "github:mgcrea/angular-strap@2.3.10": {
-      "angular": "github:angular/bower-angular@1.5.8"
+      "angular": "github:angular/bower-angular@1.6.4"
     },
     "npm:angular-chosen-localytics@1.5.0": {
       "angular": "npm:angular@1.5.8",
